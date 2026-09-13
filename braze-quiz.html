@@ -297,8 +297,20 @@
             }
         });
 
+        // Fisher-Yates shuffle algorithm for randomizing question order
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
         function startQuiz(data) {
-            quizData[data.certification] = data.questions;
+            // Shuffle questions for random order each time quiz is started
+            const shuffledQuestions = shuffleArray(data.questions);
+            quizData[data.certification] = shuffledQuestions;
             currentCertification = data.certification;
             currentQuestionIndex = 0;
             correctCount = 0;
@@ -317,18 +329,34 @@
             const questions = quizData[currentCertification];
             const currentQuestion = questions[currentQuestionIndex];
 
+            // Shuffle options and track the correct answer's new index
+            const optionsWithIndex = currentQuestion.options.map((option, index) => ({
+                text: option,
+                originalIndex: index,
+                isCorrect: index === currentQuestion.correctAnswer
+            }));
+
+            // Shuffle the options
+            for (let i = optionsWithIndex.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
+            }
+
+            // Find the new index of the correct answer
+            const newCorrectAnswerIndex = optionsWithIndex.findIndex(option => option.isCorrect);
+
             // Update progress
             progressDiv.textContent = `Vraag ${currentQuestionIndex + 1} van ${questions.length}`;
 
             // Show question
             questionText.textContent = currentQuestion.question;
 
-            // Show options
-            currentQuestion.options.forEach((optionText, index) => {
+            // Show shuffled options
+            optionsWithIndex.forEach((optionData, index) => {
                 const optionDiv = document.createElement('div');
                 optionDiv.className = 'option';
-                optionDiv.textContent = optionText;
-                optionDiv.addEventListener('click', () => selectAnswer(index, currentQuestion.correctAnswer));
+                optionDiv.textContent = optionData.text;
+                optionDiv.addEventListener('click', () => selectAnswer(index, newCorrectAnswerIndex));
                 optionsDiv.appendChild(optionDiv);
             });
         }
