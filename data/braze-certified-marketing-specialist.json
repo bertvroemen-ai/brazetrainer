@@ -1,31 +1,403 @@
 {
   "certification": "Braze Certified Marketing Specialist",
   "level": 2,
-  "totalQuestions": 2,
+  "examDetails": {
+    "duration": "90 minutes",
+    "passingScore": "75%",
+    "totalQuestions": 50,
+    "questionTypes": [
+      "Multiple Choice",
+      "Multiple Select",
+      "True/False"
+    ]
+  },
+  "domains": {
+    "segmentationAndAudiences": "20%",
+    "testingAndExperimentation": "30%",
+    "personalizationAndChannels": "25%",
+    "canvasAndJourneyOrchestration": "15%",
+    "analyticsAndOptimization": "10%"
+  },
   "questions": [
     {
       "id": 1,
-      "question": "What is the key characteristic that defines zero-party data collected through an in-app message survey?",
+      "domain": "Segmentation and Audiences",
+      "question": "Which Boolean operator should be used to include users who meet all of the following criteria: opened email in last 30 days AND made purchase in last 60 days?",
       "options": [
-        "It is information the user intentionally and proactively shares with the brand",
-        "It is inferred by machine learning based on a user's web browsing history",
-        "It is aggregated data purchased from a third-party",
-        "It is collected passively from transactional events"
+        "OR",
+        "NOT",
+        "AND",
+        "XOR"
       ],
-      "correctAnswer": 0,
-      "explanation": "Zero-party data is information that users intentionally and proactively share with a brand, such as through surveys or preference centers."
+      "correctAnswer": 2,
+      "explanation": "The AND operator returns users who satisfy every condition, matching the requirement for users meeting both criteria simultaneously."
     },
     {
       "id": 2,
-      "question": "Which two Braze features must be utilized to dynamically pull product information into a personalized message?",
+      "domain": "Segmentation and Audiences",
+      "question": "What is the primary difference between a standard filter and a custom attribute filter in Braze segmentation?",
       "options": [
-        "Braze Catalogs and Custom event properties",
-        "Braze Catalogs and Liquid",
-        "Liquid and Intelligent timing",
-        "Custom events and Content Cards"
+        "Standard filters are only for event properties",
+        "Custom attributes are defined by marketers and can be any data type",
+        "Standard filters cannot be combined with Boolean logic",
+        "Custom attributes are automatically updated by Braze"
       ],
       "correctAnswer": 1,
-      "explanation": "Braze Catalogs store product data and Liquid is used to dynamically reference and display that data in messages for personalization."
+      "explanation": "Custom attributes are user-defined fields that marketers populate with any data type, unlike predefined standard filters provided by Braze."
+    },
+    {
+      "id": 3,
+      "domain": "Testing and Experimentation",
+      "question": "What is the primary difference between A/B testing and multivariate testing?",
+      "options": [
+        "A/B testing is faster but less accurate",
+        "A/B testing examines one variable; multivariate testing examines two or more variables simultaneously",
+        "Multivariate testing is only for email",
+        "A/B testing requires a larger sample size"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A/B testing compares single variations (one variable changed), while multivariate testing tests multiple variables at once to find optimal combinations."
+    },
+    {
+      "id": 4,
+      "domain": "Testing and Experimentation",
+      "question": "Approximately how many users per variant should you target for 95% confidence in your test results?",
+      "options": [
+        "5,000 users",
+        "10,000 users",
+        "15,000 users",
+        "25,000 users"
+      ],
+      "correctAnswer": 2,
+      "explanation": "As a general guide, you need around 15,000 users per variant (including control) to achieve 95% confidence in test results, though this can vary by use case."
+    },
+    {
+      "id": 5,
+      "domain": "Testing and Experimentation",
+      "question": "True or False: You can modify a campaign's parameters after a multivariate test has begun.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "False. Changing parameters after the test starts compromises the experiment, and Braze immediately disables it to preserve data integrity."
+    },
+    {
+      "id": 6,
+      "domain": "Testing and Experimentation",
+      "question": "What is 'Winning Variant' optimization in Braze A/B testing?",
+      "options": [
+        "The first variant you create",
+        "Sending the best-performing variant from the initial test to remaining users",
+        "Randomly selecting variants for all users",
+        "Testing only the most popular variant"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Winning Variant optimization sends the top-performing variant from the initial test to the remaining audience members who didn't receive the test."
+    },
+    {
+      "id": 7,
+      "domain": "Testing and Experimentation",
+      "question": "What does 'Personalized Variant' optimization do differently from 'Winning Variant'?",
+      "options": [
+        "It's faster to implement",
+        "It sends the variant users are most likely to engage with, based on their characteristics",
+        "It ignores test results",
+        "It uses only one variant"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Personalized Variant analyzes which variant each user is most likely to engage with based on their individual characteristics and custom events."
+    },
+    {
+      "id": 8,
+      "domain": "Personalization and Channels",
+      "question": "What is a random bucket number in Braze?",
+      "options": [
+        "A tool for organizing users",
+        "A user attribute for creating uniformly distributed random segments",
+        "A payment processing method",
+        "An email template feature"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Random bucket numbers are user attributes used to create uniformly distributed random segments for fair audience allocation in tests and campaigns."
+    },
+    {
+      "id": 9,
+      "domain": "Personalization and Channels",
+      "question": "What does 'frequency capping' accomplish in Braze messaging?",
+      "options": [
+        "Speeds up message delivery",
+        "Limits how often users receive messages to prevent message fatigue",
+        "Increases email open rates",
+        "Reduces segment size"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Frequency capping controls how many messages a user receives within a specific timeframe, preventing audience fatigue and improving engagement."
+    },
+    {
+      "id": 10,
+      "domain": "Personalization and Channels",
+      "question": "True or False: Channel subscription states should be leveraged when determining which channel to send to users.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "True. Respecting channel subscription states ensures you only send messages through channels users have opted into, improving compliance and engagement."
+    },
+    {
+      "id": 11,
+      "domain": "Canvas and Journey Orchestration",
+      "question": "What are Experiment Paths in Braze Canvas used for?",
+      "options": [
+        "Storing user data",
+        "Testing multiple Canvas paths against each other with control groups to measure performance",
+        "Sending push notifications only",
+        "Scheduling messages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Experiment Paths let you test different journey variations within a Canvas against a control group to identify the highest-performing paths."
+    },
+    {
+      "id": 12,
+      "domain": "Canvas and Journey Orchestration",
+      "question": "What risk does using randomized paths in Experiment Paths pose to test validity?",
+      "options": [
+        "No risk at all",
+        "Control group contamination when users re-enter and are reassigned",
+        "Faster campaign execution",
+        "Better statistical confidence"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Randomized path assignments on re-entry can contaminate the control group with treatment users, invalidating experiment results since users aren't assigned consistently."
+    },
+    {
+      "id": 13,
+      "domain": "Segmentation and Audiences",
+      "question": "What is 'segment re-eligibility' in Braze?",
+      "options": [
+        "Removing users from segments",
+        "Determining how soon a user can re-enter a campaign after receiving a message",
+        "Automatically adding users to segments",
+        "Testing segment rules"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Re-eligibility rules control whether and when users who previously received a campaign can qualify for it again based on rule changes."
+    },
+    {
+      "id": 14,
+      "domain": "Testing and Experimentation",
+      "question": "What is 'statistical confidence' in the context of Braze testing?",
+      "options": [
+        "How quickly tests run",
+        "How sure Braze is that a variant is genuinely different from control, increasing over time",
+        "The percentage of users who engage",
+        "The cost of running the test"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Confidence measures how sure the platform is that observed differences between variants are real and not due to random chance, increasing as test runs longer."
+    },
+    {
+      "id": 15,
+      "domain": "Personalization and Channels",
+      "question": "Which of the following are variables you can test in a multivariate test? (Select 2)",
+      "options": [
+        "Email subject line",
+        "Message send time only",
+        "Image accompanying text",
+        "User device type"
+      ],
+      "correctAnswer": [0, 2],
+      "explanation": "Multivariate tests can vary multiple elements like subject lines, images, CTA button colors, send times, and content combinations to find optimal configurations."
+    },
+    {
+      "id": 16,
+      "domain": "Testing and Experimentation",
+      "question": "What does BrazeAI Variant Selection do in push campaigns?",
+      "options": [
+        "Manually selects the best variant",
+        "Automatically runs experiments and optimizes for best engagement results",
+        "Removes all variants",
+        "Prevents A/B testing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "BrazeAI Variant Selection automatically optimizes single send or recurring push A/B tests by experimenting and selecting the best-performing variant."
+    },
+    {
+      "id": 17,
+      "domain": "Segmentation and Audiences",
+      "question": "True or False: You can combine multiple Boolean operators (AND, OR, NOT) in a single segment.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "True. Complex segments require combining multiple Boolean operators to create precise audience definitions based on multiple conditions."
+    },
+    {
+      "id": 18,
+      "domain": "Analytics and Optimization",
+      "question": "What does low confidence in test results typically indicate?",
+      "options": [
+        "High engagement",
+        "Sample size is too small and should be enlarged for future tests",
+        "Perfect test execution",
+        "No variants performed well"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Low confidence signals insufficient sample size. Larger test groups increase confidence and the ability to detect meaningful differences between variants."
+    },
+    {
+      "id": 19,
+      "domain": "Canvas and Journey Orchestration",
+      "question": "What is the benefit of using Canvas for campaign management over standalone campaigns?",
+      "options": [
+        "Campaigns send faster",
+        "Multi-step journeys with branching logic based on user behavior and lifecycle stage",
+        "Only works for email",
+        "Eliminates the need for segmentation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Canvas enables sophisticated multi-step journeys where users follow different paths based on their behavior, characteristics, and engagement—impossible in single campaigns."
+    },
+    {
+      "id": 20,
+      "domain": "Personalization and Channels",
+      "question": "What is Liquid personalization in Braze?",
+      "options": [
+        "A payment method",
+        "A templating language for dynamic message personalization using user data",
+        "A channel selection tool",
+        "A segmentation filter"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Liquid is a templating language that allows dynamic personalization—inserting user attributes, custom properties, and data into messages in real-time."
+    },
+    {
+      "id": 21,
+      "domain": "Testing and Experimentation",
+      "question": "What should you consider when choosing sample size for multivariate testing?",
+      "options": [
+        "Only budget",
+        "Number of variants (more variants require larger groups) and desired confidence level",
+        "Message length",
+        "Send time only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sample size depends on number of variants (more variants = fewer users per variant = larger total group needed) and target confidence percentage."
+    },
+    {
+      "id": 22,
+      "domain": "Analytics and Optimization",
+      "question": "True or False: If you find no clear difference between variant performance, the test strategy needs adjustment.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "True. No significant difference often indicates the variant differences were too subtle, the sample was too small, or the test strategy should be reconsidered."
+    },
+    {
+      "id": 23,
+      "domain": "Segmentation and Audiences",
+      "question": "What does 'segment extension' do in Braze?",
+      "options": [
+        "Removes users from segments",
+        "Refines audience segments using advanced filters and conditions",
+        "Extends campaign duration",
+        "Only works for email"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Segment extensions allow you to refine your target audiences using additional filters and behavioral conditions beyond basic segmentation."
+    },
+    {
+      "id": 24,
+      "domain": "Canvas and Journey Orchestration",
+      "question": "What outcome metrics should be tracked when evaluating Canvas performance?",
+      "options": [
+        "Only email open rates",
+        "Conversion rates, retention, engagement by channel, and retention metrics",
+        "Message delivery only",
+        "User count in segment"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Canvas effectiveness should be measured by real business outcomes: conversion rates, customer retention, channel engagement, and lifetime value impact."
+    },
+    {
+      "id": 25,
+      "domain": "Personalization and Channels",
+      "question": "What is the purpose of 'conversion-based suppression' in messaging?",
+      "options": [
+        "Blocking all messages",
+        "Automatically stopping campaigns once users complete the target action to prevent irrelevant followups",
+        "Deleting customer contacts",
+        "Only sending to new customers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Conversion-based suppression stops messaging to users who've already completed the campaign goal, improving experience and preventing wasted sends."
+    },
+    {
+      "id": 26,
+      "domain": "Testing and Experimentation",
+      "question": "When setting up a multivariate test, what must be held constant to maintain valid results?",
+      "options": [
+        "Nothing needs to be constant",
+        "External marketing factors (special sales, seasonal events) that could influence variant perception",
+        "Only the subject line",
+        "User age only"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Holding constant means no other marketing factors should change during the test. A sale ending mid-test or seasonal events can invalidate results."
+    },
+    {
+      "id": 27,
+      "domain": "Segmentation and Audiences",
+      "question": "True or False: Custom attributes must be updated manually by marketers for each user.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "True. Custom attributes are marketer-defined and must be populated by the marketer or system through SDK/API, unlike auto-tracked standard attributes."
+    },
+    {
+      "id": 28,
+      "domain": "Analytics and Optimization",
+      "question": "What key insight can multivariate test results provide for future campaigns?",
+      "options": [
+        "Only the best subject line works",
+        "How different message elements resonate with audiences and what combinations drive best results",
+        "All users have same preferences",
+        "Testing is never useful"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Multivariate results reveal which message combinations resonate most with audiences, enabling data-driven decisions on messaging strategy and personalization."
+    },
+    {
+      "id": 29,
+      "domain": "Canvas and Journey Orchestration",
+      "question": "How does multichannel orchestration in Canvas improve customer experience?",
+      "options": [
+        "It only uses one channel",
+        "Coordinating push, email, SMS, and in-app within a single workflow for consistent, timely experiences",
+        "It eliminates personalization",
+        "It always sends duplicate messages"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Canvas orchestration coordinates messages across channels in a unified journey, ensuring consistent brand experience and optimal timing for each touchpoint."
+    },
+    {
+      "id": 30,
+      "domain": "Testing and Experimentation",
+      "question": "What is a practical consideration when deciding between A/B and multivariate testing?",
+      "options": [
+        "Multivariate is always better",
+        "A/B tests work with smaller traffic; multivariate needs more users and becomes harder to manage with many variant combinations",
+        "Multivariate is only for email",
+        "Sample size doesn't matter"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A/B tests are simpler and work with smaller audiences; multivariate tests need larger groups and become complex with many variable combinations."
     }
   ]
 }
