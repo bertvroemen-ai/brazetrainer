@@ -1,30 +1,379 @@
 {
   "certification": "Liquid Essentials Skills Badge",
   "level": 1,
-  "totalQuestions": 2,
+  "totalQuestions": 30,
+  "passingScore": 73,
+  "examDuration": "30 minutes",
   "questions": [
     {
       "id": 1,
-      "question": "Which Liquid syntax format is used to indicate a dynamic object?",
+      "question": "Which syntax is used to insert a user's first name into a Braze message?",
+      "type": "multiple_choice",
       "options": [
-        "{% %}",
-        "\" \"",
-        "${}"
+        "{% first_name %}",
+        "{{ ${first_name} }}",
+        "{{ first_name }}",
+        "{first_name}"
       ],
-      "correctAnswer": 2,
-      "explanation": "The ${} syntax is used in Liquid to indicate a dynamic object that will be replaced with personalization data."
+      "correctAnswer": 1,
+      "explanation": "In Braze Liquid, personalization tags use double curly braces {{ }} with a dollar sign and curly brackets for standard attributes like {{ ${first_name} }}."
     },
     {
       "id": 2,
-      "question": "What element in the following catalog call is used to identify the catalog item within the corresponding Braze catalog? {% catalog_items Summer_Menu_2025 spicychickensandwich %} [items[0].Product_Name] [[items[0].Product_Price]]]",
+      "question": "What is the difference between {{ }} and {% %} in Braze Liquid syntax?",
+      "type": "multiple_choice",
       "options": [
-        "{% catalog_items Summer_Menu_2025 %}",
-        "Summer_Menu_2025",
-        "spicychickensandwich",
-        "[items[0].Product_Name]"
+        "There is no difference; they are interchangeable",
+        "{{ }} outputs data and values; {% %} controls template rendering and logic",
+        "{% %} outputs data; {{ }} controls logic",
+        "{{ }} is used for filters; {% %} is used for variables"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Double curly braces {{ }} are used for outputs (inserting values), while curly braces with percent signs {% %} are used for tags that control logic and template rendering."
+    },
+    {
+      "id": 3,
+      "question": "True or False: Filters can be used inside conditional statements (if/elsif) in Braze Liquid.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Filters cannot be used directly in conditional statements. To use a filtered value in a conditional, assign it to a variable first using the assign tag."
+    },
+    {
+      "id": 4,
+      "question": "What does the 'capitalize' filter do in Braze Liquid?",
+      "type": "multiple_choice",
+      "options": [
+        "Converts all text to uppercase",
+        "Capitalizes the first letter of a string",
+        "Converts all text to lowercase",
+        "Adds capital letters randomly throughout the text"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The capitalize filter converts the first letter of a string to uppercase and the rest to lowercase (e.g., 'hello world' becomes 'Hello world')."
+    },
+    {
+      "id": 5,
+      "question": "True or False: Each conditional statement in Braze Liquid must have both an 'if' and 'endif' tag.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, every if statement must be closed with an endif tag. Without it, Braze will not render the message correctly or at all."
+    },
+    {
+      "id": 6,
+      "question": "Which operator should be used in Braze Liquid to check if two values are equal?",
+      "type": "multiple_choice",
+      "options": [
+        "=",
+        "==",
+        "===",
+        "eq"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The double equals operator (==) is used for comparison in Braze Liquid conditionals. A single equals (=) is used only for assigning variables."
+    },
+    {
+      "id": 7,
+      "question": "What is the purpose of the 'assign' tag in Braze Liquid?",
+      "type": "multiple_choice",
+      "options": [
+        "To create conditional statements",
+        "To store a single value in a variable",
+        "To output data to the message",
+        "To iterate over arrays"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The assign tag creates variables that store single values (booleans, numbers, strings). It can also apply a single filter in the same line."
+    },
+    {
+      "id": 8,
+      "question": "Which filter is used to convert a timestamp (like '2016-09-07 08:43:50 UTC') into a readable date format in Braze?",
+      "type": "multiple_choice",
+      "options": [
+        "format_date",
+        "date",
+        "timestamp_to_date",
+        "convert_date"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The date filter converts timestamps into readable date formats. For example, {{ timestamp | date: '%B %d, %Y' }} converts it to 'September 07, 2016'."
+    },
+    {
+      "id": 9,
+      "question": "True or False: You can use the 'default' filter to provide a fallback value if a custom attribute is blank or null.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, the default filter provides a fallback value. For example, {{ ${first_name} | default: 'Valued Customer' }} displays 'Valued Customer' if first_name is blank."
+    },
+    {
+      "id": 10,
+      "question": "What syntax error occurs when you use triple curly braces {{{ }}} for Liquid personalization in Braze?",
+      "type": "multiple_choice",
+      "options": [
+        "It doubles the personalization value",
+        "It removes the personalization entirely",
+        "It is not valid Braze syntax and will fail",
+        "It converts the value to uppercase"
       ],
       "correctAnswer": 2,
-      "explanation": "spicychickensandwich is the catalog item identifier used to access the specific item from the Summer_Menu_2025 catalog."
+      "explanation": "Triple braces {{{ }}} are not valid Braze Liquid syntax. The correct syntax uses double curly braces {{ }}. Triple braces are a common syntax error."
+    },
+    {
+      "id": 11,
+      "question": "Which tag is used to store multiple lines of text or complex expressions in Braze Liquid?",
+      "type": "multiple_choice",
+      "options": [
+        "assign",
+        "capture",
+        "block",
+        "store"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The capture tag stores a block of text that may include multiple variables, strings, or complex expressions. It's preferred over assign for complex values like URLs."
+    },
+    {
+      "id": 12,
+      "question": "True or False: When using Braze Liquid, quote types matter—curly quotes ('') and straight quotes ('') are treated the same.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Quote types matter significantly. Braze requires straight quotes ('') not curly quotes (''). Curly quotes (often from copy-pasting) cause Liquid errors."
+    },
+    {
+      "id": 13,
+      "question": "What does the 'size' filter do when applied to an array in Braze Liquid?",
+      "type": "multiple_choice",
+      "options": [
+        "Returns the first element of the array",
+        "Returns the number of items in the array",
+        "Sorts the array in ascending order",
+        "Removes duplicate items from the array"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The size filter returns the count of items in an array. For example, {{ catalog_items | size }} outputs how many items a catalog selection returns."
+    },
+    {
+      "id": 14,
+      "question": "In Braze Liquid, which filter converts all text to uppercase?",
+      "type": "multiple_choice",
+      "options": [
+        "upper",
+        "uppercase",
+        "upcase",
+        "UPPER"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The upcase filter converts all characters in a string to uppercase. For example, {{ 'hello' | upcase }} outputs 'HELLO'."
+    },
+    {
+      "id": 15,
+      "question": "True or False: You can use Liquid filters in the for loop index in Braze.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Filters cannot be used in for loops or array access brackets directly. To use a filtered value, assign it to a variable first."
+    },
+    {
+      "id": 16,
+      "question": "Which tag fetches a specific item from a Braze catalog in Liquid?",
+      "type": "multiple_choice",
+      "options": [
+        "catalog",
+        "catalog_items",
+        "get_catalog",
+        "catalog_fetch"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The catalog_items tag is used to fetch items from a Braze catalog. For example, {% catalog_items Games 1234 %} fetches item 1234 from the Games catalog."
+    },
+    {
+      "id": 17,
+      "question": "True or False: In Braze Liquid, you must declare the catalog before referencing items in an if statement.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, you must declare the catalog and fetch items using the catalog_items tag before you can reference them in conditional statements."
+    },
+    {
+      "id": 18,
+      "question": "Which operator is used to check if a value does NOT equal something in Braze Liquid?",
+      "type": "multiple_choice",
+      "options": [
+        "!= ",
+        "<>",
+        "not",
+        "ne"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The not-equal operator (!= ) is used in conditionals. For example, {% if status != 'active' %} checks if status is not equal to 'active'."
+    },
+    {
+      "id": 19,
+      "question": "What is the purpose of the 'default' filter when used with custom attributes in Braze?",
+      "type": "multiple_choice",
+      "options": [
+        "To set the data type of the attribute",
+        "To provide a fallback value if the attribute is blank or null",
+        "To automatically format the attribute value",
+        "To encrypt the attribute for privacy"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The default filter provides a fallback message or value when a personalization attribute is missing, blank, or null."
+    },
+    {
+      "id": 20,
+      "question": "True or False: Liquid assignments or captures made in one message component (like subject line) are available in another component (like body).",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "No, Braze renders each message component separately. Variables created in one field are not available in another. You must repeat the Liquid in each field."
+    },
+    {
+      "id": 21,
+      "question": "Which filter removes HTML tags from a string in Braze Liquid?",
+      "type": "multiple_choice",
+      "options": [
+        "remove_html",
+        "strip_html",
+        "html_remove",
+        "clean_html"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The strip_html filter removes all HTML tags from a string, leaving only the text content."
+    },
+    {
+      "id": 22,
+      "question": "In Braze Liquid, what does the 'split' filter do?",
+      "type": "multiple_choice",
+      "options": [
+        "Divides a string into an array using a specified separator",
+        "Removes a specified substring from text",
+        "Converts a string to an array of characters",
+        "Splits a number in half"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The split filter divides a string into an array based on a specified separator. For example, {{ 'hello,world' | split: ',' }} creates ['hello', 'world']."
+    },
+    {
+      "id": 23,
+      "question": "True or False: The 'case' and 'when' tags in Braze Liquid support arbitrary comparison operators like > and <.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Case/when tags only support equality comparisons, not arbitrary operators. Each branch compares the case expression to a when value using equality (like ==)."
+    },
+    {
+      "id": 24,
+      "question": "Which method should be used to avoid syntax errors when inserting catalog Liquid tags in Braze?",
+      "type": "multiple_choice",
+      "options": [
+        "Type the tags manually in plain text",
+        "Use the + plus button in the message composer to insert tags automatically",
+        "Copy and paste from external code editors",
+        "Use a third-party Liquid IDE"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze recommends using the + plus button in the message composer to insert catalog Liquid tags automatically to avoid syntax errors."
+    },
+    {
+      "id": 25,
+      "question": "What does the 'unless' tag do in Braze Liquid?",
+      "type": "multiple_choice",
+      "options": [
+        "It is the same as an 'if' statement",
+        "It evaluates a condition and executes code only if the condition is false",
+        "It creates an exception handler",
+        "It skips a message if there's an error"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The unless tag is the opposite of if. It executes code only when the condition is false. For example, {% unless user_active %} displays content only for inactive users."
+    },
+    {
+      "id": 26,
+      "question": "True or False: In Braze Liquid, you can use parentheses to group complex boolean expressions like (a and b) or c.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze Liquid doesn't support parentheses for grouping. To handle complex logic, use nested if statements or assign intermediate variables instead."
+    },
+    {
+      "id": 27,
+      "question": "Which filter adds a prefix or suffix to a string in Braze Liquid?",
+      "type": "multiple_choice",
+      "options": [
+        "attach and detach",
+        "prepend and append",
+        "prefix and suffix",
+        "add_before and add_after"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The prepend filter adds text at the beginning, and the append filter adds text at the end. For example, {{ 'world' | append: '!' }} outputs 'world!'."
+    },
+    {
+      "id": 28,
+      "question": "True or False: The 'assign' tag can apply filters in the same line.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, the assign tag can apply a single filter in the same line. For example, {% assign name = first_name | capitalize %} assigns the capitalized first name to the variable."
+    },
+    {
+      "id": 29,
+      "question": "Which of the following is the correct syntax for referencing a custom attribute in Braze Liquid? (Select 2)",
+      "type": "multiple_select",
+      "options": [
+        "{{ ${custom_attribute_name} }}",
+        "{{ ${custom_attribute_name | default: 'fallback' }} }}",
+        "{{ custom_attribute_name }}",
+        "{% custom_attribute_name %}"
+      ],
+      "correctAnswers": [0, 1],
+      "explanation": "Custom attributes in Braze Liquid require the ${ } syntax within double curly braces. Option 1 is basic syntax, and option 2 shows using a filter with the default syntax."
+    },
+    {
+      "id": 30,
+      "question": "What is the best practice to avoid unwanted whitespace in Braze messages when using multi-line Liquid conditionals?",
+      "type": "multiple_choice",
+      "options": [
+        "Add extra spaces between lines for readability",
+        "Write the conditional on a single line or use hyphens inside tag delimiters to strip whitespace",
+        "Use the 'remove_newlines' filter after all Liquid",
+        "Avoid using conditionals and use hardcoded text instead"
+      ],
+      "correctAnswer": 1,
+      "explanation": "To avoid unwanted whitespace, write Liquid conditionals on a single line or use hyphens in tag delimiters like {%- if -%} to strip surrounding whitespace."
     }
   ]
 }
