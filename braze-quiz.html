@@ -323,7 +323,7 @@
         function showQuestion() {
             answered = false;
             nextBtn.classList.remove('show');
-            feedbackDiv.classList.remove('show');
+            feedbackDiv.classList.remove('show', 'correct', 'incorrect');  // Remove ALL feedback classes
             optionsDiv.innerHTML = '';
 
             const questions = quizData[currentCertification];
