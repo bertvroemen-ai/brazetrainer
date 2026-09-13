@@ -1,31 +1,365 @@
 {
-  "certification": "Customer Engagement Skills Badge",
-  "level": 1,
-  "totalQuestions": 2,
+  "certification": "Braze Customer Engagement Skills Badge",
+  "level": "Skills Badge",
+  "examType": "multiple-choice",
+  "totalQuestions": 30,
+  "passingScore": 71,
   "questions": [
     {
       "id": 1,
-      "question": "You are a marketing manager at a retail company launching a personalized email campaign. Your team needs to balance data privacy with personalization while complying with GDPR and CCPA. How would you approach this?",
+      "question": "What is the fundamental difference between customer engagement and traditional marketing?",
       "options": [
-        "Collect as much data as possible without informing customers",
-        "Use customer data for personalization only after obtaining explicit consent",
-        "Avoid using any customer data to ensure complete privacy",
-        "Use customer data but don't inform them about data usage"
+        "They are identical approaches",
+        "Customer engagement focuses on ongoing relationships across the entire lifecycle, while traditional marketing emphasizes brand positioning and campaign-based customer acquisition",
+        "Customer engagement only uses email",
+        "Traditional marketing is always superior"
       ],
       "correctAnswer": 1,
-      "explanation": "Balancing privacy with personalization requires obtaining explicit consent and clearly communicating data usage in compliance with regulations."
+      "explanation": "Customer engagement is about building lasting relationships through continuous, relevant interactions across the customer lifecycle. Traditional marketing focuses on positioning and acquisition. Engagement drives retention and lifetime value."
     },
     {
       "id": 2,
-      "question": "A brand sends a message that inserts a user's first name and a recent product they saved. What is this an example of?",
+      "question": "What are the five key stages of the customer lifecycle?",
       "options": [
-        "Intelligent Timing",
-        "Dynamic personalization",
-        "Segmentation",
-        "Orchestration"
+        "Only acquisition and retention matter",
+        "Acquisition, activation, engagement, retention, and reactivation—each represents an opportunity for meaningful brand interaction",
+        "Email, SMS, push, and in-app",
+        "There are no defined stages"
       ],
       "correctAnswer": 1,
-      "explanation": "Dynamic personalization inserts user-specific data like names and saved products into messages for targeted, relevant experiences."
+      "explanation": "The five lifecycle stages frame all customer engagement strategy. Each stage has different needs: acquisition (awareness), activation (first value), engagement (habit building), retention (ongoing value), and reactivation (win-back)."
+    },
+    {
+      "id": 3,
+      "question": "Why is retention more cost-effective than acquisition?",
+      "options": [
+        "Retention and acquisition cost the same",
+        "Acquiring a new customer typically costs several times more than retaining an existing one, and retained customers generate more repeat revenue over time",
+        "Acquisition is always cheaper",
+        "Cost doesn't matter in engagement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Customer acquisition costs are significantly higher than retention. A retained, engaged customer has higher lifetime value because they continue generating revenue through repeat purchases and loyalty."
+    },
+    {
+      "id": 4,
+      "question": "What is journey mapping and why is it critical for engagement strategy?",
+      "options": [
+        "Mapping is unnecessary",
+        "Journey mapping identifies critical moments in the customer lifecycle (onboarding, feature adoption, renewal) where proactive engagement can prevent friction and deliver timely value",
+        "It's only for acquisition",
+        "Journey mapping is just another name for email campaigns"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Journey mapping reveals the moments that matter most—where customers are most likely to churn or need support. This guides where to invest engagement efforts for maximum impact on retention and satisfaction."
+    },
+    {
+      "id": 5,
+      "question": "How does behavioral data improve customer engagement compared to demographic data alone?",
+      "options": [
+        "Behavioral data is irrelevant",
+        "Behavioral data (purchases, interactions, browsing) reveals what customers actually do, enabling personalized, real-time messaging that addresses individual intent and engagement patterns",
+        "Demographics are always sufficient",
+        "Behavior is less important than demographics"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Demographics describe who customers are; behavior shows what they do. Behavioral data enables intent-based, timely engagement—a user browsing a product category needs a different message than someone who just completed a purchase."
+    },
+    {
+      "id": 6,
+      "question": "What is the primary goal of the activation stage in the customer lifecycle?",
+      "options": [
+        "Get customers to purchase",
+        "Get users to value quickly by helping them experience the core benefit or primary feature, establishing momentum for ongoing engagement",
+        "Acquire new users only",
+        "Send as many messages as possible"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Activation is about turning new users into engaged ones by helping them reach the 'aha moment'—experiencing the core value. Strong onboarding accelerates this transition from trial to habit."
+    },
+    {
+      "id": 7,
+      "question": "Why are behavioral triggers more effective than scheduled campaigns for engagement?",
+      "options": [
+        "Behavioral triggers and scheduled campaigns are equally effective",
+        "Behavioral triggers respond to what customers actually do (abandoned cart, feature adoption, inactivity), delivering relevant, timely messages when intent is highest, versus fixed-schedule broadcasts",
+        "Scheduled campaigns are always better",
+        "Triggers don't improve engagement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A customer viewing a product (behavioral trigger) is more receptive to a cart reminder than a generic email sent on a schedule. Real-time triggers capture intent and reduce friction by addressing immediate needs."
+    },
+    {
+      "id": 8,
+      "question": "What is RFM segmentation and how does it inform lifecycle strategy?",
+      "options": [
+        "RFM is irrelevant to engagement",
+        "RFM (Recency, Frequency, Monetary) segments customers by purchase patterns—high-frequency, high-value customers warrant loyalty offers; lapsed customers need win-back; at-risk need retention intervention",
+        "RFM only works for email",
+        "All customers should receive identical messaging"
+      ],
+      "correctAnswer": 1,
+      "explanation": "RFM segments reveal customer tiers and churn risk. A lapsed customer (low recency) needs a different strategy than a loyal repeat buyer (high frequency/monetary). Tailored approaches maximize conversion probability."
+    },
+    {
+      "id": 9,
+      "question": "How does personalization based on customer data impact engagement metrics?",
+      "options": [
+        "Personalization has no measurable impact",
+        "Personalized messaging that adapts to individual preferences, behavior, and lifecycle stage drives higher open rates, click rates, and conversion compared to generic messaging",
+        "All messages should be generic",
+        "Personalization only matters for email"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Personalization makes every message feel relevant to the individual. When a customer receives product recommendations matched to their browsing history or offers timed to their purchase cycle, engagement lifts significantly."
+    },
+    {
+      "id": 10,
+      "question": "True or False: Customer engagement is a set of campaigns rather than an ongoing relationship.",
+      "options": [
+        "True—engagement is campaign-based",
+        "False—customer engagement is about sustaining relationships through continuous, intelligent interactions across all lifecycle stages, not individual campaigns"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Customers experience a brand as a relationship, not as isolated campaigns. Effective engagement means consistent, relevant touchpoints that anticipate needs and build trust over time."
+    },
+    {
+      "id": 11,
+      "question": "What role does cross-channel orchestration play in customer engagement?",
+      "options": [
+        "Cross-channel messaging is unnecessary",
+        "Orchestrating messages across email, SMS, push, and in-app ensures consistent, connected experiences as customers move between channels, preventing message fatigue and maintaining relevance",
+        "Only single-channel engagement matters",
+        "Each channel should operate independently"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Customers interact across multiple channels. If a customer sees the same offer on email and SMS simultaneously, they experience fatigue and confusion. Cross-channel orchestration creates seamless, coordinated experiences."
+    },
+    {
+      "id": 12,
+      "question": "How does understanding customer churn risk inform retention strategy?",
+      "options": [
+        "Churn risk is irrelevant",
+        "Identifying at-risk customers (via behavior, engagement decline, or predictive signals) enables proactive retention intervention before actual churn, recovering customers at lower cost than acquisition",
+        "Only focus on high-value customers",
+        "Never attempt to retain at-risk customers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Recognizing warning signals (declining engagement, reduced purchase frequency) allows brands to intervene with targeted retention offers. This is more cost-effective than losing the customer and re-acquiring them."
+    },
+    {
+      "id": 13,
+      "question": "What is the relationship between customer lifetime value (CLV) and engagement strategy?",
+      "options": [
+        "CLV is unrelated to engagement",
+        "Engagement strategy directly influences CLV—retained, engaged customers generate repeat revenue; stronger relationships increase purchase frequency, basket size, and loyalty, driving higher lifetime value",
+        "Only acquisition impacts CLV",
+        "Engagement doesn't affect revenue"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CLV is the total revenue a customer generates over their relationship with the brand. Engagement strategy extends that relationship, increases repeat purchases, and drives loyalty—all directly increasing CLV."
+    },
+    {
+      "id": 14,
+      "question": "Why is strong onboarding critical for long-term engagement?",
+      "options": [
+        "Onboarding is unnecessary",
+        "Strong onboarding helps new customers reach value quickly, establishing initial engagement momentum that increases the likelihood of retention and repeat engagement",
+        "Onboarding should be minimal",
+        "Engagement begins only after first purchase"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The first days after acquisition are critical. Users who quickly experience value become engaged; those who struggle often churn. Strategic onboarding guides users to the 'aha moment' and builds habit."
+    },
+    {
+      "id": 15,
+      "question": "How does real-time data enable more effective customer engagement?",
+      "options": [
+        "Real-time data isn't important",
+        "Real-time customer data enables immediate, contextual responses to behavior (browsing, clicking, visiting), allowing brands to capture intent when it's highest and reduce message-to-action delays",
+        "Historical data alone is sufficient",
+        "Timing doesn't matter in engagement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A customer browsing a product category right now needs immediate engagement (product recommendations, offers) to capitalize on their interest. Delayed messaging loses the moment and conversion opportunity."
+    },
+    {
+      "id": 16,
+      "question": "What distinguishes win-back campaigns from retention campaigns?",
+      "options": [
+        "They serve identical purposes",
+        "Retention targets engaged customers at-risk of churn with value-reinforcing messages; win-back targets already-lapsed customers with compelling, incentivized offers to re-engage",
+        "Win-back is unnecessary",
+        "Only retention matters"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Retention is proactive (prevent churn); win-back is reactive (recover lost customers). Win-back often requires stronger incentives because the customer has already disengaged and needs compelling reasons to return."
+    },
+    {
+      "id": 17,
+      "question": "How should brands approach messaging frequency in engagement strategy?",
+      "options": [
+        "Send as many messages as possible",
+        "Balance frequency based on channel, customer segment, and engagement level—high-frequency users tolerate more messages; validate through unsubscribe rates and engagement decline as leading indicators of fatigue",
+        "Send weekly regardless of segment",
+        "Frequency has no impact on engagement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Over-messaging causes unsubscribes and disengagement. The optimal frequency varies by customer, channel (SMS < email < push), and lifecycle stage. Monitor unsubscribe spikes as signals to reduce frequency."
+    },
+    {
+      "id": 18,
+      "question": "What role does feedback and segmentation play in understanding audience needs?",
+      "options": [
+        "Feedback is irrelevant",
+        "Feedback reveals explicit customer needs and preferences; combined with behavioral segmentation, it enables targeted messaging that addresses specific audience pain points and desires",
+        "Only use behavioral data",
+        "Feedback is optional"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A customer survey reveals 'I want product recommendations'—but behavioral data shows they rarely click recommendations. Combining feedback with behavior reveals true preferences and guides engagement strategy."
+    },
+    {
+      "id": 19,
+      "question": "How does lifecycle-based segmentation improve campaign effectiveness compared to demographic segmentation?",
+      "options": [
+        "Lifecycle segmentation is unnecessary",
+        "Lifecycle segments (new, active, at-risk, lapsed) receive messaging matched to their stage—new users need onboarding; at-risk need retention; lapsed need win-back—versus one-size-fits-all demographic approaches",
+        "Demographics are always sufficient",
+        "Lifecycle stage doesn't affect messaging needs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Two customers of identical age/location are at different lifecycle stages and need different messaging. A new user needs quick-start guides; a loyal customer needs loyalty rewards. Lifecycle segmentation drives relevance."
+    },
+    {
+      "id": 20,
+      "question": "True or False: Customer engagement success can be measured by email open rate alone.",
+      "options": [
+        "True—open rate is the only metric that matters",
+        "False—engagement requires measuring across multiple dimensions: retention rate, repeat purchase frequency, customer lifetime value, churn rate, and satisfaction, alongside channel metrics"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Open rates measure email visibility, not engagement impact. Engagement is measured by business outcomes: do customers stay? Do they buy again? Are they satisfied? These require multi-dimensional metrics."
+    },
+    {
+      "id": 21,
+      "question": "How do content blocks and reusable templates enhance engagement scalability?",
+      "options": [
+        "Templates reduce personalization",
+        "Modular content blocks enable quick customization by segment and language without rebuilding entire campaigns, reducing creation time and enabling faster, scalable personalization across audiences",
+        "Custom campaigns are always better",
+        "Templates limit engagement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Creating unique campaigns for each segment is slow and expensive. Reusable content blocks allow marketers to swap headlines, images, and offers based on segment, enabling scalable personalization."
+    },
+    {
+      "id": 22,
+      "question": "What is the relationship between channel preference and engagement effectiveness?",
+      "options": [
+        "Channel preference is irrelevant",
+        "Customers have different channel preferences (some prefer email, others SMS or push); messaging on a customer's preferred channel drives higher engagement than forcing a uniform channel",
+        "All channels work equally for all customers",
+        "Channel doesn't affect engagement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A customer who never opens emails may be highly engaged on push. Sending them email-only messaging wastes impressions. Respecting channel preference increases engagement and reduces unsubscribes."
+    },
+    {
+      "id": 23,
+      "question": "How should brands approach testing and experimentation in engagement strategy?",
+      "options": [
+        "Testing is unnecessary",
+        "Systematic A/B testing of messages, timing, and offers—with clear success metrics—reveals what works for your audience and enables continuous optimization of engagement effectiveness",
+        "Never test; use static campaigns",
+        "Experimentation is expensive and unnecessary"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Testing is the foundation of learning. Comparing variant conversion rates reveals what resonates with your audience. Continuous testing and iteration improves engagement ROI over time."
+    },
+    {
+      "id": 24,
+      "question": "What is contextual engagement and why does it matter?",
+      "options": [
+        "Context is irrelevant",
+        "Contextual engagement delivers messages that acknowledge where a customer is in their journey, what they've recently done, or what they need right now, increasing relevance and conversion",
+        "All messages should be generic",
+        "Context doesn't affect messaging"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A customer who just abandoned their cart has different context (urgency, friction) than someone browsing products. Contextual messaging addresses that specific moment and increases likelihood of conversion."
+    },
+    {
+      "id": 25,
+      "question": "How does customer data unification improve engagement?",
+      "options": [
+        "Data unification is unnecessary",
+        "A single customer view across all channels (purchases, browsing, interactions, support) enables consistent, informed engagement and prevents conflicting or redundant messaging",
+        "Siloed data by channel is better",
+        "Data consolidation doesn't matter"
+      ],
+      "correctAnswer": 1,
+      "explanation": "If email doesn't know the customer just purchased via mobile app, the brand sends an inappropriate 'complete your purchase' email. Unified data enables consistency and prevents poor experiences."
+    },
+    {
+      "id": 26,
+      "question": "What is the strategic importance of loyalty programs in engagement?",
+      "options": [
+        "Loyalty programs are unnecessary",
+        "Loyalty programs incentivize repeat engagement, create habit, provide data about customer preferences and spending, and increase customer lifetime value by rewarding and recognizing loyal behavior",
+        "Only for high-value customers",
+        "Loyalty programs don't drive engagement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Loyalty programs convert transactional relationships into emotional ones. Rewards, recognition, and exclusive benefits increase repeat purchase frequency and attachment to the brand."
+    },
+    {
+      "id": 27,
+      "question": "How should brands balance messaging volume with engagement quality?",
+      "options": [
+        "More messages always drive better engagement",
+        "High-volume messaging without relevance causes fatigue and churn; prioritize fewer, highly relevant messages timed to customer needs over volume, monitoring unsubscribe/opt-out rates as quality signals",
+        "Message frequency doesn't matter",
+        "Quality is irrelevant to engagement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A customer receiving 10 irrelevant messages per week is more likely to unsubscribe than one receiving 2 highly relevant, timely messages. Quality and relevance matter more than volume."
+    },
+    {
+      "id": 28,
+      "question": "What role does customer support play in overall engagement strategy?",
+      "options": [
+        "Support is separate from engagement",
+        "Customer support is an engagement touchpoint—responsive, helpful support reinforces loyalty and builds trust, while poor support drives churn and negative word-of-mouth",
+        "Support doesn't affect engagement",
+        "Support is only for retention"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Support interactions are relationship moments. When a brand resolves a customer's issue quickly and empathetically, the customer feels valued and becomes more loyal. Poor support is engagement-killing."
+    },
+    {
+      "id": 29,
+      "question": "How can brands measure the success of their lifecycle engagement strategy?",
+      "options": [
+        "Measurement is unnecessary",
+        "Measure lifecycle KPIs: activation rate (% reaching value), retention rate (% returning), repeat purchase rate, churn rate, and customer lifetime value—each reflecting engagement effectiveness at different stages",
+        "Only measure campaign open rates",
+        "Success is subjective and unmeasurable"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Lifecycle metrics reveal strategy effectiveness: a declining retention rate signals onboarding problems; low activation rate signals value isn't clear. These metrics guide where to invest engagement efforts."
+    },
+    {
+      "id": 30,
+      "question": "Why is continuous engagement better than one-time campaigns for building lasting customer relationships?",
+      "options": [
+        "Campaigns and continuous engagement are identical",
+        "Continuous engagement builds habit and trust through regular, relevant touchpoints across the lifecycle; one-time campaigns create momentary attention but don't establish lasting relationships or ongoing value",
+        "One-time campaigns are more effective",
+        "Relationships don't require ongoing effort"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A single purchase campaign gets a sale. Continuous engagement—onboarding guides, helpful tips, loyalty recognition, win-back offers—builds emotional connection and habit, increasing lifetime value significantly."
     }
   ]
 }
