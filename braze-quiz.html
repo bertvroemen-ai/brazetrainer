@@ -83,13 +83,25 @@
             border: 1px solid #e5e7eb;
         }
 
-        .quiz-stats {
-            display: flex;
-            gap: 14px;
+        .quiz-progress {
             font-weight: 600;
             font-size: 13px;
+            color: #1f2937;
             white-space: nowrap;
-            min-width: 70px;
+        }
+
+        .quiz-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            white-space: nowrap;
+        }
+
+        .quiz-stats {
+            display: flex;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 13px;
         }
 
         .stat-correct {
@@ -112,28 +124,9 @@
             text-align: center;
         }
 
-        .quiz-progress {
-            flex: 1;
-            text-align: center;
-            font-weight: 600;
-            font-size: 13px;
-            color: #1f2937;
-            white-space: nowrap;
-        }
-
         .quiz-fire {
             display: flex;
             align-items: center;
-            gap: 6px;
-            min-width: 60px;
-            justify-content: flex-end;
-            white-space: nowrap;
-        }
-
-        #fire-percentage {
-            font-weight: 700;
-            font-size: 13px;
-            color: #1f2937;
         }
 
         #fire-emoji {
@@ -337,14 +330,15 @@
         </div>
 
         <div class="quiz-header">
-            <div class="quiz-stats">
-                <span class="stat-correct">✓ <span id="correct-count">0</span></span>
-                <span class="stat-incorrect">✗ <span id="incorrect-count">0</span></span>
-            </div>
             <div class="quiz-progress" id="progress"></div>
-            <div class="quiz-fire">
-                <span id="fire-percentage">0%</span>
-                <span id="fire-emoji">❄️</span>
+            <div class="quiz-right">
+                <div class="quiz-stats">
+                    <span class="stat-correct">✓ <span id="correct-count">0</span></span>
+                    <span class="stat-incorrect">✗ <span id="incorrect-count">0</span></span>
+                </div>
+                <div class="quiz-fire">
+                    <span id="fire-emoji">❄️</span>
+                </div>
             </div>
         </div>
 
@@ -385,7 +379,6 @@
         const messageDiv = document.getElementById('message');
         const correctCountDiv = document.getElementById('correct-count');
         const incorrectCountDiv = document.getElementById('incorrect-count');
-        const firePercentageDiv = document.getElementById('fire-percentage');
         const fireEmojiDiv = document.getElementById('fire-emoji');
 
         // ========== INIT ==========
@@ -453,13 +446,11 @@
         function updateFireMeter() {
             const total = correctCount + incorrectCount;
             if (total === 0) {
-                firePercentageDiv.textContent = '0%';
                 fireEmojiDiv.textContent = '❄️';
                 return;
             }
 
             const percentage = Math.round((correctCount / total) * 100);
-            firePercentageDiv.textContent = percentage + '%';
 
             // Change emoji based on percentage
             let emoji = '❄️';
