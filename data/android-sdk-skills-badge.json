@@ -73,14 +73,14 @@
     {
       "id": 5,
       "domain": "Custom Events",
-      "question": "Which data types are supported for custom event properties in the Braze Android SDK? (Select 2)",
+      "question": "Which data types are supported for custom event properties in the Braze Android SDK? (Select 3)",
       "options": [
         "String",
         "Boolean",
         "Image",
         "Date"
       ],
-      "correctAnswer": [0, 3],
+      "correctAnswer": [0, 1, 3],
       "explanation": "The Braze Android SDK supports String, int, float, boolean, and Date objects for custom event properties. Image is not a supported data type for event properties."
     },
     {
