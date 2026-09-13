@@ -1,31 +1,403 @@
 {
   "certification": "Braze Certified Developer",
   "level": 2,
-  "totalQuestions": 2,
+  "examDetails": {
+    "duration": "90 minutes",
+    "passingScore": "74%",
+    "totalQuestions": 50,
+    "questionTypes": [
+      "Multiple Choice",
+      "Multiple Select",
+      "True/False"
+    ]
+  },
+  "domains": {
+    "sdkIntegration": "25%",
+    "restAPI": "30%",
+    "webhooks": "20%",
+    "dataManagement": "15%",
+    "bestPractices": "10%"
+  },
   "questions": [
     {
       "id": 1,
-      "question": "A developer needs to update a logged-in user's email address using the Android Kotlin SDK. Which method correctly sets this standard attribute?",
+      "domain": "SDK Integration",
+      "question": "What are the two types of endpoints required for proper Braze SDK integration?",
       "options": [
-        "Braze.setEmail(\"user@example.com\")",
-        "Braze.getInstance().setEmail(\"user@example.com\")",
-        "Braze.logStandardAttribute(\"email\", \"user@example.com\")",
-        "Braze.trackUserAttribute(StandardAttribute.Email, \"user@example.com\")"
+        "REST endpoint and API endpoint",
+        "REST endpoint and SDK endpoint",
+        "Development endpoint and production endpoint",
+        "Web endpoint and mobile endpoint"
       ],
       "correctAnswer": 1,
-      "explanation": "The correct Android SDK method is Braze.getInstance().setEmail() which properly sets the user's email address."
+      "explanation": "For proper integration, you need the REST endpoint for API calls and the SDK endpoint for client-side SDK implementations. Using the REST endpoint for SDK integration is incorrect and will cause errors."
     },
     {
       "id": 2,
-      "question": "True or False: You can customize notification sounds for push messages in Braze.",
+      "domain": "REST API",
+      "question": "How is authentication handled in Braze REST API requests?",
+      "options": [
+        "Using username and password in the request body",
+        "Using the REST API key as a Bearer token in the Authorization header",
+        "Using cookies to maintain session",
+        "No authentication is required"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze authenticates REST API requests using the REST API key passed as a Bearer token in the Authorization header: Authorization: Bearer YOUR_REST_API_KEY."
+    },
+    {
+      "id": 3,
+      "domain": "REST API",
+      "question": "What is the default rate limit for Braze REST API endpoints?",
+      "options": [
+        "50,000 requests per hour",
+        "100,000 requests per hour",
+        "250,000 requests per hour",
+        "500,000 requests per hour"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The default rate limit for most Braze REST API endpoints is 250,000 requests per hour per workspace, though some request types have their own limits."
+    },
+    {
+      "id": 4,
+      "domain": "SDK Integration",
+      "question": "True or False: You should use the REST endpoint for SDK initialization in mobile apps.",
       "options": [
         "True",
-        "False",
-        "Only on Android",
-        "Only on iOS"
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "False. You must use the SDK endpoint for SDK initialization, not the REST endpoint. Using the wrong endpoint will result in initialization failures."
+    },
+    {
+      "id": 5,
+      "domain": "Data Management",
+      "question": "What is the importance of the external_id in Braze integration?",
+      "options": [
+        "It's only used for analytics reporting",
+        "It serves as a unique user identifier and must match the user ID set in the SDK to avoid creating duplicate profiles",
+        "It's only required for API requests",
+        "It's used only for email campaigns"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The external_id is a critical identifier that must be consistent across the SDK and API. Using different IDs for the same user will create multiple profiles."
+    },
+    {
+      "id": 6,
+      "domain": "REST API",
+      "question": "Which of the following are REST API best practices in Braze? (Select 2)",
+      "options": [
+        "Batch requests when possible",
+        "Only send delta values (changed data) to improve efficiency",
+        "Send all user data on every request for consistency",
+        "Implement error handling and retry logic"
+      ],
+      "correctAnswer": [0, 3],
+      "explanation": "Best practices include batching requests to improve performance and implementing proper error handling. Sending only changed data (delta values) is more efficient than sending all data every time."
+    },
+    {
+      "id": 7,
+      "domain": "Webhooks",
+      "question": "What is a webhook in the context of Braze integration?",
+      "options": [
+        "A tool for designing email templates",
+        "An HTTP callback that sends data from Braze to external systems in real-time based on user actions",
+        "A type of API endpoint",
+        "A security feature for authentication"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Webhooks are HTTP callbacks that allow Braze to send data to your external systems in real-time when specific events occur, enabling event-driven integrations."
+    },
+    {
+      "id": 8,
+      "domain": "Webhooks",
+      "question": "True or False: Braze webhooks can only be triggered by user actions.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "False. Webhooks can be triggered by various events including user actions, campaign events, or API calls. They're flexible and event-driven."
+    },
+    {
+      "id": 9,
+      "domain": "SDK Integration",
+      "question": "What is the primary purpose of the Braze SDK in an application?",
+      "options": [
+        "To store user data on the device",
+        "To track user behavior, collect data, and deliver messaging channels (push, in-app, Content Cards)",
+        "To replace the REST API entirely",
+        "To manage database connections"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Braze SDK serves two main functions: collecting and syncing user data, and powering messaging channels like push notifications and in-app messages."
+    },
+    {
+      "id": 10,
+      "domain": "Data Management",
+      "question": "When should you use the Braze REST API instead of the SDK?",
+      "options": [
+        "Never, always use the SDK",
+        "For backend operations like sending transactional messages, bulk user imports, and data that isn't generated from user devices",
+        "Only for mobile applications",
+        "For all customer data updates"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The REST API is ideal for server-side operations, bulk updates, and data flows that don't come from user devices, like systems updating customer status."
+    },
+    {
+      "id": 11,
+      "domain": "SDK Integration",
+      "question": "What is a test environment in Braze development?",
+      "options": [
+        "The production environment with restricted features",
+        "A separate workspace with its own API key used for development and QA to prevent test data from polluting production",
+        "A feature that's only available in mobile SDKs",
+        "A temporary database connection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A test environment is a separate Braze workspace with its own API key, used during development and QA to prevent test data from contaminating production data."
+    },
+    {
+      "id": 12,
+      "domain": "REST API",
+      "question": "What does IP allowlisting (whitelisting) provide in Braze REST API?",
+      "options": [
+        "Faster API response times",
+        "A security feature that restricts REST API requests to specified IP addresses or subnets",
+        "Increased rate limits",
+        "Automatic request batching"
+      ],
+      "correctAnswer": 1,
+      "explanation": "IP allowlisting is a security feature that restricts which IP addresses can make REST API requests using a given API key, providing an additional security layer."
+    },
+    {
+      "id": 13,
+      "domain": "Webhooks",
+      "question": "Which content type should you expect in Braze webhook payloads?",
+      "options": [
+        "XML only",
+        "CSV format",
+        "JSON",
+        "Plain text"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Braze sends webhook data in JSON format, which allows you to parse structured data containing event information and user attributes."
+    },
+    {
+      "id": 14,
+      "domain": "Data Management",
+      "question": "True or False: Braze will overwrite all attributes even if you only intended to update one.",
+      "options": [
+        "True",
+        "False"
       ],
       "correctAnswer": 0,
-      "explanation": "Push notification sounds can be customized in Braze to provide unique audio feedback for different message types."
+      "explanation": "True. Braze overwrites every attribute that is sent in an API request. Therefore, you should only send attributes that have actually changed (delta values) to avoid unintended overwriting."
+    },
+    {
+      "id": 15,
+      "domain": "SDK Integration",
+      "question": "What is the typical integration timeline for Braze according to best practices?",
+      "options": [
+        "1-2 weeks",
+        "1-6 weeks depending on technical skills and breadth",
+        "6-12 weeks minimum",
+        "Implementation time doesn't matter"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze typically takes 1-6 weeks to integrate, depending on your team's technical skills, bandwidth, and the complexity of your implementation."
+    },
+    {
+      "id": 16,
+      "domain": "REST API",
+      "question": "Which REST API permissions are commonly required for user data management?",
+      "options": [
+        "Only users.track permission",
+        "users.track for sending data and users.export.ids for retrieving user data",
+        "All permissions at all times",
+        "No specific permissions are needed"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Different API operations require different permissions. users.track is needed to send/update user data, while users.export.ids is needed to export user information."
+    },
+    {
+      "id": 17,
+      "domain": "SDK Integration",
+      "question": "When integrating Braze with multiple root domains, what should you consider?",
+      "options": [
+        "Domain integration doesn't matter",
+        "Using a single app with one API key vs. separate apps for each domain",
+        "Always create separate apps for each domain",
+        "Always use a single app regardless of domain"
+      ],
+      "correctAnswer": 1,
+      "explanation": "For Web SDK implementations spanning multiple root domains, Braze recommends evaluating whether to use one app or separate apps to avoid session tracking issues."
+    },
+    {
+      "id": 18,
+      "domain": "Webhooks",
+      "question": "How should you handle webhook failures in a production system?",
+      "options": [
+        "Ignore failed webhooks",
+        "Implement retry logic with exponential backoff and logging for debugging",
+        "Manually resend all webhooks daily",
+        "Webhooks never fail"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Production webhook handling should include retry mechanisms with exponential backoff, error logging, and monitoring to ensure data consistency."
+    },
+    {
+      "id": 19,
+      "domain": "Data Management",
+      "question": "What happens if you send an API request with a user ID that doesn't exist in Braze?",
+      "options": [
+        "The request fails with an error",
+        "A new user profile is created with that ID",
+        "The request is silently ignored",
+        "All existing users are updated"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze will create a new user profile with that external_id if it doesn't already exist, preventing you from creating unintended duplicate profiles."
+    },
+    {
+      "id": 20,
+      "domain": "REST API",
+      "question": "True or False: The REST API can be used to trigger campaigns and Canvas directly.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "True. The Braze REST API allows you to trigger campaigns and Canvas through API endpoints, enabling event-driven messaging workflows."
+    },
+    {
+      "id": 21,
+      "domain": "SDK Integration",
+      "question": "What should be the first step when setting up a Braze SDK in a mobile application?",
+      "options": [
+        "Setting up push notifications",
+        "Initializing the SDK with the API key and SDK endpoint",
+        "Creating custom attributes",
+        "Logging custom events"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SDK initialization with the correct API key and SDK endpoint must be done first, as all other SDK functionality depends on successful initialization."
+    },
+    {
+      "id": 22,
+      "domain": "Data Management",
+      "question": "Which of the following data ingestion methods are supported by Braze? (Select 2)",
+      "options": [
+        "REST API with real-time updates",
+        "SDK for client-side data collection",
+        "Only email imports",
+        "Batch CSV uploads for one-time data import"
+      ],
+      "correctAnswer": [0, 3],
+      "explanation": "Braze supports multiple data ingestion methods: REST API for real-time backend updates, SDK for client-side tracking, and CSV uploads for batch imports. Email is a channel, not an ingestion method."
+    },
+    {
+      "id": 23,
+      "domain": "Webhooks",
+      "question": "What security consideration is important when receiving Braze webhooks?",
+      "options": [
+        "No security measures are needed",
+        "Verify the webhook signature and HTTPS to ensure authenticity and integrity",
+        "Webhooks are always trusted",
+        "Security is only for REST API"
+      ],
+      "correctAnswer": 1,
+      "explanation": "You should verify webhook signatures and ensure HTTPS is used to validate that webhooks actually come from Braze and haven't been tampered with."
+    },
+    {
+      "id": 24,
+      "domain": "SDK Integration",
+      "question": "What is the role of sessionization in Braze SDK?",
+      "options": [
+        "It's not used in Braze",
+        "It groups user interactions into sessions by generating open and close session events",
+        "It encrypts user data",
+        "It schedules campaigns"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Braze SDK automatically generates 'open session' and 'close session' events to group user interactions into sessions, enabling session-based analytics and retention."
+    },
+    {
+      "id": 25,
+      "domain": "REST API",
+      "question": "What is the benefit of batching REST API requests?",
+      "options": [
+        "It has no benefits",
+        "It reduces the number of API calls, improves performance, and can be more cost-effective",
+        "It requires more bandwidth",
+        "Batching is not supported"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Batching requests reduces the number of API calls, improves throughput, decreases latency, and is a Braze best practice for efficient API usage."
+    },
+    {
+      "id": 26,
+      "domain": "SDK Integration",
+      "question": "How should you handle the changeUser() method in multi-device scenarios?",
+      "options": [
+        "Never call changeUser()",
+        "Call it once at app startup",
+        "Call it every time a user logs in to ensure each device is associated with the correct user ID",
+        "changeUser() is not available"
+      ],
+      "correctAnswer": 2,
+      "explanation": "In multi-device scenarios, you should call changeUser() when a user logs in to ensure their device is correctly associated with their user profile and avoid data mixing."
+    },
+    {
+      "id": 27,
+      "domain": "Data Management",
+      "question": "True or False: Custom attributes in Braze are case-insensitive.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "False. Custom attributes are case-sensitive. 'user_tier' and 'User_Tier' would be treated as different attributes."
+    },
+    {
+      "id": 28,
+      "domain": "Webhooks",
+      "question": "What types of user events can trigger Braze webhooks?",
+      "options": [
+        "Only purchase events",
+        "Campaign clicks and app opens only",
+        "Custom events, purchase events, session events, and campaign interactions",
+        "No events can trigger webhooks"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Braze webhooks can be triggered by various user events including custom events, purchases, sessions, clicks, and other engagement interactions."
+    },
+    {
+      "id": 29,
+      "domain": "REST API",
+      "question": "When making changes to your Braze REST API key, what should you do if it's been accidentally exposed?",
+      "options": [
+        "Nothing, it's not a security concern",
+        "Delete the exposed key from the Developer Console immediately to prevent unauthorized access",
+        "Wait and monitor for suspicious activity",
+        "Create a new API key without deleting the old one"
+      ],
+      "correctAnswer": 1,
+      "explanation": "If a REST API key is accidentally exposed, you should delete it immediately from the Developer Console to prevent unauthorized access to your Braze instance."
+    },
+    {
+      "id": 30,
+      "domain": "Best Practices",
+      "question": "What is the recommended approach for testing Braze integration before going to production?",
+      "options": [
+        "Test directly in production",
+        "Skip testing and integrate immediately",
+        "Use a separate test workspace with its own API key, test all functionality, and verify data doesn't reach production",
+        "Testing is optional"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Best practice is to use a dedicated test/staging environment with its own Braze workspace and API key to thoroughly test before deploying to production."
     }
   ]
 }
