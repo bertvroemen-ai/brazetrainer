@@ -1,31 +1,363 @@
 {
-  "certification": "BrazeAI™ Skills Badge",
-  "level": 1,
-  "totalQuestions": 2,
+  "certification": "Braze BrazeAI Skills Badge",
+  "level": "Skills Badge",
+  "examType": "multiple-choice",
+  "totalQuestions": 30,
+  "passingScore": 71,
   "questions": [
     {
       "id": 1,
-      "question": "You are conducting an A/B test and need to create six different subject lines for testing. Which feature can you use to expedite the content generation process?",
+      "question": "What is the primary purpose of Braze's Intelligence Suite?",
       "options": [
-        "AI Copywriting Assistant",
-        "Predictive Churn",
-        "Intelligent Timing",
-        "Intelligent Channel"
+        "To store customer data",
+        "To provide automated decisioning that optimizes message send time, channel selection, and conversion likelihood for each individual customer",
+        "To replace human marketing decisions entirely",
+        "To track only email metrics"
       ],
-      "correctAnswer": 0,
-      "explanation": "The AI Copywriting Assistant helps expedite content generation by creating multiple subject line variations quickly."
+      "correctAnswer": 1,
+      "explanation": "The Intelligence Suite uses machine learning to automatically optimize three dimensions: Intelligent Timing (best send hour), Intelligent Selection (winning variant), and Intelligent Channel (preferred communication channel), driving higher engagement and conversion rates."
     },
     {
       "id": 2,
-      "question": "Which of the following statements about Winning Variant analytics is true?",
+      "question": "Which Predictive Suite tool would a brand use to identify customers at risk of leaving before they churn?",
       "options": [
-        "Any confidence score below 100% is not statistically meaningful",
-        "The Winning Variant tab shows results of the best-performing variant from the first send",
-        "The Initial Test tab displays results of the second send, delivering the top variant to remaining audience",
-        "The Winner label identifies the best-performing variant after the initial send"
+        "Predictive Events",
+        "Predictive Churn, which scores customers by likelihood to churn so brands can proactively send retention messaging before actual churn occurs",
+        "Intelligent Timing",
+        "AI Copywriting Assistant"
       ],
       "correctAnswer": 1,
-      "explanation": "The Winning Variant tab displays the results of the best-performing variant from the initial send in the A/B test."
+      "explanation": "Predictive Churn uses machine learning to identify at-risk customers in advance, enabling proactive intervention. This is fundamentally different from Predictive Events, which forecasts positive actions like purchases."
+    },
+    {
+      "id": 3,
+      "question": "A marketer wants to automatically identify customers most likely to make a purchase within the next 30 days. Which Predictive Suite tool is appropriate?",
+      "options": [
+        "Predictive Churn only",
+        "Predictive Events, which predicts customers' likelihood to perform a specific custom event (in this case, a purchase event) within a defined timeframe",
+        "Intelligent Timing",
+        "Content QA tool"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Predictive Events forecasts specific customer actions (purchases, signups, visits, etc.) within a defined window. This enables targeting high-intent customers for conversion campaigns."
+    },
+    {
+      "id": 4,
+      "question": "True or False: Intelligent Timing sends all customers a message at the same optimal time of day.",
+      "options": [
+        "True—efficiency requires uniform timing",
+        "False—Intelligent Timing calculates each individual customer's optimal engagement hour and sends at their personal best time, increasing open rates by ~12% for email and ~28% for push"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Timing is 1:1 personalized—each customer receives messages at their individual optimal hour based on their historical engagement patterns, not a global optimal time."
+    },
+    {
+      "id": 5,
+      "question": "How does Intelligent Selection differ from traditional A/B testing?",
+      "options": [
+        "They are identical",
+        "Intelligent Selection uses machine learning to continuously analyze variant performance and shift traffic toward the winning variant in real-time, rather than waiting for a fixed test period to declare a winner",
+        "A/B testing is always superior",
+        "Intelligent Selection only works for email"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Selection optimizes during the campaign—it identifies the winning variant and automatically routes more traffic toward it, reducing wasted impressions on underperformers compared to fixed-duration A/B tests."
+    },
+    {
+      "id": 6,
+      "question": "What is the strategic advantage of using Intelligent Channel?",
+      "options": [
+        "It limits brands to using only one channel",
+        "It learns each customer's channel preference (email vs. SMS vs. push) and automatically routes messages to the channel where they're most likely to engage, with fallback logic for new users",
+        "All channels are equally effective for all customers",
+        "It eliminates the need for segmentation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Channel recognizes that customer preference for email, SMS, or push varies individually. Automatic routing to preferred channels increases engagement while fallback rules ensure new users still receive messages."
+    },
+    {
+      "id": 7,
+      "question": "A brand runs a campaign with multiple variants using Intelligent Selection. What happens when the winning variant emerges?",
+      "options": [
+        "All traffic immediately stops going to other variants",
+        "Traffic is gradually shifted toward the winning variant while confidence in the win increases, with continued monitoring for performance changes",
+        "The test continues indefinitely without making a decision",
+        "All variants receive equal traffic permanently"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Selection continuously learns and adapts traffic allocation. As confidence in the winning variant increases, it receives more traffic, but the system remains flexible to adjust if performance dynamics change."
+    },
+    {
+      "id": 8,
+      "question": "How does the AI Copywriting Assistant accelerate campaign creation?",
+      "options": [
+        "It writes all marketing copy automatically without human input",
+        "It generates multiple copy variations (subject lines, message body, CTAs) based on brief prompts, allowing marketers to quickly create options for A/B testing rather than starting from a blank page",
+        "It only works for email",
+        "It replaces all human creativity entirely"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The AI Copywriting Assistant (powered by GPT) serves as a creative starting point, generating multiple variations of subject lines, SMS copy, email body, etc. Marketers refine these suggestions rather than writing from scratch."
+    },
+    {
+      "id": 9,
+      "question": "When using the AI Copywriting Assistant, what is the recommended approach for AI-generated content?",
+      "options": [
+        "Use it exactly as generated without edits",
+        "Reject all AI-generated content as inferior",
+        "Use AI-generated content as a starting point for inspiration and refinement, then edit for brand voice, specificity, and accuracy before sending",
+        "Only use it for subject lines"
+      ],
+      "correctAnswer": 2,
+      "explanation": "AI-generated copy tends to be generic and 'sales-y.' The best practice is to view it as a creative catalyst—refine suggestions to match brand voice, test multiple variations, and iterate based on performance."
+    },
+    {
+      "id": 10,
+      "question": "What does the AI Content QA tool check before message deployment?",
+      "options": [
+        "Only spelling",
+        "Tone, grammar, spelling, and potentially offensive or insensitive language using GPT-4 technology to catch issues before sending",
+        "Only punctuation",
+        "Nothing—messages go out untested"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Content QA leverages GPT-4 to audit messages for grammatical errors, tone consistency, and brand-inappropriate language, reducing brand safety risks before deployment."
+    },
+    {
+      "id": 11,
+      "question": "How do AI Recommendations improve retail and eCommerce engagement?",
+      "options": [
+        "They recommend the same products to all customers",
+        "They use machine learning to match products from Braze Catalogs with individual customers' likelihood to purchase, inserting personalized product recommendations into messages",
+        "They eliminate the need for product data",
+        "They only work for email"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AI Recommendations predict which specific products each customer is most likely to buy, enabling 1:1 personalized product insertion in messages—driving higher AOV and conversion compared to generic or segment-level recommendations."
+    },
+    {
+      "id": 12,
+      "question": "What is Decisioning Studio and how does it enable personalization?",
+      "options": [
+        "A tool for manual decision-making only",
+        "An AI-powered tool that optimizes offers, channels, and timing simultaneously against a defined business metric (e.g., revenue, conversion), enabling 1:1 decisioning across every campaign dimension",
+        "It removes all personalization",
+        "It only works for retention campaigns"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Decisioning Studio uses reinforcement learning to optimize multiple dimensions at once—not just what offer, but when, and on which channel, for each individual customer against a defined business goal."
+    },
+    {
+      "id": 13,
+      "question": "How should marketers approach using Generative AI features for content creation?",
+      "options": [
+        "Rely entirely on AI without human review",
+        "Never use AI-generated content",
+        "Combine AI efficiency (quick copy generation) with human judgment (brand voice, accuracy, creativity) through iterative refinement and A/B testing of AI-assisted variations",
+        "Only use AI for headlines"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The optimal approach treats AI as a productivity tool: rapid ideation, then human refinement. A/B test AI-generated variations against refined versions to learn what resonates with your audience."
+    },
+    {
+      "id": 14,
+      "question": "When building a Predictive Churn model, what must be defined upfront?",
+      "options": [
+        "Nothing—the model figures it out",
+        "The churn definition (how you define a churned customer), target audience, window length (time period to predict), and refresh cadence (how often predictions update)",
+        "Only the window length matters",
+        "Churn definition is optional"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Predictive Churn requires explicit configuration: 'What behavior indicates churn?' (no purchase in 90 days?), 'Who are we predicting for?' (all users, paid subscribers?), and 'How often should predictions refresh?'"
+    },
+    {
+      "id": 15,
+      "question": "True or False: AI features in Braze use only real-time data collected during the campaign.",
+      "options": [
+        "True—real-time data is all that matters",
+        "False—Braze AI features leverage historical behavioral data, customer attributes, and real-time signals to train models and make predictions, providing richer context than real-time data alone"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Predictive and Intelligence Suite features are trained on comprehensive historical datasets. Real-time customer signals enhance decisions, but the models rely on patterns learned from accumulated behavioral data."
+    },
+    {
+      "id": 16,
+      "question": "How does Intelligent Selection handle new campaigns or products with limited historical data?",
+      "options": [
+        "It immediately stops working without data",
+        "It uses general statistical algorithms to evaluate variants quickly and starts learning from the campaign's performance, adapting as data accumulates",
+        "It requires years of history before functioning",
+        "It never adjusts once initialized"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Selection is designed to bootstrap quickly—it doesn't require massive historical datasets to begin optimization. It learns from campaign performance in real-time and improves as more data accumulates."
+    },
+    {
+      "id": 17,
+      "question": "A brand has low email open rates. Which AI feature would be the first priority to implement?",
+      "options": [
+        "AI Copywriting Assistant",
+        "Intelligent Timing, which personalizes send times to each customer's optimal engagement hour (showing ~12% email open lift), then iterate on subject lines and copy",
+        "Content QA only",
+        "Stop sending email entirely"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Timing addresses the when—sending at each customer's best hour is foundational. If open rates remain low after timing optimization, then diagnose subject line/content issues with Copywriting Assistant."
+    },
+    {
+      "id": 18,
+      "question": "How should a marketer interpret Predictive Churn scores?",
+      "options": [
+        "Scores are absolute and never change",
+        "Scores represent percentile likelihood to churn (e.g., 0.8 = 80% probability of churning) and refresh based on configured cadence; users with high scores should receive immediate retention intervention",
+        "All scores are identical",
+        "Scores should be ignored"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Churn scores are probabilities. High-scoring users are highest-priority for retention messaging. As user behavior changes (and data refreshes), scores update, allowing real-time re-prioritization."
+    },
+    {
+      "id": 19,
+      "question": "When A/B testing with AI Copywriting suggestions, what should be tested beyond copy?",
+      "options": [
+        "Copy variations alone are sufficient",
+        "Test copy variations combined with Intelligent Timing/Channel and measure impact on conversions—isolating copy effect from timing/channel effects enables accurate optimization",
+        "Never test anything",
+        "Test only subject lines"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Optimal testing isolates variables. When testing AI-generated copy, hold timing and channel constant (or test those separately) to understand the true impact of copy variation on engagement and conversion."
+    },
+    {
+      "id": 20,
+      "question": "True or False: Intelligent Channel routes SMS to customers who never engage with email, even if they have no SMS history.",
+      "options": [
+        "True—it always routes to SMS for email non-responders",
+        "False—Intelligent Channel routes to the customer's preferred channel based on historical engagement, with configured fallback rules for users lacking sufficient history (e.g., new users)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Channel learns preferences from engagement history. For users without sufficient history, fallback rules (e.g., 'default to email for new users') ensure messages are still delivered while the system learns their preference."
+    },
+    {
+      "id": 21,
+      "question": "How does using Predictive Events improve campaign targeting compared to broad segmentation?",
+      "options": [
+        "It has no impact on targeting",
+        "Predictive Events scores all users by likelihood to perform an event (e.g., purchase), enabling targeting of highest-intent users with conversion offers, reducing wasted messaging on low-intent users",
+        "All users have the same likelihood",
+        "Broad segmentation is always better"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Predictive Events enables high-intent targeting. Rather than sending purchase campaigns to all active users (broad), target the top 10% most likely to purchase, maximizing conversion efficiency and preventing message fatigue."
+    },
+    {
+      "id": 22,
+      "question": "What is a key limitation of manually optimizing send times vs. using Intelligent Timing?",
+      "options": [
+        "Manual optimization is always better",
+        "Manual optimization typically applies a single 'best' send time globally, missing individual variation in when each customer is most engaged; Intelligent Timing personalizes per customer",
+        "Intelligent Timing doesn't work",
+        "Send time has no impact on engagement"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Manual send-time selection picks one global time (e.g., 10am). But customer engagement varies widely—one customer may prefer morning sends, another evening. Intelligent Timing captures this individual variation."
+    },
+    {
+      "id": 23,
+      "question": "When interpreting Predictive Suite model confidence, what should low confidence indicate?",
+      "options": [
+        "The model is definitely accurate",
+        "The model may lack sufficient historical data or the behavior is unpredictable; use predictions cautiously and consider gathering more data before scaling campaigns",
+        "Predictions should be ignored completely",
+        "Confidence doesn't matter"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Low confidence can result from insufficient training data or unpredictable behavior patterns. In these cases, predictions are less reliable—validate on a small audience before full rollout."
+    },
+    {
+      "id": 24,
+      "question": "How should a brand use AI Recommendations alongside catalog data?",
+      "options": [
+        "Recommendations require no catalog data",
+        "Catalog items must be properly tagged with attributes (price, category, image) so AI Recommendations can match customer preference patterns with specific products, creating 1:1 personalized product insertion",
+        "Recommendations work without product information",
+        "Only use static product lists"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AI Recommendations effectiveness depends on rich catalog data. Well-structured catalogs with detailed attributes enable the ML model to match each customer with their most relevant products."
+    },
+    {
+      "id": 25,
+      "question": "What is the relationship between first-party data quality and AI model accuracy?",
+      "options": [
+        "Data quality is irrelevant to AI",
+        "High-quality first-party data (accurate attributes, complete behavioral history, consistent event naming) improves model training and prediction accuracy; poor data quality undermines all AI features",
+        "Only raw data matters",
+        "Data quality never affects predictions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Garbage in, garbage out: AI models are only as good as the data they train on. Ensuring consistent event naming, complete user profiles, and accurate attributes directly improves AI feature performance."
+    },
+    {
+      "id": 26,
+      "question": "When should a marketer refrain from using Intelligent Timing?",
+      "options": [
+        "Never—always use it",
+        "When the audience lacks sufficient historical engagement data to establish personal patterns, or for time-sensitive/emergency messages where delay is inappropriate",
+        "Always avoid it",
+        "Only for enterprise customers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Timing requires historical data to learn individual preferences. New users may not have enough data for personalization. Urgent messages (alerts, verifications) shouldn't be delayed for optimal timing."
+    },
+    {
+      "id": 27,
+      "question": "How do Predictive Churn and Predictive Events work together in a lifecycle strategy?",
+      "options": [
+        "They serve identical purposes",
+        "Predictive Churn identifies at-risk users for retention; Predictive Events identifies high-intent users for expansion—together they enable targeted messaging across lifecycle stages (retention vs. growth)",
+        "They should never be used together",
+        "Only one is necessary"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Predictive Churn + Predictive Events = comprehensive lifecycle coverage: save at-risk users with retention campaigns while simultaneously targeting high-intent users with conversion and expansion offers."
+    },
+    {
+      "id": 28,
+      "question": "What should be monitored continuously when using AI optimization features?",
+      "options": [
+        "Nothing—set and forget",
+        "Campaign performance metrics (conversion, revenue, engagement) and model-specific metrics (confidence, winning variant stability); alert if performance degrades unexpectedly",
+        "Only open rates matter",
+        "Monitoring is unnecessary"
+      ],
+      "correctAnswer": 1,
+      "explanation": "AI features require ongoing supervision. Monitor winning variants for stability, model confidence for degradation, and business metrics for unexpected drops. AI is not 'set and forget'—it requires continuous governance."
+    },
+    {
+      "id": 29,
+      "question": "A brand wants to reduce the cognitive load on copywriters. Which AI features address this most directly?",
+      "options": [
+        "Predictive Churn alone",
+        "AI Copywriting Assistant for rapid copy generation, Content QA for automated quality checks, and AI Query Builder for audience segment creation—together freeing copywriters from routine tasks",
+        "No AI features help with this",
+        "Only Intelligent Timing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The generative AI features in Braze (Copywriting, Content QA, Query Builder) automate repetitive tasks, allowing copywriters to focus on strategic refinement and creative direction rather than initial drafts or quality audits."
+    },
+    {
+      "id": 30,
+      "question": "When implementing BrazeAI features across multiple teams, what is critical for adoption?",
+      "options": [
+        "Launch everything simultaneously without training",
+        "Provide team training on how each feature works, define clear governance (when to use AI vs. human judgment), establish success metrics, and iterate based on results and feedback",
+        "Adoption happens naturally without guidance",
+        "Only technical teams need to understand AI"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Successful AI adoption requires organizational buy-in. Teams need to understand what each feature does, when to apply it, and how to interpret results. Clear governance prevents misuse while maximizing value."
     }
   ]
 }
