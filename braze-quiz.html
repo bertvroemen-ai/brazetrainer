@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braze Quiz - Oefenen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .controls {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+
+        .progress {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .quiz-section {
+            display: none;
+        }
+
+        .quiz-section.active {
+            display: block;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: white;
+            font-size: 16px;
+        }
+
+        .option:hover {
+            border-color: #0066cc;
+            background: #f0f7ff;
+        }
+
+        .option.selected {
+            border-color: #0066cc;
+            background: #e6f2ff;
+        }
+
+        .option.correct {
+            border-color: #22c55e;
+            background: #ecfdf5;
+            color: #166534;
+        }
+
+        .option.incorrect {
+            border-color: #ef4444;
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: #ecfdf5;
+            color: #166534;
+            border-left: 4px solid #22c55e;
+        }
+
+        .feedback.incorrect {
+            background: #fef2f2;
+            color: #991b1b;
+            border-left: 4px solid #ef4444;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .btn-next {
+            background: #0066cc;
+            color: white;
+            display: none;
+        }
+
+        .btn-next.show {
+            display: block;
+        }
+
+        .btn-next:hover {
+            background: #0052a3;
+        }
+
+        .btn-next:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .message.info {
+            background: #eff6ff;
+            color: #1e40af;
+            border-left: 4px solid #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Braze Quiz</h1>
+        
+        <div class="controls">
+            <label for="certification-select">Kies een certificering:</label>
+            <select id="certification-select">
+                <option value="">-- Selecteer een certificering --</option>
+            </select>
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <div class="quiz-section" id="quiz">
+            <div class="message" id="message"></div>
+            <div class="question">
+                <h2 id="question-text"></h2>
+                <div class="options" id="options"></div>
+            </div>
+            <div class="feedback" id="feedback"></div>
+            <div class="buttons">
+                <button class="btn-next" id="btn-next">Volgende vraag →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========== QUIZ DATA - Will be loaded from JSON files ==========
+        let quizData = {};
+
+        // ========== STATE ==========
+        let currentCertification = null;
+        let currentQuestionIndex = 0;
+        let answered = false;
+        let correctCount = 0;
+
+        // ========== DOM ELEMENTS ==========
+        const certSelect = document.getElementById('certification-select');
+        const quizSection = document.getElementById('quiz');
+        const questionText = document.getElementById('question-text');
+        const optionsDiv = document.getElementById('options');
+        const feedbackDiv = document.getElementById('feedback');
+        const nextBtn = document.getElementById('btn-next');
+        const progressDiv = document.getElementById('progress');
+        const messageDiv = document.getElementById('message');
+
+        // ========== INIT ==========
+        const certifications = [
+            // Dashboard Series
+            { name: "Braze Certified Practitioner", file: "braze-certified-practitioner" },
+            { name: "Braze Certified Marketing Specialist", file: "braze-certified-marketing-specialist" },
+            { name: "Braze Certified Marketing Strategy Expert", file: "braze-certified-marketing-strategy-expert" },
+            { name: "Braze Certified Technical Marketing Expert", file: "braze-certified-technical-marketing-expert" },
+            // Developer Series
+            { name: "Braze Certified Developer", file: "braze-certified-developer" },
+            { name: "Web SDK Skills Badge", file: "web-sdk-skills-badge" },
+            { name: "iOS SDK Skills Badge", file: "ios-sdk-skills-badge" },
+            { name: "Android SDK Skills Badge", file: "android-sdk-skills-badge" },
+            // Fundamentals
+            { name: "Braze Certified AI Fundamentals", file: "braze-certified-ai-fundamentals" },
+            { name: "Braze Certified Email Deliverability Fundamentals", file: "braze-certified-email-deliverability-fundamentals" },
+            { name: "Customer Engagement Skills Badge", file: "customer-engagement-skills-badge" },
+            { name: "BrazeAI™ Skills Badge", file: "brazeai-skills-badge" },
+            { name: "Liquid Essentials Skills Badge", file: "liquid-essentials-skills-badge" },
+            { name: "Data Essentials Skills Badge", file: "data-essentials-skills-badge" },
+            // Industry Certifications
+            { name: "Braze Certified Retail Marketing Specialist", file: "braze-certified-retail-marketing-specialist" },
+            { name: "Braze Certified Financial Services Marketing Specialist", file: "braze-certified-financial-services-marketing-specialist" }
+        ];
+
+        function initCertifications() {
+            certifications.forEach(cert => {
+                const option = document.createElement('option');
+                option.value = cert.file;
+                option.textContent = cert.name;
+                certSelect.appendChild(option);
+            });
+        }
+
+        certSelect.addEventListener('change', async (e) => {
+            if (e.target.value) {
+                try {
+                    const response = await fetch(`./data/${e.target.value}.json`);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${e.target.value}.json`);
+                    }
+                    const data = await response.json();
+                    startQuiz(data);
+                } catch (error) {
+                    console.error('Error loading quiz:', error);
+                    messageDiv.classList.add('show', 'info');
+                    messageDiv.innerHTML = `<strong>Error:</strong> Could not load quiz data. Make sure the JSON file exists.`;
+                }
+            } else {
+                quizSection.classList.remove('active');
+            }
+        });
+
+        function startQuiz(data) {
+            quizData[data.certification] = data.questions;
+            currentCertification = data.certification;
+            currentQuestionIndex = 0;
+            correctCount = 0;
+            answered = false;
+            quizSection.classList.add('active');
+            messageDiv.classList.remove('show');
+            showQuestion();
+        }
+
+        function showQuestion() {
+            answered = false;
+            nextBtn.classList.remove('show');
+            feedbackDiv.classList.remove('show');
+            optionsDiv.innerHTML = '';
+
+            const questions = quizData[currentCertification];
+            const currentQuestion = questions[currentQuestionIndex];
+
+            // Update progress
+            progressDiv.textContent = `Vraag ${currentQuestionIndex + 1} van ${questions.length}`;
+
+            // Show question
+            questionText.textContent = currentQuestion.question;
+
+            // Show options
+            currentQuestion.options.forEach((optionText, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.textContent = optionText;
+                optionDiv.addEventListener('click', () => selectAnswer(index, currentQuestion.correct));
+                optionsDiv.appendChild(optionDiv);
+            });
+        }
+
+        function selectAnswer(selectedIndex, correctIndex) {
+            if (answered) return;
+            answered = true;
+
+            const options = optionsDiv.querySelectorAll('.option');
+            const isCorrect = selectedIndex === correctIndex;
+
+            options.forEach((option, index) => {
+                if (index === selectedIndex) {
+                    option.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+                if (index === correctIndex && selectedIndex !== correctIndex) {
+                    option.classList.add('correct');
+                }
+                option.style.cursor = 'default';
+            });
+
+            const questions = quizData[currentCertification];
+            const currentQuestion = questions[currentQuestionIndex];
+
+            feedbackDiv.classList.add('show');
+            feedbackDiv.classList.add(isCorrect ? 'correct' : 'incorrect');
+            
+            if (isCorrect) {
+                correctCount++;
+                feedbackDiv.innerHTML = `✓ Correct! ${currentQuestion.explanation}`;
+            } else {
+                feedbackDiv.innerHTML = `✗ Fout. ${currentQuestion.explanation}`;
+            }
+
+            nextBtn.classList.add('show');
+        }
+
+        nextBtn.addEventListener('click', () => {
+            const questions = quizData[currentCertification];
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            } else {
+                showFinished();
+            }
+        });
+
+        function showFinished() {
+            const questions = quizData[currentCertification];
+            const percentage = Math.round((correctCount / questions.length) * 100);
+            
+            quizSection.classList.remove('active');
+            messageDiv.classList.add('show', 'info');
+            messageDiv.innerHTML = `
+                <strong>Quiz afgerond! 🎉</strong><br>
+                Je hebt ${correctCount} van de ${questions.length} vragen goed beantwoord (${percentage}%).
+                <br><br>
+                <button onclick="location.reload()" style="background: #3b82f6; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-family: inherit;">Opnieuw beginnen</button>
+            `;
+            
+            certSelect.value = '';
+        }
+
+        // ========== START ==========
+        initCertifications();
+    </script>
+</body>
+</html>
