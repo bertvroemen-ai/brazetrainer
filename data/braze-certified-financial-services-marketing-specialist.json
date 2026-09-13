@@ -1,31 +1,407 @@
 {
   "certification": "Braze Certified Financial Services Marketing Specialist",
-  "level": 1,
-  "totalQuestions": 2,
+  "level": 2,
+  "examDetails": {
+    "duration": "60 minutes",
+    "passingScore": "72%",
+    "totalQuestions": 30,
+    "questionTypes": [
+      "Multiple Choice",
+      "Multiple Select",
+      "True/False"
+    ]
+  },
+  "domains": {
+    "customerCentricStrategy": "25%",
+    "lifecycleMarketing": "25%",
+    "personalizationAndOmnichannel": "25%",
+    "trustAndCompliance": "15%",
+    "analyticsAndMeasurement": "10%"
+  },
   "questions": [
     {
       "id": 1,
-      "question": "Which two questions are essential to ask during the Data Activation Cycle's Audit phase, in which you map your existing data to your marketing objectives and identify gaps?",
+      "domain": "Customer-Centric Strategy",
+      "question": "What is the primary shift required in financial services marketing according to Braze methodology?",
       "options": [
-        "What data do we need to achieve our current marketing goals?",
-        "What technology is in place today, and where does our data currently reside?",
-        "What is the ideal tech stack and data flow for our business two years from now?",
-        "How will compliance and IT teams grant specific approvals?"
+        "From product-push to customer-centric lifecycle-based engagement",
+        "From digital to mobile-only marketing",
+        "From personalization to generic campaigns",
+        "From omnichannel to single-channel messaging"
       ],
       "correctAnswer": 0,
-      "explanation": "During the Audit phase, you ask what data is needed for goals and what technology/infrastructure currently exists to identify gaps."
+      "explanation": "Financial services must shift from one-time product pushes to ongoing, personalized lifecycle-based engagement centered on customer needs and moments."
     },
     {
       "id": 2,
-      "question": "A marketer is building an onboarding Canvas and wants to send a reminder about setting up direct deposit (high-value action) to new users who haven't completed it yet. What is the logical next step after the initial welcome message?",
+      "domain": "Lifecycle Marketing",
+      "question": "What are the foundational lifecycle stages in financial services customer engagement?",
       "options": [
-        "Attach a Decision Split filtered by direct_deposit_added event",
-        "Immediately attach an Experiment Paths component",
-        "Add a Context Variable to pull credit score data",
-        "Set Canvas Exit Criteria to trigger when user performs any custom event"
+        "Awareness and Interest only",
+        "Acquisition, Activation, Engagement, and Monetization",
+        "Acquisition and Retention only",
+        "Growth, Scale, and Expansion"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The foundational lifecycle stages are Acquisition (onboarding), Activation (first value moment), Engagement (ongoing interaction), and Monetization (revenue generation)."
+    },
+    {
+      "id": 3,
+      "domain": "Customer-Centric Strategy",
+      "question": "What is a critical force shaping customer engagement evolution in financial services?",
+      "options": [
+        "Only product features matter",
+        "Customers expect seamless, personalized experiences rivaling modern brands, with more choices than ever",
+        "Generic campaigns are most effective",
+        "Customers prefer transactional interactions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Digitization has reshaped financial services, creating customer expectations for seamless, personalized experiences with more competitive options available."
+    },
+    {
+      "id": 4,
+      "domain": "Trust and Compliance",
+      "question": "How should financial services brands balance personalization with customer privacy?",
+      "options": [
+        "Ignore privacy concerns",
+        "Never personalize to protect privacy",
+        "Use data-driven personalization while maintaining transparency and trust",
+        "Collect all possible customer data without restrictions"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Financial services must balance data-based personalization with customer privacy by being transparent about data usage and respecting customer preferences."
+    },
+    {
+      "id": 5,
+      "domain": "Personalization and Omnichannel",
+      "question": "What is Canvas in the context of financial services customer engagement?",
+      "options": [
+        "A document for planning purposes",
+        "A visual journey orchestration tool for building multi-step, cross-channel customer experiences",
+        "A payment processing system",
+        "A customer service ticketing system"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Canvas is Braze's journey orchestration tool that allows financial services brands to design multi-step, cross-channel experiences that route customers based on behavior and lifecycle stage."
+    },
+    {
+      "id": 6,
+      "domain": "Lifecycle Marketing",
+      "question": "What is the 'Aha! Moment' in a financial services customer journey?",
+      "options": [
+        "The moment a customer complains",
+        "The moment a customer first experiences the core value of your product or service",
+        "The moment marketing launches a campaign",
+        "The moment of product launch"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Aha! Moment is a critical behavioral milestone where customers experience and realize the core value proposition of your financial service."
+    },
+    {
+      "id": 7,
+      "domain": "Personalization and Omnichannel",
+      "question": "Which channels should be coordinated in an omnichannel financial services strategy? (Select 2)",
+      "options": [
+        "Email only",
+        "Push notifications",
+        "SMS and WhatsApp",
+        "Only in-app messaging"
+      ],
+      "correctAnswer": [1, 2],
+      "explanation": "Effective financial services engagement coordinates multiple channels including push, email, SMS, WhatsApp, and in-app messages within a single Canvas workflow."
+    },
+    {
+      "id": 8,
+      "domain": "Analytics and Measurement",
+      "question": "What is the top-line metric to focus on when measuring financial services engagement?",
+      "options": [
+        "Email open rates only",
+        "Click-through rates exclusively",
+        "Retention and activation as primary metrics",
+        "Total emails sent"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Primary measurement should focus on retention and activation as business outcomes, then break down conversion and channel performance by segment and lifecycle moment."
+    },
+    {
+      "id": 9,
+      "domain": "Trust and Compliance",
+      "question": "Why is timing critical in financial services messaging?",
+      "options": [
+        "It's not important",
+        "A relevant message at the wrong time erodes trust and can feel intrusive (e.g., payment reminder after due date)",
+        "Only timing for marketing campaigns matters",
+        "Customers don't notice timing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In financial services, poor timing can damage trust faster than generic messaging—payment reminders after due dates, offers mid-onboarding, or campaigns to active customers all erode confidence."
+    },
+    {
+      "id": 10,
+      "domain": "Lifecycle Marketing",
+      "question": "True or False: Financial services should always push products regardless of customer lifecycle stage.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "False. Effective lifecycle marketing tailors messaging to each stage—onboarding focuses on adoption, engagement focuses on retention, and monetization focuses on upsell/cross-sell."
+    },
+    {
+      "id": 11,
+      "domain": "Customer-Centric Strategy",
+      "question": "What customer expectation poses the biggest challenge for traditional financial services marketers?",
+      "options": [
+        "Complex products",
+        "Seamless, omnichannel experiences that meet or exceed modern digital brands",
+        "Transaction fees",
+        "Long approval times"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Modern financial services customers expect the same seamless, personalized omnichannel experiences they get from leading digital companies, not generic banking interactions."
+    },
+    {
+      "id": 12,
+      "domain": "Personalization and Omnichannel",
+      "question": "What does BrazeAI enable for financial services personalization?",
+      "options": [
+        "Only basic segmentation",
+        "Predictive churn detection, intelligent send-time optimization, and content personalization at the individual level",
+        "No personalization capabilities",
+        "Only demographic targeting"
+      ],
+      "correctAnswer": 1,
+      "explanation": "BrazeAI enables predictive insights like churn detection, automated send-time optimization, and individual-level content personalization for financial services customers."
+    },
+    {
+      "id": 13,
+      "domain": "Lifecycle Marketing",
+      "question": "What should be the focus of the Activation stage in financial services?",
+      "options": [
+        "Selling the most expensive products",
+        "Removing friction and helping customers experience core value for the first time",
+        "Maximizing email frequency",
+        "Only mobile app usage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Activation stage focuses on onboarding experience and helping customers reach their first moment of value in the financial service, not immediate sales."
+    },
+    {
+      "id": 14,
+      "domain": "Trust and Compliance",
+      "question": "How do frequency caps and quiet hours support financial services trust-building?",
+      "options": [
+        "They don't matter",
+        "They protect customer experience by preventing message overload and respecting customer preferences",
+        "They slow down sales",
+        "They're only for compliance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Frequency caps limit how often customers are contacted, and quiet hours stop messaging during specific times, both protecting the customer experience and building trust."
+    },
+    {
+      "id": 15,
+      "domain": "Analytics and Measurement",
+      "question": "What channel engagement metrics are important to track in financial services? (Select 2)",
+      "options": [
+        "Email open rates only",
+        "Click-through rates and in-app response rates",
+        "WhatsApp and SMS interaction rates",
+        "Only social media shares"
+      ],
+      "correctAnswer": [1, 2],
+      "explanation": "Important metrics include click-through rates, in-app engagement, WhatsApp interaction rates, and SMS response rates—they provide feedback loops to optimize journeys."
+    },
+    {
+      "id": 16,
+      "domain": "Customer-Centric Strategy",
+      "question": "What happens when financial services operate in silos (marketing, product, IT)?",
+      "options": [
+        "No negative impact",
+        "Customer experience reflects fragmentation—wrong timing, irrelevant offers, and eroded trust",
+        "Better performance",
+        "Faster execution"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Siloed operations lead to fragmented customer experiences with poor timing, irrelevant messages, and damaged trust—a customer-centric approach requires cross-functional alignment."
+    },
+    {
+      "id": 17,
+      "domain": "Lifecycle Marketing",
+      "question": "What is the Retention stage focus in financial services lifecycle?",
+      "options": [
+        "Initial onboarding only",
+        "Keeping customers engaged, reducing churn, and deepening relationships through ongoing value delivery",
+        "One-time transactions",
+        "Aggressive upselling"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Retention focuses on keeping customers engaged, providing ongoing value, preventing churn, and deepening relationships over time—not immediate revenue maximization."
+    },
+    {
+      "id": 18,
+      "domain": "Personalization and Omnichannel",
+      "question": "True or False: Action Paths in Canvas help visualize customer drop-offs and optimize high-performing routes.",
+      "options": [
+        "True",
+        "False"
       ],
       "correctAnswer": 0,
-      "explanation": "A Decision Split filtered by the custom event will separate users who completed the action from those who haven't, allowing targeted follow-up."
+      "explanation": "True. Action Paths visualize where customers drop off in journeys and which routes perform best, enabling financial services teams to optimize customer paths."
+    },
+    {
+      "id": 19,
+      "domain": "Trust and Compliance",
+      "question": "How should financial services reframe transactional interactions for better engagement?",
+      "options": [
+        "Make them more promotional",
+        "Transform them into engaging, two-way conversations rather than one-way alerts",
+        "Eliminate them",
+        "Automate without personalization"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Rather than sending impersonal alerts, financial services should reframe transactional messages as opportunities for two-way conversation and engagement."
+    },
+    {
+      "id": 20,
+      "domain": "Lifecycle Marketing",
+      "question": "What customer behaviors should trigger financial services engagement in the Monetization stage?",
+      "options": [
+        "All customers regardless of behavior",
+        "Behavioral triggers like app usage, product interest, and account activity that indicate readiness for upsell/cross-sell",
+        "Only high-net-worth individuals",
+        "Random selection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Monetization should use behavioral triggers and lifecycle signals to identify customers ready for relevant upsell, cross-sell, or deepened engagement opportunities."
+    },
+    {
+      "id": 21,
+      "domain": "Customer-Centric Strategy",
+      "question": "What framework connects every channel, lifecycle stage, and data point in financial services?",
+      "options": [
+        "Product roadmap",
+        "A deliberate customer experience strategy creating a coherent omnichannel experience",
+        "Marketing plan only",
+        "Sales pipeline"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A deliberate customer experience strategy connects every channel, lifecycle stage, and data point to create a cohesive omnichannel experience that builds trust and retention."
+    },
+    {
+      "id": 22,
+      "domain": "Analytics and Measurement",
+      "question": "What business outcomes should financial services track as engagement success indicators?",
+      "options": [
+        "Email metrics only",
+        "Real business outcomes like increased deposits, retention, revenue, and customer lifetime value",
+        "Marketing metrics only",
+        "Website traffic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Financial services should measure success by real business outcomes—deposit increases, retention improvements, revenue growth, and lifetime value—not just marketing metrics."
+    },
+    {
+      "id": 23,
+      "domain": "Personalization and Omnichannel",
+      "question": "How does customer journey mapping help financial services improve engagement? (Select 2)",
+      "options": [
+        "It identifies friction points and drop-offs",
+        "It optimizes message timing and personalization",
+        "It eliminates customer interaction",
+        "It helps understand customer behavior and emotions across lifecycle"
+      ],
+      "correctAnswer": [0, 3],
+      "explanation": "Journey mapping identifies friction points, helps understand behavior and emotions across touchpoints, and enables teams to optimize messaging and personalization for better outcomes."
+    },
+    {
+      "id": 24,
+      "domain": "Trust and Compliance",
+      "question": "What base should financial services messages use for personalization?",
+      "options": [
+        "Invasive personal inferences",
+        "Recent actions customers would expect you to use, avoiding sensitive assumptions",
+        "All available personal data",
+        "Only demographic information"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Financial services personalization should base on recent, expected actions (like purchase behavior) while avoiding sensitive inferences and explaining data usage transparently."
+    },
+    {
+      "id": 25,
+      "domain": "Lifecycle Marketing",
+      "question": "What specific financial services use cases are critical in the onboarding journey?",
+      "options": [
+        "Immediate product sales",
+        "Application approval, account setup, first transaction, and building initial trust",
+        "Only compliance checks",
+        "Payment collection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Financial services onboarding must guide customers through application approval, account setup, first transaction experience, and trust-building interactions."
+    },
+    {
+      "id": 26,
+      "domain": "Customer-Centric Strategy",
+      "question": "True or False: Product-first approach is still effective in modern financial services marketing.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "False. The product-first approach is obsolete. Modern financial services must be customer-first, understanding needs and building engagement around customer moments and lifecycle."
+    },
+    {
+      "id": 27,
+      "domain": "Personalization and Omnichannel",
+      "question": "What is conversion-based suppression in financial services messaging?",
+      "options": [
+        "Suppressing all messages",
+        "Automatically stopping campaigns once a customer completes the target action (purchase, signup, etc.)",
+        "Never sending followup messages",
+        "Deleting customer contacts"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Conversion-based suppression stops messaging to customers who have already completed the target action, preventing irrelevant messaging and building positive customer experience."
+    },
+    {
+      "id": 28,
+      "domain": "Analytics and Measurement",
+      "question": "How should financial services segment their measurement framework?",
+      "options": [
+        "All customers together",
+        "By segment and key lifecycle moments for deeper insight into what drives performance",
+        "Only by channel",
+        "No segmentation needed"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Measurement should be broken down by customer segment and key lifecycle moments (onboarding, activation, retention) to identify what drives success for each group."
+    },
+    {
+      "id": 29,
+      "domain": "Trust and Compliance",
+      "question": "Why should financial services avoid over-personalization in messaging?",
+      "options": [
+        "It's always fine",
+        "Customers feel privacy invasion, not value—helpful, recent-action-based messaging beats hyper-specific inferences",
+        "Personalization is bad",
+        "Customers don't like being recognized"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Helpful, relevant messaging based on recent actions builds trust, while overly specific or invasive personalization based on sensitive inferences damages customer relationships."
+    },
+    {
+      "id": 30,
+      "domain": "Lifecycle Marketing",
+      "question": "What is the purpose of behavioral triggers in financial services Canvas journeys?",
+      "options": [
+        "To delay customer engagement",
+        "To initiate relevant, timely messaging based on specific customer actions and lifecycle signals",
+        "To prevent customer communication",
+        "Only for compliance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Behavioral triggers automatically initiate timely, relevant messaging when customers take specific actions or reach certain lifecycle moments, enabling real-time personalized engagement."
     }
   ]
 }
