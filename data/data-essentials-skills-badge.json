@@ -1,0 +1,31 @@
+{
+  "certification": "Data Essentials Skills Badge",
+  "level": 1,
+  "totalQuestions": 2,
+  "questions": [
+    {
+      "id": 1,
+      "question": "An eCommerce company wants to perform a one-time export of segment data to analyze it manually in a spreadsheet. Which export method is best suited for this scenario?",
+      "options": [
+        "CSV",
+        "REST API",
+        "Currents",
+        "Snowflake Data Sharing"
+      ],
+      "correctAnswer": 0,
+      "explanation": "CSV is the best choice for one-time exports of segment data that will be analyzed in spreadsheets."
+    },
+    {
+      "id": 2,
+      "question": "Before deleting a custom event or attribute, what must be done first?",
+      "options": [
+        "The event or attribute must be marked as inactive for a month before deletion",
+        "The event or attribute must be exported for backup before it can be deleted",
+        "The event or attribute's status must be trashed for seven days",
+        "The event or attribute can be deleted immediately"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Custom events or attributes must be marked as inactive for a month before they can be permanently deleted from Braze."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "certification": "Braze Certified Email Deliverability Fundamentals",
+  "level": 1,
+  "totalQuestions": 2,
+  "questions": [
+    {
+      "id": 1,
+      "question": "What are three ways a brand can resolve low email engagement?",
+      "options": [
+        "Send generalized promotions to cast a wide net",
+        "Remove all inactive users from the email list",
+        "Segment email list to engage only loyal and active users",
+        "Ensure explicit consent is obtained from users before sending"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Segmenting the email list to engage specifically with loyal and active users helps improve overall engagement metrics."
+    },
+    {
+      "id": 2,
+      "question": "What is the Braze Query Builder?",
+      "options": [
+        "A tool to see overall frequency and location of clicks within the campaign lifespan",
+        "A high-volume data export tool for granular and comprehensive data view",
+        "A robust data export tool allowing custom SQL queries for bespoke questions",
+        "A data export tool with every individual send, open, click, bounce event"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Braze Query Builder is a robust data export tool that allows you to use custom SQL queries to ask specific questions about your data."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "certification": "Braze Certified Financial Services Marketing Specialist",
+  "level": 1,
+  "totalQuestions": 2,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which two questions are essential to ask during the Data Activation Cycle's Audit phase, in which you map your existing data to your marketing objectives and identify gaps?",
+      "options": [
+        "What data do we need to achieve our current marketing goals?",
+        "What technology is in place today, and where does our data currently reside?",
+        "What is the ideal tech stack and data flow for our business two years from now?",
+        "How will compliance and IT teams grant specific approvals?"
+      ],
+      "correctAnswer": 0,
+      "explanation": "During the Audit phase, you ask what data is needed for goals and what technology/infrastructure currently exists to identify gaps."
+    },
+    {
+      "id": 2,
+      "question": "A marketer is building an onboarding Canvas and wants to send a reminder about setting up direct deposit (high-value action) to new users who haven't completed it yet. What is the logical next step after the initial welcome message?",
+      "options": [
+        "Attach a Decision Split filtered by direct_deposit_added event",
+        "Immediately attach an Experiment Paths component",
+        "Add a Context Variable to pull credit score data",
+        "Set Canvas Exit Criteria to trigger when user performs any custom event"
+      ],
+      "correctAnswer": 0,
+      "explanation": "A Decision Split filtered by the custom event will separate users who completed the action from those who haven't, allowing targeted follow-up."
+    }
+  ]
+}

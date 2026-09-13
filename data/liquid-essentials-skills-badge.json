@@ -1,0 +1,30 @@
+{
+  "certification": "Liquid Essentials Skills Badge",
+  "level": 1,
+  "totalQuestions": 2,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Liquid syntax format is used to indicate a dynamic object?",
+      "options": [
+        "{% %}",
+        "\" \"",
+        "${}"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The ${} syntax is used in Liquid to indicate a dynamic object that will be replaced with personalization data."
+    },
+    {
+      "id": 2,
+      "question": "What element in the following catalog call is used to identify the catalog item within the corresponding Braze catalog? {% catalog_items Summer_Menu_2025 spicychickensandwich %} [items[0].Product_Name] [[items[0].Product_Price]]]",
+      "options": [
+        "{% catalog_items Summer_Menu_2025 %}",
+        "Summer_Menu_2025",
+        "spicychickensandwich",
+        "[items[0].Product_Name]"
+      ],
+      "correctAnswer": 2,
+      "explanation": "spicychickensandwich is the catalog item identifier used to access the specific item from the Summer_Menu_2025 catalog."
+    }
+  ]
+}

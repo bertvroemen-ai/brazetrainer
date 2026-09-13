@@ -1,0 +1,31 @@
+{
+  "certification": "BrazeAI™ Skills Badge",
+  "level": 1,
+  "totalQuestions": 2,
+  "questions": [
+    {
+      "id": 1,
+      "question": "You are conducting an A/B test and need to create six different subject lines for testing. Which feature can you use to expedite the content generation process?",
+      "options": [
+        "AI Copywriting Assistant",
+        "Predictive Churn",
+        "Intelligent Timing",
+        "Intelligent Channel"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The AI Copywriting Assistant helps expedite content generation by creating multiple subject line variations quickly."
+    },
+    {
+      "id": 2,
+      "question": "Which of the following statements about Winning Variant analytics is true?",
+      "options": [
+        "Any confidence score below 100% is not statistically meaningful",
+        "The Winning Variant tab shows results of the best-performing variant from the first send",
+        "The Initial Test tab displays results of the second send, delivering the top variant to remaining audience",
+        "The Winner label identifies the best-performing variant after the initial send"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Winning Variant tab displays the results of the best-performing variant from the initial send in the A/B test."
+    }
+  ]
+}
