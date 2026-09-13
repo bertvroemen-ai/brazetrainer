@@ -1,31 +1,405 @@
 {
   "certification": "Braze Certified Email Deliverability Fundamentals",
   "level": 1,
-  "totalQuestions": 2,
+  "examDetails": {
+    "duration": "60 minutes",
+    "passingScore": "80%",
+    "totalQuestions": 30,
+    "questionTypes": [
+      "Multiple Choice",
+      "Multiple Select",
+      "True/False"
+    ]
+  },
+  "domains": {
+    "emailOptInAndConsent": "17%",
+    "ipWarming": "27%",
+    "holidayEmailDeliverability": "16%",
+    "emailListHygiene": "20%",
+    "monitoringAndPerformance": "20%"
+  },
   "questions": [
     {
       "id": 1,
-      "question": "What are three ways a brand can resolve low email engagement?",
+      "domain": "Email Opt-In and Consent",
+      "question": "What is double opt-in and why is it important for email deliverability?",
       "options": [
-        "Send generalized promotions to cast a wide net",
-        "Remove all inactive users from the email list",
-        "Segment email list to engage only loyal and active users",
-        "Ensure explicit consent is obtained from users before sending"
+        "Sending two emails to the same recipient",
+        "Requiring users to confirm their email address and intent to receive emails, reducing fake signups and improving sender reputation",
+        "A method to increase email frequency",
+        "Only required for marketing emails"
       ],
-      "correctAnswer": 2,
-      "explanation": "Segmenting the email list to engage specifically with loyal and active users helps improve overall engagement metrics."
+      "correctAnswer": 1,
+      "explanation": "Double opt-in confirms that subscribers actually want your emails by requiring them to validate their email address and consent, reducing fake sign-ups and spam complaints."
     },
     {
       "id": 2,
-      "question": "What is the Braze Query Builder?",
+      "domain": "Email Opt-In and Consent",
+      "question": "True or False: You can send marketing emails to a list of purchased email addresses as long as you use Braze.",
       "options": [
-        "A tool to see overall frequency and location of clicks within the campaign lifespan",
-        "A high-volume data export tool for granular and comprehensive data view",
-        "A robust data export tool allowing custom SQL queries for bespoke questions",
-        "A data export tool with every individual send, open, click, bounce event"
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "False. Purchased email lists are against Braze's Acceptable Use Policy. Using them will harm your sender reputation and deliverability."
+    },
+    {
+      "id": 3,
+      "domain": "IP Warming",
+      "question": "How long does a typical IP warming process take?",
+      "options": [
+        "1-2 weeks",
+        "4-6 weeks, though it can take longer depending on volume and list hygiene",
+        "1 year minimum",
+        "2-3 months"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A standard IP warming typically takes 4-6 weeks, but duration depends on your planned monthly volume, mailing frequency, and overall email list quality."
+    },
+    {
+      "id": 4,
+      "domain": "IP Warming",
+      "question": "Which audience should you prioritize when starting IP warming?",
+      "options": [
+        "Your entire email list to maximize impact",
+        "Your most active, opted-in audience, then gradually add less-engaged contacts",
+        "Random users from your list",
+        "Only new subscribers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Start with your most active and engaged opted-in subscribers to establish positive sender reputation, then gradually add less-engaged contacts as your IP demonstrates healthy performance."
+    },
+    {
+      "id": 5,
+      "domain": "IP Warming",
+      "question": "What is the acceptable bounce rate threshold when evaluating IP warming performance?",
+      "options": [
+        "Under 1%",
+        "Under 3-5%",
+        "Under 10%",
+        "Under 15%"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Bounce rates should stay under 3-5%. If your campaigns exceed this, you should evaluate your list cleanliness and consider implementing a sunset policy."
+    },
+    {
+      "id": 6,
+      "domain": "Monitoring and Performance",
+      "question": "What spam report rate indicates a potential deliverability problem?",
+      "options": [
+        "Any spam report is a problem",
+        "More than 0.08%",
+        "More than 0.5%",
+        "More than 1%"
+      ],
+      "correctAnswer": 1,
+      "explanation": "If spam reports exceed 0.08%, you should re-evaluate your content, ensure proper targeting, and verify that your messaging appeals to your audience."
+    },
+    {
+      "id": 7,
+      "domain": "Monitoring and Performance",
+      "question": "What open rate typically indicates good inbox placement?",
+      "options": [
+        "Over 10%",
+        "Over 15%",
+        "Over 25%",
+        "Over 50%"
       ],
       "correctAnswer": 2,
-      "explanation": "The Braze Query Builder is a robust data export tool that allows you to use custom SQL queries to ask specific questions about your data."
+      "explanation": "Unique open rates over 25% indicate strong inbox placement and a positive sender reputation with mailbox providers."
+    },
+    {
+      "id": 8,
+      "domain": "Email List Hygiene",
+      "question": "What is a sunset policy in email marketing?",
+      "options": [
+        "Sending emails only at sunset time",
+        "Stopping emails to unengaged or dormant addresses to maintain list health",
+        "A time-limited email campaign",
+        "Restricting emails to a certain hour of day"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A sunset policy removes unengaged or dormant email addresses from your list after a period of inactivity, maintaining list quality and sender reputation."
+    },
+    {
+      "id": 9,
+      "domain": "Email List Hygiene",
+      "question": "Why is email address validation important?",
+      "options": [
+        "It's not important",
+        "It reduces bounce rates and improves deliverability by removing invalid addresses",
+        "It increases email volume",
+        "It's only needed for large lists"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Validating email addresses at sign-up removes misspelled or invalid addresses, reducing bounces and maintaining a healthy list for better deliverability."
+    },
+    {
+      "id": 10,
+      "domain": "Email List Hygiene",
+      "question": "True or False: Separating transactional emails from marketing emails is a best practice.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "True. Many ISPs treat transactional and marketing emails differently, so separating them helps maintain sender reputation and improves deliverability for both types."
+    },
+    {
+      "id": 11,
+      "domain": "Holiday Email Deliverability",
+      "question": "Why is the holiday season critical for email sender reputation?",
+      "options": [
+        "It's not critical",
+        "Holiday season can significantly impact your sender reputation and requires careful IP warming strategy to avoid spam folder placement",
+        "Only for retail brands",
+        "Email volume doesn't matter during holidays"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The holiday season involves high email volume which can damage sender reputation if not managed carefully with proper IP warming and best practices."
+    },
+    {
+      "id": 12,
+      "domain": "Holiday Email Deliverability",
+      "question": "What should you do if you're early in IP warming and seeing poor engagement?",
+      "options": [
+        "Increase volume immediately",
+        "Pause, cleanse your list, and reassess your approach",
+        "Continue with more aggressive sending",
+        "Switch to a different IP address"
+      ],
+      "correctAnswer": 1,
+      "explanation": "If early IP warming shows poor metrics, pause and evaluate your list quality, remove disengaged users, and fix any underlying issues before continuing."
+    },
+    {
+      "id": 13,
+      "domain": "Email Opt-In and Consent",
+      "question": "According to new Gmail and Yahoo requirements, what is essential for email authentication?",
+      "options": [
+        "No authentication is needed",
+        "Proper SPF, DKIM, and DMARC authentication to verify sender identity",
+        "Only domain verification",
+        "Only IP address verification"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Gmail and Yahoo now require proper email authentication (SPF, DKIM, DMARC) to verify that you are the legitimate sender and improve inbox placement."
+    },
+    {
+      "id": 14,
+      "domain": "Monitoring and Performance",
+      "question": "Should you use Braze's Intelligent Timing feature during IP warming?",
+      "options": [
+        "Yes, it optimizes delivery",
+        "No, Braze recommends against using Intelligent Timing during IP warming",
+        "Only for the first week",
+        "Only for the first month"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze recommends against using Intelligent Timing during IP warming to avoid unpredictable sending patterns that could harm reputation building."
+    },
+    {
+      "id": 15,
+      "domain": "Email List Hygiene",
+      "question": "What are common effective ways to clean your email list? (Select 2)",
+      "options": [
+        "Sunsetting unengaged users",
+        "Removing all users who haven't opened an email",
+        "Validating email addresses at sign-up",
+        "Purchasing additional email addresses"
+      ],
+      "correctAnswer": [0, 2],
+      "explanation": "List cleaning includes sunsetting unengaged users and validating addresses at sign-up. Purchasing lists violates policies. Removing all non-openers is too aggressive."
+    },
+    {
+      "id": 16,
+      "domain": "IP Warming",
+      "question": "What does it mean if your IP is throttled by an ISP?",
+      "options": [
+        "Your emails are delivered faster",
+        "Your email delivery is intentionally delayed or limited by the ISP due to reputation concerns",
+        "No impact on delivery",
+        "Your emails are automatically archived"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Throttling occurs when an ISP slows down or limits your email delivery due to negative reputation signals, often caused by poor list quality or high bounce rates."
+    },
+    {
+      "id": 17,
+      "domain": "Email Opt-In and Consent",
+      "question": "What benefit comes from asking subscribers to add your sender address to their contacts?",
+      "options": [
+        "It increases email volume",
+        "It improves sender reputation and increases inbox placement chances",
+        "It has no impact",
+        "It removes them from unsubscribe lists"
+      ],
+      "correctAnswer": 1,
+      "explanation": "When subscribers add your address to their contacts, it signals positive engagement to ISPs and improves your sender reputation and inbox placement."
+    },
+    {
+      "id": 18,
+      "domain": "Email List Hygiene",
+      "question": "True or False: Misspelled email addresses don't significantly impact deliverability.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "False. Misspelled addresses cause bounces which harm your sender reputation. They should be caught during sign-up validation and removed from lists."
+    },
+    {
+      "id": 19,
+      "domain": "Holiday Email Deliverability",
+      "question": "What is the primary reason holiday email campaigns can jeopardize sender reputation?",
+      "options": [
+        "Holiday emails are different",
+        "High volume without proper IP warming strategy and list quality can lead to spam folder placement",
+        "Only retail brands send holiday emails",
+        "Holiday emails use different authentication"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Holiday campaigns send high volumes which, without proper planning and IP warming, can damage reputation and result in spam folder placement."
+    },
+    {
+      "id": 20,
+      "domain": "Monitoring and Performance",
+      "question": "What do ISPs use to determine email placement decisions?",
+      "options": [
+        "Only sender name",
+        "Sender reputation, opt-in method, authentication, and user engagement signals",
+        "Only email frequency",
+        "Random selection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "ISPs evaluate sender reputation, whether recipients opted in, proper authentication, and past engagement to decide inbox vs. spam placement."
+    },
+    {
+      "id": 21,
+      "domain": "Email List Hygiene",
+      "question": "What does 'list hygiene' mean in email marketing?",
+      "options": [
+        "Cleaning your email template",
+        "Maintaining a valid, engaged, and properly consented email list",
+        "Only deleting old emails",
+        "Never adding new subscribers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "List hygiene involves keeping your email list clean with valid addresses, active users, proper consent, and removing disengaged subscribers."
+    },
+    {
+      "id": 22,
+      "domain": "IP Warming",
+      "question": "What root causes should you address if IP warming isn't progressing well? (Select 2)",
+      "options": [
+        "Poor list quality and disengaged subscribers",
+        "Template issues and broken links",
+        "Sending too few emails",
+        "Not using enough automation"
+      ],
+      "correctAnswer": [0, 1],
+      "explanation": "Poor list quality, disengaged users, template issues, broken links, and sending frequency all impact IP warming. More emails or automation won't help if fundamentals are broken."
+    },
+    {
+      "id": 23,
+      "domain": "Email Opt-In and Consent",
+      "question": "What do Gmail and Yahoo's 2025 rules emphasize regarding email sending?",
+      "options": [
+        "No changes from previous rules",
+        "Authentication, list hygiene, and respecting unsubscribe requests to improve spam complaint handling",
+        "Higher email volume",
+        "Less consent requirements"
+      ],
+      "correctAnswer": 1,
+      "explanation": "New rules from Gmail and Yahoo emphasize proper authentication, maintaining clean lists, and respecting unsubscribe and spam complaint requests."
+    },
+    {
+      "id": 24,
+      "domain": "Monitoring and Performance",
+      "question": "What key metrics should you monitor during IP warming?",
+      "options": [
+        "Only open rates",
+        "Bounce rates, spam reports, open rates, and engagement signals",
+        "Only list size",
+        "Only send volume"
+      ],
+      "correctAnswer": 1,
+      "explanation": "During IP warming, monitor bounce rates (should be under 3-5%), spam reports (under 0.08%), and open rates (ideally over 25%) to assess sender reputation."
+    },
+    {
+      "id": 25,
+      "domain": "Email List Hygiene",
+      "question": "True or False: You should send emails equally to both engaged and inactive subscribers.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "False. You should prioritize recently opted-in and engaged users, and avoid repeatedly mailing inactive addresses to maintain list quality and engagement."
+    },
+    {
+      "id": 26,
+      "domain": "IP Warming",
+      "question": "What indicates that low engagement during early IP warming might require a reset?",
+      "options": [
+        "Any send",
+        "IP warming is always linear with no setbacks",
+        "Poor engagement or metrics that don't meet expectations in early stages",
+        "Never happens"
+      ],
+      "correctAnswer": 2,
+      "explanation": "If early IP warming shows poor engagement or unexpected metrics, you may need to pause, cleanse your list, and reassess before continuing."
+    },
+    {
+      "id": 27,
+      "domain": "Holiday Email Deliverability",
+      "question": "Why is planning an effective holiday IP warming strategy important?",
+      "options": [
+        "It's not important",
+        "To ensure high email volume during holidays doesn't damage sender reputation and cause spam folder placement",
+        "Only for new senders",
+        "Only for seasonal businesses"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Holiday seasons see high email volume from all senders, making proper IP warming critical to prevent your emails from being flagged as spam or throttled."
+    },
+    {
+      "id": 28,
+      "domain": "Email Opt-In and Consent",
+      "question": "How does consent management impact email deliverability?",
+      "options": [
+        "It doesn't impact deliverability",
+        "Proper consent reduces spam complaints and improves sender reputation with ISPs",
+        "It only affects unsubscribes",
+        "Consent is only for compliance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Proper consent management reduces spam complaints and signals to ISPs that your recipients want your emails, improving reputation and inbox placement."
+    },
+    {
+      "id": 29,
+      "domain": "Monitoring and Performance",
+      "question": "What should you do if you see a spike in spam complaints?",
+      "options": [
+        "Continue sending normally",
+        "Re-evaluate content, verify targeting to interested audiences, and check email wording to improve relevance",
+        "Send more emails",
+        "Change your sender name"
+      ],
+      "correctAnswer": 1,
+      "explanation": "High spam complaints indicate content or targeting issues. Re-evaluate your messaging and audience targeting to improve relevance and reduce complaints."
+    },
+    {
+      "id": 30,
+      "domain": "Email List Hygiene",
+      "question": "What is the relationship between list hygiene and sender reputation?",
+      "options": [
+        "There is no relationship",
+        "Poor list hygiene (low engagement, invalid addresses) damages reputation; clean lists improve it",
+        "List hygiene only affects read rates",
+        "Sender reputation is unrelated to list quality"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A clean, engaged email list with valid addresses and proper consent signals trustworthiness to ISPs, building positive sender reputation and improving inbox placement."
     }
   ]
 }
