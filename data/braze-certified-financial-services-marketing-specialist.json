@@ -304,14 +304,14 @@
     {
       "id": 23,
       "domain": "Personalization and Omnichannel",
-      "question": "How does customer journey mapping help financial services improve engagement? (Select 2)",
+      "question": "How does customer journey mapping help financial services improve engagement? (Select 3)",
       "options": [
         "It identifies friction points and drop-offs",
         "It optimizes message timing and personalization",
         "It eliminates customer interaction",
         "It helps understand customer behavior and emotions across lifecycle"
       ],
-      "correctAnswer": [0, 3],
+      "correctAnswer": [0, 1, 3],
       "explanation": "Journey mapping identifies friction points, helps understand behavior and emotions across touchpoints, and enables teams to optimize messaging and personalization for better outcomes."
     },
     {
