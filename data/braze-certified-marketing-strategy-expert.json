@@ -1,31 +1,367 @@
 {
   "certification": "Braze Certified Marketing Strategy Expert",
   "level": 3,
-  "totalQuestions": 2,
+  "examType": "multiple-choice",
+  "totalQuestions": 30,
+  "passingScore": 76,
   "questions": [
     {
       "id": 1,
-      "question": "You launched an email campaign and the delivery rate is 70%. Which step should you take first to troubleshoot?",
+      "question": "When developing a data strategy for your brand, which of the following represents the highest level of customer engagement maturity?",
       "options": [
-        "Export bounce reasons from Campaign Analytics",
-        "Check segmentation filters for unengaged emails",
-        "Leverage Message Activity Log to identify hard bounces",
-        "Change your sending domain immediately"
+        "Collecting first-party data from website analytics and purchase history only",
+        "Using a combination of zero-party data, first-party data, and behavioral signals in real-time with explicit customer communication about data usage",
+        "Acquiring third-party data from external vendors to supplement your audience insights",
+        "Focusing exclusively on transactional data for campaign triggering"
       ],
-      "correctAnswer": 0,
-      "explanation": "Exporting bounce reasons from Campaign Analytics helps identify why messages aren't being delivered and provides actionable data."
+      "correctAnswer": 1,
+      "explanation": "The highest maturity level combines zero-party (intentional customer sharing), first-party (direct brand interactions), and behavioral data with real-time processing and transparency, enabling true personalization at scale while respecting privacy-first principles."
     },
     {
       "id": 2,
-      "question": "Your users have different preferences when engaging with messages. What should you use to ensure delivery at optimal times?",
+      "question": "A brand is experiencing declining customer lifetime value (CLV) despite steady acquisition numbers. Which RFM-based strategy should be prioritized to address this?",
       "options": [
-        "Predictive Analytics",
-        "Intelligent Timing",
-        "Manual scheduling by timezone",
-        "Random send times for testing"
+        "Invest in acquiring new high-frequency purchasers to replace declining customers",
+        "Focus retention efforts on high-recency, high-frequency customers showing signs of declining monetary value through targeted upsell and cross-sell campaigns",
+        "Immediately implement aggressive discounting to all inactive segments",
+        "Reallocate budget from retention to acquisition to maintain revenue growth"
       ],
       "correctAnswer": 1,
-      "explanation": "Intelligent Timing analyzes user behavior to determine the optimal time to send each user a message when they're most likely to engage."
+      "explanation": "RFM analysis reveals that retention and upsell of existing engaged customers is more cost-effective than acquisition. High-recency, high-frequency customers are at risk of churn when monetary value declines—targeted lifecycle interventions can reverse this trend."
+    },
+    {
+      "id": 3,
+      "question": "When designing a Canvas journey for a win-back campaign, which decision point is most critical for measuring success?",
+      "options": [
+        "The number of variants tested in the initial message",
+        "Identifying the specific behavior or duration that defines 'lapsed' within your customer lifecycle, then measuring re-engagement rate among that cohort",
+        "Setting the same frequency cap across all channels to avoid message fatigue",
+        "Using the highest-volume channel for all win-back touchpoints"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Defining lapsed behavior (e.g., no purchase in 90 days) is foundational for segmentation accuracy. Success metrics should measure re-engagement lift against the baseline churn rate for that cohort, allowing strategic optimization."
+    },
+    {
+      "id": 4,
+      "question": "Your brand is planning a multivariate test with 6 variants across subject line, image, and CTA color. What is the primary consideration before launching?",
+      "options": [
+        "Ensure at least 95% confidence interval is achieved within 48 hours of send",
+        "Calculate minimum required sample size—roughly 15,000 users per variant to achieve statistical significance",
+        "Launch to your entire audience to maximize data collection speed",
+        "Use randomized bucket assignment without a control group to test efficiency"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Multivariate tests require larger sample sizes than A/B tests because multiple variants dilute per-variant audience. Approximately 15,000 users per variant (including control) is the industry standard to achieve 95% confidence, preventing false positives."
+    },
+    {
+      "id": 5,
+      "question": "A marketer is torn between using a Canvas with Experiment Paths versus creating separate A/B test campaigns. When is Experiment Paths the better choice for a strategic perspective?",
+      "options": [
+        "When testing a single variable in isolation",
+        "When you need to test different orchestration strategies or multi-step journeys where user experience varies across variants",
+        "When you want faster statistical significance results",
+        "When your audience size is less than 50,000 users"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Experiment Paths in Canvas allow testing of complete customer journey variations, not just single message elements. This is strategically superior for testing orchestration strategies, timing sequences, and cross-channel combinations that affect overall CLV."
+    },
+    {
+      "id": 6,
+      "question": "Which zero-party data collection method is most effective for identifying cross-sell and upsell opportunities in a retention strategy?",
+      "options": [
+        "Email signup preference centers",
+        "Post-purchase product satisfaction surveys that capture unmet needs and product interests",
+        "Website behavioral tracking pixels",
+        "Demographic data from third-party data providers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Post-purchase surveys reveal explicit customer intent and unmet needs, enabling targeted cross-sell and upsell messaging. Zero-party data directly from customers is more actionable than inferred behavioral data for expansion revenue."
+    },
+    {
+      "id": 7,
+      "question": "An eCommerce brand wants to calculate CLV to inform budget allocation between acquisition and retention. What formula would a strategist use?",
+      "options": [
+        "Total annual revenue ÷ number of customers",
+        "Average order value × average purchase frequency × average customer lifespan in years",
+        "Customer acquisition cost × customer churn rate",
+        "Total lifetime orders ÷ months since first purchase"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CLV is calculated by multiplying average revenue per user (AOV × frequency) by the expected customer lifespan. This metric directly informs profitable retention spend—if CLV is $500, spending $50 to retain that customer is strategically sound."
+    },
+    {
+      "id": 8,
+      "question": "A strategist is implementing Cloud Data Ingestion (CDI) to connect warehouse data for segmentation. What is the primary strategic advantage of zero-copy segmentation?",
+      "options": [
+        "It eliminates the need for a data warehouse entirely",
+        "It allows real-time audience building from warehouse data without duplicating data into Braze, reducing latency and infrastructure costs",
+        "It enables third-party data activation",
+        "It replaces the need for API integration"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Zero-copy segmentation queries warehouse data in place for audience building, then syncs only minimal data needed for triggers. This reduces data redundancy, improves freshness, and enables scale without bloating Braze's infrastructure."
+    },
+    {
+      "id": 9,
+      "question": "When should a strategist recommend moving from batch-triggered campaigns to real-time, event-based Canvas journeys?",
+      "options": [
+        "Only for high-frequency digital channels like push notifications",
+        "When customer behavior changes rapidly and time-sensitive moments exist (e.g., abandoned cart, browsing behavior) where immediacy directly impacts conversion",
+        "When your email program needs optimization",
+        "Never—batch campaigns are always more efficient"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Real-time Canvas journeys capture moment-of-truth interactions (abandoned carts, browsing, wish list additions) when customer intent is highest. This drives higher conversion rates and CLV than delayed batch processing."
+    },
+    {
+      "id": 10,
+      "question": "A brand identifies three lifecycle segments: Active, At-Risk, and Lapsed based on engagement and purchase behavior. Which Canvas strategy maximizes retention ROI?",
+      "options": [
+        "Send identical messaging to all three segments to maintain brand consistency",
+        "Create separate Canvas journeys tailored to each segment's pain points: Active (expansion/loyalty), At-Risk (re-engagement), Lapsed (win-back with incentive)",
+        "Focus all budget on the Lapsed segment because they have the highest upside potential",
+        "Use a single campaign sent on the same schedule for all segments"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Lifecycle-specific journeys address each segment's unique needs. Active customers need loyalty and upsell; At-Risk need re-engagement triggers; Lapsed need compelling win-back. This targeted approach maximizes conversion probability and ROI versus generic messaging."
+    },
+    {
+      "id": 11,
+      "question": "A strategist must choose between Intelligent Selection and traditional A/B testing for a recurring campaign. When would Intelligent Selection be strategically superior?",
+      "options": [
+        "When you need to test a single variable",
+        "When the campaign runs repeatedly and traffic patterns are consistent, allowing the algorithm to continuously optimize toward the best variant and reduce exposure to underperforming variants",
+        "When you have limited audience size",
+        "Never—traditional A/B testing is always more rigorous"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Selection continuously refines variant selection based on performance, reducing wasted impressions on poor performers and accelerating top-performer adoption. For recurring campaigns, this delivers faster optimization and better overall campaign ROI."
+    },
+    {
+      "id": 12,
+      "question": "What is the strategic implication of a test achieving 95% confidence versus 85% confidence?",
+      "options": [
+        "85% confidence is acceptable for high-volume campaigns; 95% is unnecessary",
+        "95% confidence (p < 0.05) statistically proves the variant differences are real and not due to chance, whereas 85% carries a 15% risk of false positive decision-making",
+        "Confidence only measures campaign velocity, not validity",
+        "85% and 95% are interchangeable thresholds"
+      ],
+      "correctAnswer": 1,
+      "explanation": "95% confidence is the statistical standard across scientific research and marketing. Operating below this threshold risks rolling out underperforming variants based on random variation rather than true performance differences—a costly strategic error."
+    },
+    {
+      "id": 13,
+      "question": "A strategist wants to optimize frequency across a multi-channel lifecycle journey (email, SMS, push). What is the best approach to prevent message fatigue while maintaining engagement?",
+      "options": [
+        "Set the same frequency cap across all channels to ensure consistency",
+        "Analyze channel-specific engagement curves and set individual frequency caps per segment and channel, monitoring unsubscribe/opt-out rates as a key metric",
+        "Remove frequency caps entirely to maximize reach",
+        "Only send on the customer's preferred channel"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Channels have different tolerance thresholds (SMS < email < push typically). Segment-level analysis reveals optimal frequency per channel, preventing fatigue while maintaining lifecycle engagement. Unsubscribe rates are a leading indicator of excessive frequency."
+    },
+    {
+      "id": 14,
+      "question": "A strategist is designing a predictive analytics strategy for churn. What type of model would most effectively identify at-risk customers for proactive retention?",
+      "options": [
+        "Linear regression of historical purchase amounts",
+        "Machine learning classification model trained on engagement, recency, and transactional signals to predict churn probability, enabling targeted interventions before actual churn occurs",
+        "Manual review of individual customer accounts",
+        "RFM segmentation alone without predictive modeling"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Predictive churn models identify at-risk customers before they leave, enabling preemptive retention interventions. This is strategically superior to reactive win-back because it captures customers at a higher re-engagement probability with lower cost per save."
+    },
+    {
+      "id": 15,
+      "question": "When should a strategist recommend Catalog integration for dynamic product recommendations in Canvas journeys?",
+      "options": [
+        "Only for product-focused businesses like eCommerce",
+        "Anytime you want to dynamically insert product names, images, and prices based on customer browsing/purchase history into messages for personalized recommendations or back-in-stock notifications",
+        "Never—static product lists are simpler and more efficient",
+        "Only for email channel messaging"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Catalogs enable dynamic, 1:1 personalization of product recommendations based on real customer behavior (browsing, wishlist, purchase history). This drives higher cross-sell and upsell conversion compared to static product messaging."
+    },
+    {
+      "id": 16,
+      "question": "A strategist is building attribution modeling for a multi-touch campaign. Which approach best reflects true marketing impact for budget allocation decisions?",
+      "options": [
+        "Last-click attribution (credit the final touchpoint only)",
+        "First-click attribution (credit the awareness channel only)",
+        "Multi-touch attribution that assigns partial credit to each customer touchpoint based on contribution to conversion, enabling accurate budget allocation across channels",
+        "Even-weight attribution distributing equal credit regardless of touchpoint timing"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Multi-touch attribution reveals the true contribution of each channel across the customer journey. This enables strategic budget reallocation from undercontributing channels to high-impact touchpoints, improving overall marketing ROI and efficiency."
+    },
+    {
+      "id": 17,
+      "question": "A strategist wants to measure the true business impact of retention campaigns. What metric combination would provide the most complete strategic view?",
+      "options": [
+        "Email open rate and click-through rate only",
+        "Retention rate lift + revenue impact (repeat purchase value) + customer lifetime value increase",
+        "Campaign conversion rate only",
+        "Number of messages sent"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Retention strategy success requires measuring behavioral retention (did they come back?), financial impact (did they spend more?), and long-term value impact (did CLV increase?). These metrics together demonstrate true business value beyond surface-level engagement."
+    },
+    {
+      "id": 18,
+      "question": "When planning a cohort analysis strategy, what is the primary strategic value?",
+      "options": [
+        "Identifying which individual customers purchased",
+        "Tracking behavior changes within groups of customers acquired or activated at the same time to identify cohort-specific lifecycle patterns and optimize acquisition timing",
+        "Calculating total revenue by month",
+        "Testing individual message variants"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cohort analysis reveals acquisition cohort behavior patterns—seasonal cohorts may have different churn curves, engagement patterns, or CLV trajectories. This informs acquisition strategy timing and lifecycle journey customization by cohort."
+    },
+    {
+      "id": 19,
+      "question": "A strategist is designing a journey map and identifies a significant dropout at the 'checkout' step. What Canvas strategy would best address this?",
+      "options": [
+        "Increase email frequency to remind customers about checkout",
+        "Implement an automated Canvas journey triggered by checkout abandonment with incentives, reassurance messaging, and retargeting across channels within the critical re-engagement window",
+        "Remove the checkout step to simplify the process",
+        "Focus only on pre-checkout awareness campaigns"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Journey mapping identifies friction points; checkout abandonment is a critical revenue opportunity. Canvas automation with targeted incentives and multi-channel retargeting addresses cart recovery at scale, directly impacting revenue and CLV."
+    },
+    {
+      "id": 20,
+      "question": "A strategist must balance data accuracy with personalization speed. What approach best enables both?",
+      "options": [
+        "Prioritize speed; use batch data updates weekly",
+        "Prioritize accuracy; wait for 100% data validation before any personalization",
+        "Use real-time data streaming for high-value events (purchase, signup, engagement) while batching less urgent attributes, enabling speed and accuracy simultaneously",
+        "Disable personalization to ensure data accuracy"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Strategic data architecture prioritizes real-time ingestion of high-impact signals (purchase, abandonment, engagement) that inform immediate journey decisions, while batching less time-sensitive attributes. This optimizes both personalization relevance and implementation speed."
+    },
+    {
+      "id": 21,
+      "question": "When would segmentation using Segment Extensions be strategically superior to simple demographic or behavioral filters?",
+      "options": [
+        "Only for email campaigns",
+        "When you need complex audience logic combining multiple customer attributes, behaviors, and engagement patterns to identify nuanced strategic segments impossible to define with basic filters",
+        "Never—basic segmentation is always sufficient",
+        "Only for acquisition campaigns"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Segment Extensions enable sophisticated audience logic—combining purchase frequency, category affinity, engagement timing, and churn risk factors. This reveals nuanced strategic segments driving targeted lifecycle strategies that basic segments cannot capture."
+    },
+    {
+      "id": 22,
+      "question": "A strategist is designing a channel strategy for a lifecycle journey. What framework should guide channel selection at each lifecycle stage?",
+      "options": [
+        "Use email for all stages because it has the highest deliverability",
+        "Select channels based on customer preference data, behavior patterns, and channel engagement curves specific to each lifecycle stage (e.g., push for high-engagement Active, email for At-Risk re-engagement)",
+        "Randomize channel assignment",
+        "Use only the most popular channel across all segments"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Channel effectiveness varies by lifecycle stage and customer preference. Active customers engage with push; At-Risk segments may prefer email; Lapsed may need SMS for attention-grabbing. Strategic channel selection by segment drives engagement and conversion lift."
+    },
+    {
+      "id": 23,
+      "question": "A strategist wants to implement dynamic content personalization at scale. Which technical approach enables true 1:1 personalization?",
+      "options": [
+        "Storing static customer segments with pre-built message templates",
+        "Using Liquid templating with customer attributes, event properties, and Catalog data to generate unique message content dynamically for each individual user",
+        "Manual message customization for each customer",
+        "Avoiding personalization due to complexity"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Liquid templating enables 1:1 dynamic content generation based on individual customer data, transforming static message templates into personalized experiences at scale. This is foundational for effective lifecycle marketing across large audiences."
+    },
+    {
+      "id": 24,
+      "question": "True or False: Frequency capping should be set identically across all customer segments and channels to maintain brand consistency.",
+      "options": [
+        "True—consistency is paramount for brand perception",
+        "False—frequency tolerance varies by segment (high-engagement customers tolerate more), channel (SMS < email < push), and lifecycle stage (Active > At-Risk > Lapsed)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Strategic frequency capping recognizes that customer tolerance for messages varies dramatically. High-frequency, high-engagement customers can receive more messaging; at-risk segments need restraint to prevent churn. One-size-fits-all capping leaves revenue on the table."
+    },
+    {
+      "id": 25,
+      "question": "When implementing a privacy-first marketing strategy with first-party data focus, what is the strategic implication for customer acquisition?",
+      "options": [
+        "Acquisition becomes impossible without third-party data",
+        "Shift focus to zero-party data collection (preference centers, quizzes) and lookalike audience building from high-CLV customers, reducing third-party data dependence while maintaining targeting efficiency",
+        "Maintain current third-party targeting indefinitely",
+        "Abandon personalization entirely"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Privacy regulations and third-party cookie deprecation necessitate first-party and zero-party data strategies. Building lookalike audiences from high-value customers with zero-party preferences maintains targeting efficiency while complying with privacy frameworks."
+    },
+    {
+      "id": 26,
+      "question": "A strategist is optimizing Canvas complexity. When should a single Canvas journey be split into multiple, simpler flows?",
+      "options": [
+        "Never—combine everything into one Canvas for efficiency",
+        "When audience size is large enough that splitting enables segment-specific journeys, and individual Canvas performance monitoring becomes difficult due to excessive branching complexity",
+        "Only when budget allows multiple Canvases",
+        "Always split immediately upon creation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Canvas design balance: one complex Canvas risks unmanageable branching logic and muddled analytics. Multiple focused Canvases enable segment-specific optimization, clearer performance attribution, and easier maintenance—critical for scalable lifecycle marketing."
+    },
+    {
+      "id": 27,
+      "question": "A strategist wants to optimize send timing across a multi-touch Canvas journey. What approach best balances delivery performance with customer preference?",
+      "options": [
+        "Send all messages on Monday at 9 AM",
+        "Use Intelligent Timing to send each customer at their individual optimal engagement window, combined with behavioral triggers to capture intent moments",
+        "Send immediately regardless of time zone or user behavior",
+        "Never optimize timing; use fixed scheduling"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Timing combines individual optimal send windows with behavioral triggers, capturing both seasonal preferences and immediate intent signals. This dual approach maximizes engagement and conversion compared to fixed or purely algorithmic timing."
+    },
+    {
+      "id": 28,
+      "question": "A strategist is evaluating performance of a retention campaign. A control group shows 25% repeat purchase rate; treatment group shows 27%. What is the strategic interpretation?",
+      "options": [
+        "The campaign is highly successful with 27% vs. 25%",
+        "With only 2% absolute lift (80% relative improvement), assess statistical significance; if not significant at 95% confidence, results may be due to random variation, requiring larger sample size or strategy adjustment",
+        "The difference is negligible and the campaign should be abandoned",
+        "The control group should be expanded"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Small absolute lifts can appear meaningful but lack statistical significance. A 2% absolute difference (80% relative) might be random variation in small samples. Strategic decision-making requires 95% statistical confidence to distinguish real improvement from chance."
+    },
+    {
+      "id": 29,
+      "question": "When designing a multi-channel campaign, what is the primary strategic consideration for preventing message fatigue across channels?",
+      "options": [
+        "Maximize message volume across all channels daily",
+        "Implement cross-channel frequency capping and use suppression lists to prevent messaging overlap, tracking unsubscribe rates as a leading indicator of excessive frequency",
+        "Use only one channel to avoid duplication",
+        "Never measure unsubscribe metrics"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cross-channel frequency management prevents customer fatigue—a customer shouldn't receive the same message on email AND SMS simultaneously. Suppression logic and unsubscribe rate monitoring are critical strategic controls protecting long-term CLV from short-term send volume."
+    },
+    {
+      "id": 30,
+      "question": "A strategist must recommend Canvas vs. Campaign for a new marketing initiative. When is Canvas the strategically superior choice?",
+      "options": [
+        "Never—Campaigns are always more efficient",
+        "When the marketing goal requires multi-step customer journeys with branching logic, varying messaging timelines across segments, or complex orchestration across channels in response to customer behavior",
+        "Only for one-time sends",
+        "Only for email messaging"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Canvas excels at complex, multi-step lifecycle journeys with audience segments following different paths based on behavior and engagement. Campaign is simpler for single-send broadcasts. Strategic choice depends on journey complexity requirements."
     }
   ]
 }
