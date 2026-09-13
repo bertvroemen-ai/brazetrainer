@@ -1,31 +1,404 @@
 {
   "certification": "Braze Certified AI Fundamentals",
   "level": 1,
-  "totalQuestions": 2,
+  "examDetails": {
+    "duration": "60 minutes",
+    "passingScore": "69%",
+    "totalQuestions": 30,
+    "questionTypes": [
+      "Multiple Choice",
+      "Multiple Select",
+      "True/False"
+    ]
+  },
+  "domains": {
+    "marketingContextForAI": "17%",
+    "machineLearning": "35%",
+    "generativeAI": "19%",
+    "reinforcementLearning": "29%"
+  },
   "questions": [
     {
       "id": 1,
-      "question": "A marketing team wants to discover naturally occurring customer groups based on purchasing behavior without any predetermined labels. Which machine learning subtype is best for this task?",
+      "domain": "Marketing Context for AI",
+      "question": "What is artificial intelligence (AI) in the context of marketing?",
       "options": [
-        "Generation (Generative AI)",
-        "Decisioning (Reinforcement Learning)",
-        "Pattern Identification (Unsupervised Learning)",
-        "Prediction (Supervised Learning)"
+        "A tool exclusively for replacing human marketers",
+        "Computer systems capable of performing tasks that typically require human intelligence, such as learning from data and making decisions",
+        "A technology that automatically generates all marketing content",
+        "A method to eliminate the need for customer data"
       ],
-      "correctAnswer": 2,
-      "explanation": "Unsupervised learning is used for pattern identification to discover naturally occurring groups in data without predetermined labels."
+      "correctAnswer": 1,
+      "explanation": "AI in marketing refers to computer systems that can perform intelligent tasks like learning from data, recognizing patterns, and making decisions to enhance customer engagement."
     },
     {
       "id": 2,
-      "question": "The primary goal of context engineering in generative AI is to:",
+      "domain": "Machine Learning",
+      "question": "What is machine learning (ML)?",
       "options": [
-        "Translate the user's prompt into different languages",
-        "Pretrain an existing model on a smaller, domain-specific dataset",
-        "Modify the model's internal parameters to permanently correct factual errors",
-        "Provide the AI with relevant, timely, and specific information within the prompt"
+        "A way to manually program all customer interactions",
+        "Technology that allows computers to learn from data without being explicitly programmed for each scenario",
+        "A replacement for all marketing strategies",
+        "A tool exclusively for data storage"
       ],
-      "correctAnswer": 3,
-      "explanation": "Context engineering involves providing relevant, timely, and specific information within the prompt to produce more accurate and useful outputs."
+      "correctAnswer": 1,
+      "explanation": "Machine learning is a subset of AI that enables computers to learn from data, identify complex patterns, and improve performance without explicit programming for each scenario."
+    },
+    {
+      "id": 3,
+      "domain": "Machine Learning",
+      "question": "What are the four main subtypes of machine learning?",
+      "options": [
+        "Manual, automated, hybrid, and predictive",
+        "Supervised, unsupervised, generative AI, and reinforcement learning",
+        "Neural, linear, non-linear, and statistical",
+        "Real-time, batch, streaming, and offline"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The four main subtypes of machine learning are supervised learning (prediction), unsupervised learning (pattern identification), generative AI (generation), and reinforcement learning (decisioning)."
+    },
+    {
+      "id": 4,
+      "domain": "Machine Learning",
+      "question": "A marketing team wants to discover naturally occurring customer groups based on purchasing behavior without any predetermined labels. Which machine learning subtype is best for this task?",
+      "options": [
+        "Supervised learning (Prediction)",
+        "Generative AI (Generation)",
+        "Unsupervised learning (Pattern Identification)",
+        "Reinforcement learning (Decisioning)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Unsupervised learning is ideal for discovering naturally occurring patterns and customer groups without predefined labels or categories."
+    },
+    {
+      "id": 5,
+      "domain": "Machine Learning",
+      "question": "True or False: Supervised learning requires labeled training data to make predictions.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, supervised learning requires labeled training data where the correct answers are known, enabling the model to learn the relationship between inputs and outputs."
+    },
+    {
+      "id": 6,
+      "domain": "Machine Learning",
+      "question": "What is the primary purpose of a decision tree in machine learning?",
+      "options": [
+        "To visualize customer journeys",
+        "To make predictions by asking a series of yes/no questions and following a path down the tree to reach a final decision",
+        "To replace human decision-making entirely",
+        "To encrypt sensitive customer data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A decision tree works like a flowchart of if-then statements, asking sequential questions about features to classify data or make predictions."
+    },
+    {
+      "id": 7,
+      "domain": "Machine Learning",
+      "question": "What is the problem of overfitting in machine learning?",
+      "options": [
+        "When a model is too simple to learn patterns",
+        "When a model learns the training data too well, including noise, causing poor performance on new data",
+        "When there is too much training data",
+        "When features are not scaled properly"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Overfitting occurs when a model memorizes the training data including its noise and peculiarities, leading to poor generalization on unseen data."
+    },
+    {
+      "id": 8,
+      "domain": "Machine Learning",
+      "question": "What does ensembling do to improve machine learning model performance?",
+      "options": [
+        "It increases the size of the training dataset",
+        "It combines outputs of multiple models to reduce the risk of overfitting and improve accuracy",
+        "It removes features from the model",
+        "It eliminates the need for data preprocessing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ensembling methods like Random Forest combine multiple models to reduce overfitting and improve predictive accuracy by leveraging diverse perspectives."
+    },
+    {
+      "id": 9,
+      "domain": "Machine Learning",
+      "question": "What is a Random Forest model?",
+      "options": [
+        "A model that randomly selects customers from a database",
+        "An ensemble method that combines multiple decision trees to make more accurate predictions",
+        "A tool for organizing customer data",
+        "A technique for encryption"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A Random Forest is an ensemble of multiple decision trees that work together, reducing overfitting and improving prediction accuracy through their combined outputs."
+    },
+    {
+      "id": 10,
+      "domain": "Machine Learning",
+      "question": "True or False: Data cleaning is essential before training a machine learning model.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, data cleaning is critical to improve model accuracy by correcting errors, handling missing values, and removing inconsistencies in the training data."
+    },
+    {
+      "id": 11,
+      "domain": "Machine Learning",
+      "question": "Which methods can be used to handle missing data during data cleaning? (Select 2)",
+      "options": [
+        "Imputing values (filling in estimated data)",
+        "Removing data entries with missing values",
+        "Ignoring the missing data and proceeding",
+        "Always duplicating existing records"
+      ],
+      "correctAnswer": [0, 1],
+      "explanation": "Missing data can be handled by either imputing (estimating) values or removing entries with missing values. Ignoring missing data compromises model quality."
+    },
+    {
+      "id": 12,
+      "domain": "Reinforcement Learning",
+      "question": "What is reinforcement learning?",
+      "options": [
+        "Learning from labeled historical data",
+        "A type of ML where agents learn by interacting with their environment, receiving rewards or penalties, and updating behavior",
+        "Only applicable to customer service",
+        "A method to verify customer data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reinforcement learning involves agents that take actions, receive rewards or penalties based on outcomes, and learn to maximize rewards through trial and error."
+    },
+    {
+      "id": 13,
+      "domain": "Reinforcement Learning",
+      "question": "What is the explore-exploit tradeoff in reinforcement learning?",
+      "options": [
+        "A balance between exploring new options and exploiting (using) known best options to maximize rewards",
+        "A method to divide customer segments",
+        "A technique for data encryption",
+        "A way to remove duplicate records"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The explore-exploit tradeoff requires balancing the discovery of new actions (exploration) with using proven high-performing actions (exploitation) to optimize outcomes."
+    },
+    {
+      "id": 14,
+      "domain": "Reinforcement Learning",
+      "question": "What is a multi-armed bandit in reinforcement learning?",
+      "options": [
+        "A customer service strategy",
+        "An AI model that learns which options perform best by balancing exploring new options with exploiting top performers",
+        "A type of data storage",
+        "A campaign management tool"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A multi-armed bandit is an RL model that learns which actions (options) produce the best results by testing different options and reinforcing high-performing ones."
+    },
+    {
+      "id": 15,
+      "domain": "Reinforcement Learning",
+      "question": "What is a contextual bandit in Braze?",
+      "options": [
+        "A basic multi-armed bandit",
+        "A multi-armed bandit that also considers current situational data (context) when choosing the best option, enabling personalized decisions",
+        "A static customer segment",
+        "A non-personalized campaign"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A contextual bandit enhances multi-armed bandits by considering real-time contextual information about each user, enabling truly personalized decision-making."
+    },
+    {
+      "id": 16,
+      "domain": "Reinforcement Learning",
+      "question": "What is the epsilon-greedy strategy in reinforcement learning?",
+      "options": [
+        "Using only the best-performing option all the time",
+        "A strategy that mostly exploits the best option but dedicates a small percentage of time to explore other options",
+        "Exploring all options equally",
+        "Never exploiting, only exploring"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Epsilon-greedy balances exploitation (using the best option) with exploration (trying other options) by allocating a small epsilon percentage to exploration."
+    },
+    {
+      "id": 17,
+      "domain": "Reinforcement Learning",
+      "question": "How does epsilon-decay differ from epsilon-greedy in reinforcement learning?",
+      "options": [
+        "They are the same strategy",
+        "Epsilon-decay starts with high exploration that gradually decreases over time as the model becomes more confident",
+        "Epsilon-decay always uses the same exploration rate",
+        "Epsilon-decay doesn't involve exploration"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Epsilon-decay is an improvement that starts with high exploration and gradually decreases it as the model accumulates data and becomes more confident in its decisions."
+    },
+    {
+      "id": 18,
+      "domain": "Reinforcement Learning",
+      "question": "What is a reward function in reinforcement learning?",
+      "options": [
+        "The customer discount offered",
+        "The goal metric that the AI agent optimizes for (e.g., conversions, revenue, engagement)",
+        "A customer loyalty program",
+        "A message scheduling rule"
+      ],
+      "correctAnswer": 1,
+      "explanation": "A reward function defines what success looks like—the metric an RL agent is trained to optimize, such as conversions, profit, or engagement."
+    },
+    {
+      "id": 19,
+      "domain": "Generative AI",
+      "question": "What is generative AI?",
+      "options": [
+        "AI that generates customer lists",
+        "A type of AI that creates new content (text, images, code) based on patterns learned from training data",
+        "AI that only predicts outcomes",
+        "A tool for deleting data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Generative AI is a machine learning approach that learns patterns from training data and generates new, original content such as text or images."
+    },
+    {
+      "id": 20,
+      "domain": "Generative AI",
+      "question": "What is a Large Language Model (LLM)?",
+      "options": [
+        "A simple text filter",
+        "An AI system trained on massive text data to recognize and generate human-like language patterns",
+        "A database of customer messages",
+        "A spell-checker tool"
+      ],
+      "correctAnswer": 1,
+      "explanation": "An LLM is a large neural network trained on vast amounts of text data, enabling it to understand and generate contextually appropriate human language."
+    },
+    {
+      "id": 21,
+      "domain": "Generative AI",
+      "question": "What are hallucinations in the context of Large Language Models?",
+      "options": [
+        "Visual outputs from LLMs",
+        "Instances where an LLM generates inaccurate or fabricated information that sounds plausible but is false",
+        "Only occur in old models",
+        "Never occur in modern LLMs"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hallucinations occur when LLMs generate false or fabricated information presented confidently as fact, requiring verification mechanisms in production use."
+    },
+    {
+      "id": 22,
+      "domain": "Generative AI",
+      "question": "True or False: Prompt engineering is the practice of designing inputs to LLMs to get optimal outputs.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, prompt engineering involves crafting effective prompts to guide LLMs toward generating higher-quality, more relevant, and accurate responses."
+    },
+    {
+      "id": 23,
+      "domain": "Generative AI",
+      "question": "What is context engineering in generative AI?",
+      "options": [
+        "Building the physical infrastructure for AI",
+        "Providing relevant, timely, and specific information within the prompt to produce more accurate and useful outputs",
+        "Deleting context from conversations",
+        "A way to prevent AI from learning"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Context engineering involves supplying the AI with relevant background information and specific details in the prompt to generate more accurate and contextually appropriate outputs."
+    },
+    {
+      "id": 24,
+      "domain": "Generative AI",
+      "question": "What are the key components of an Agentic AI system?",
+      "options": [
+        "Only the neural network",
+        "Tools, Memory, Planning, and Agent—allowing autonomous decision-making to achieve specific goals",
+        "Just the user interface",
+        "Only the database"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Agentic AI systems comprise four key components: Tools (capabilities), Memory (past information), Planning (strategy), and Agent (decision-maker) working together autonomously."
+    },
+    {
+      "id": 25,
+      "domain": "Generative AI",
+      "question": "What is the difference between a reasoning model and a traditional LLM?",
+      "options": [
+        "There is no difference",
+        "Reasoning models perform explicit step-by-step reasoning before generating outputs, potentially more reliable for complex tasks",
+        "Traditional LLMs are faster",
+        "Reasoning models can't handle text"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Reasoning models show their work through explicit step-by-step thinking, which can improve reliability on complex tasks compared to traditional LLMs."
+    },
+    {
+      "id": 26,
+      "domain": "Marketing Context for AI",
+      "question": "How can supervised learning (prediction) be applied in customer engagement?",
+      "options": [
+        "It cannot be applied to customer engagement",
+        "Predicting which customers are likely to churn, make a purchase, or engage with a campaign",
+        "Only for customer service interactions",
+        "For organizing database tables"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Supervised learning enables predictions valuable for marketing, such as identifying high-value customers, predicting churn, or forecasting purchase likelihood."
+    },
+    {
+      "id": 27,
+      "domain": "Marketing Context for AI",
+      "question": "How can unsupervised learning (pattern identification) benefit marketing?",
+      "options": [
+        "It only works for technical tasks",
+        "It discovers customer segments, preferences, and behaviors without needing predefined labels or categories",
+        "It can only predict outcomes",
+        "It doesn't provide marketing value"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Unsupervised learning helps marketers discover natural customer segments and hidden patterns in behavior, enabling targeted strategies without predefined categories."
+    },
+    {
+      "id": 28,
+      "domain": "Marketing Context for AI",
+      "question": "How can generative AI enhance customer engagement in marketing?",
+      "options": [
+        "By replacing all human marketers",
+        "By generating personalized content, email copy, and product recommendations at scale",
+        "By removing the need for customer data",
+        "By limiting messaging options"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Generative AI enables personalized, dynamic content creation at scale, enhancing customer engagement through tailored emails, messaging, and recommendations."
+    },
+    {
+      "id": 29,
+      "domain": "Reinforcement Learning",
+      "question": "True or False: Linear statistical models and machine learning models are essentially the same thing.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Linear models find simple patterns in data, while machine learning models use non-linear approaches to identify complex, non-obvious patterns in large datasets."
+    },
+    {
+      "id": 30,
+      "domain": "Machine Learning",
+      "question": "What is the primary difference between in-sample and out-of-sample testing in machine learning?",
+      "options": [
+        "There is no difference",
+        "In-sample tests performance on training data; out-of-sample tests on unseen data to evaluate real-world effectiveness",
+        "In-sample is always better",
+        "Out-of-sample is never accurate"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In-sample testing evaluates performance on training data, while out-of-sample testing on unseen data better reflects real-world model performance and generalization."
     }
   ]
 }
