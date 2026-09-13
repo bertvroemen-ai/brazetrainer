@@ -1,1 +1,32 @@
+{
+  "certification": "Braze Certified Practitioner",
+  "level": 1,
+  "totalQuestions": 2,
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which Canvas component sends users down separate user journeys based on their characteristics or segment membership?",
+      "options": [
+        "Audience Sync",
+        "Experiment Paths",
+        "Audience Paths",
+        "Action Paths"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Audience Paths is the Canvas component that routes users into different journey paths based on their characteristics or segment membership."
+    },
+    {
+      "id": 2,
+      "question": "When a control group is created for a message, what happens to members of the control group?",
+      "options": [
+        "They receive no message",
+        "They only receive the non-personalized message",
+        "They receive a randomly selected variant of the message",
+        "They receive all variants of the message"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Control groups in Braze receive no message. They are used to measure the impact of a campaign by comparing their behavior against users who received the message."
+    }
+  ]
+}
 
