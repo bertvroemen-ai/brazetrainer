@@ -1,31 +1,361 @@
 {
   "certification": "Braze Certified Retail Marketing Specialist",
   "level": 1,
-  "totalQuestions": 2,
+  "examType": "multiple-choice",
+  "totalQuestions": 30,
+  "passingScore": 79,
   "questions": [
     {
       "id": 1,
-      "question": "What is the key characteristic that defines zero-party data collected through an in-app message survey?",
+      "question": "What is the primary focus of customer-centric retailing?",
       "options": [
-        "It is information the user intentionally shares with the brand",
-        "It is inferred by machine learning based on web browsing history",
-        "It is aggregated data purchased from a third-party",
-        "It is collected passively from transactional events"
+        "Maximizing product inventory and warehouse efficiency",
+        "Understanding and prioritizing customer needs and preferences at every stage of their shopping journey to enhance loyalty and drive revenue",
+        "Implementing aggressive discount strategies to increase sales volume",
+        "Centralizing all operations in physical stores only"
       ],
-      "correctAnswer": 0,
-      "explanation": "Zero-party data is information users intentionally share through surveys, making it the most valuable and accurate customer data."
+      "correctAnswer": 1,
+      "explanation": "Customer-centric retailing places the customer experience at the core of strategy, understanding their needs across the entire shopping journey to build loyalty and long-term revenue growth."
     },
     {
       "id": 2,
-      "question": "Which two Braze features must be utilized to dynamically pull product images, names, and prices into a personalized message for a back-in-stock notification?",
+      "question": "Which data collection method provides the most valuable insights for personalizing retail experiences?",
       "options": [
-        "Braze Catalogs and Custom events",
-        "Braze Catalogs and Liquid",
-        "Liquid and Intelligent timing",
-        "Custom events and Content Cards"
+        "Third-party demographic data from external vendors",
+        "Zero-party data collected through customer surveys, preference centers, and interactive experiences where customers intentionally share their preferences",
+        "Anonymous browsing behavior tracking only",
+        "Competitor pricing data"
       ],
       "correctAnswer": 1,
-      "explanation": "Braze Catalogs store product data and Liquid is used to dynamically reference and display that data in messages."
+      "explanation": "Zero-party data—information customers intentionally share—is the most accurate and valuable for personalization because it directly reflects customer preferences and intent for retail engagement."
+    },
+    {
+      "id": 3,
+      "question": "A customer abandons their shopping cart with three items. Within what timeframe should a recovery message be sent for optimal conversion?",
+      "options": [
+        "After 7 days to avoid being too aggressive",
+        "Within 24 hours, using Intelligent Timing to send at the customer's most engaged time",
+        "Immediately (within 1 hour) regardless of customer behavior patterns",
+        "Only if they visit the site again"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cart abandonment recovery is most effective within 24 hours when intent is still high, but Intelligent Timing personalizes delivery to each customer's optimal engagement window for maximum conversion."
+    },
+    {
+      "id": 4,
+      "question": "Which two Braze features enable dynamic product personalization in retail messaging?",
+      "options": [
+        "Custom segments and email templates only",
+        "Braze Catalogs (product data) and Liquid templating (dynamic content generation)",
+        "Content Cards and push notifications only",
+        "Canvas flows and frequency capping"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze Catalogs store product information (images, names, prices) and Liquid templating enables dynamic insertion of product data into messages based on individual customer behavior, creating personalized recommendations at scale."
+    },
+    {
+      "id": 5,
+      "question": "What is the primary strategic benefit of implementing an omnichannel shopping journey?",
+      "options": [
+        "Reducing the number of marketing channels used",
+        "Creating a unified customer view across all touchpoints (online, mobile, in-store) so messaging stays consistent and relevant as customers move between channels",
+        "Focusing exclusively on email and SMS messaging",
+        "Eliminating the need for personalization"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Omnichannel strategies unify customer data and messaging across all channels, enabling consistent, connected experiences that increase customer lifetime value and retention compared to siloed single-channel approaches."
+    },
+    {
+      "id": 6,
+      "question": "A retail brand wants to build a loyalty program retention journey. Which Canvas component would segment between high-value and low-value customers?",
+      "options": [
+        "Content Cards only",
+        "Email channels exclusively",
+        "Decision Splits to separate audiences based on loyalty tier, purchase value, or engagement metrics, then send tailored messaging to each segment",
+        "Frequency capping rules"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Decision Splits in Canvas enable audience segmentation based on customer attributes or behaviors, allowing different loyalty program messaging strategies for high-value customers (VIP benefits) versus low-value customers (tier advancement messaging)."
+    },
+    {
+      "id": 7,
+      "question": "When should a 'back-in-stock' notification be sent to a customer who added an item to their wishlist?",
+      "options": [
+        "Only during seasonal sales",
+        "Immediately when the item is back in stock, triggered automatically using Braze's standardized eCommerce events, to capture urgency while intent is highest",
+        "After a 2-week delay to avoid message fatigue",
+        "Never—let customers check manually"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Back-in-stock notifications are most effective when sent immediately using real-time triggers, capturing the moment of highest customer intent. Delayed messaging loses conversion opportunity and customer goodwill."
+    },
+    {
+      "id": 8,
+      "question": "How should a retail brand approach frequency capping for a multi-channel holiday campaign?",
+      "options": [
+        "Send unlimited messages across all channels daily to maximize visibility",
+        "Set identical caps across all channels and customer segments",
+        "Set channel-specific and segment-specific frequency caps (e.g., high-engagement customers tolerate more; SMS capped lower than email) to prevent message fatigue while maintaining campaign effectiveness",
+        "Eliminate frequency limits for holiday campaigns"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Strategic frequency capping recognizes that customer tolerance varies by channel (SMS < email < push) and engagement level. Over-messaging during holidays can damage retention, so personalized caps maximize ROI without causing opt-outs."
+    },
+    {
+      "id": 9,
+      "question": "A retail brand is launching a new product. Which customer segment should receive the first announcement?",
+      "options": [
+        "All customers simultaneously",
+        "High-engagement, high-value customers first, then expand to broader segments based on interest signals and purchase behavior, maximizing early adopter conversion",
+        "Only email subscribers",
+        "Only in-store customers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "VIP/high-value customers are most likely to adopt new products, boosting early sales velocity and generating social proof. Segmented rollouts maximize conversion by targeting highest-intent audiences first."
+    },
+    {
+      "id": 10,
+      "question": "True or False: In retail, browse abandonment (visiting but not purchasing) requires the same re-engagement strategy as cart abandonment.",
+      "options": [
+        "True—both behaviors indicate low purchase intent and should use identical messaging",
+        "False—browse abandonment signals interest but lower intent than cart abandonment, requiring educational content and recommendations rather than urgent recovery offers"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Browse abandonment shows product interest without purchase intent; it benefits from educational content and personalized recommendations. Cart abandonment shows clear intent and needs urgent, offer-driven recovery messaging—different strategies for different behavior signals."
+    },
+    {
+      "id": 11,
+      "question": "How does data-driven hyper-personalization impact average order value (AOV) in retail?",
+      "options": [
+        "It has no measurable impact on AOV",
+        "It decreases AOV due to discounting",
+        "It increases AOV by tailoring product recommendations, offers, and messaging to each customer's purchase history and preferences, driving cross-sell and upsell",
+        "It only impacts email channel metrics"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Hyper-personalization increases AOV by recommending complementary products and tailored upsells based on individual customer behavior. Personalized recommendations drive higher basket value than generic promotions."
+    },
+    {
+      "id": 12,
+      "question": "Which lifecycle stage in retail requires the most focus for retention investment?",
+      "options": [
+        "Awareness (first touchpoint)",
+        "At-Risk (declining engagement) and Lapsed (inactive) segments, where targeted re-engagement and win-back campaigns can prevent churn and recover lifetime value",
+        "Only new customer onboarding",
+        "Post-purchase communication exclusively"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Retaining existing at-risk and lapsed customers is more cost-effective than acquiring new ones. Targeted Canvas journeys with incentives and re-engagement messaging recover declining customers and maximize lifetime value."
+    },
+    {
+      "id": 13,
+      "question": "A retail brand uses Braze Catalogs to manage product information. What is the primary benefit for marketing personalization?",
+      "options": [
+        "It stores customer contact information",
+        "It enables dynamic insertion of real-time product data (images, names, prices, inventory status) into messages, ensuring personalized recommendations are always accurate and current",
+        "It replaces segmentation entirely",
+        "It eliminates the need for A/B testing"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze Catalogs serve as the source of truth for product data. Dynamic Liquid references ensure every personalized message reflects current product information—prices, availability, descriptions—without manual updates."
+    },
+    {
+      "id": 14,
+      "question": "When building a Canvas journey for seasonal campaigns (e.g., Black Friday), what is critical to monitor?",
+      "options": [
+        "Only email delivery rates",
+        "Conversion rates and opt-out/unsubscribe rates across all channels, adjusting frequency and messaging if unsubscribe spikes occur",
+        "Never adjust campaigns mid-season",
+        "Only focus on revenue metrics"
+      ],
+      "correctAnswer": 1,
+      "explanation": "High-volume seasonal campaigns can trigger unsubscribes if frequency isn't managed. Monitoring opt-out signals indicates message fatigue; adjustment prevents long-term customer loss for short-term campaign lift."
+    },
+    {
+      "id": 15,
+      "question": "Which Braze feature is most effective for creating connected physical and digital shopping experiences?",
+      "options": [
+        "Email channels only",
+        "Canvas journeys combined with location-based messaging (geofencing) to trigger in-store offers when customers are nearby, or in-app/SMS messages tied to online browsing",
+        "Content Cards exclusively",
+        "Push notifications to all customers equally"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Canvas enables multi-channel orchestration; combining it with location triggers or behavior-based messaging creates seamless omnichannel experiences that blend online and offline journeys."
+    },
+    {
+      "id": 16,
+      "question": "A retail brand collects zero-party data about product preferences through a preference center. How should this data be used strategically?",
+      "options": [
+        "Stored but never used",
+        "Used to create highly targeted product recommendation journeys, category-specific offers, and personalized browse/cart recovery, increasing relevance and conversion",
+        "Only for email subject lines",
+        "Shared with competitors for benchmarking"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Zero-party product preference data is highly valuable for personalization because it directly reflects customer intent. Using it in recommendations and targeted journeys significantly increases engagement and conversion."
+    },
+    {
+      "id": 17,
+      "question": "True or False: In retail, post-purchase messaging should focus exclusively on order fulfillment updates.",
+      "options": [
+        "True—customers only care about delivery information",
+        "False—post-purchase journeys should include delivery updates, product care tips, related product recommendations, and loyalty program engagement to maximize customer lifetime value and repeat purchases"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Post-purchase is a critical engagement window. Beyond fulfillment, messaging drives repeat purchases through recommendations, loyalty rewards, and community engagement—not just transactional updates."
+    },
+    {
+      "id": 18,
+      "question": "How does omnichannel attribution help retail marketers make better budget decisions?",
+      "options": [
+        "It shows which single channel gets credit for every conversion",
+        "It reveals each channel's contribution across the customer journey, enabling accurate budget allocation away from underperforming channels and toward high-impact touchpoints",
+        "It eliminates the need for channel testing",
+        "It only measures email performance"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Multi-touch attribution shows how each channel (email, SMS, push, paid media) contributes to conversion. This enables strategic budget reallocation from channels with low contribution to high-impact ones."
+    },
+    {
+      "id": 19,
+      "question": "A retail brand wants to optimize messaging for customers who browse on mobile but purchase on desktop. What is the best strategy?",
+      "options": [
+        "Send all messages only via mobile push",
+        "Send only on desktop via email",
+        "Create a Canvas journey that sends browsing reminder messages on mobile (where they showed intent), then desktop email follow-ups if they don't convert, using Intelligent Timing",
+        "Never message multi-device customers"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Understanding purchase device preference enables strategic channel selection. Mobile reminders capture intent at point of browsing; desktop email follows up when they're ready to complete purchase, improving conversion through channel optimization."
+    },
+    {
+      "id": 20,
+      "question": "When implementing personalization in retail, why is customer consent and transparency critical?",
+      "options": [
+        "It's optional for retail brands",
+        "Customers trust brands that transparently explain how data is used for personalization, increasing engagement and loyalty while complying with privacy regulations",
+        "Privacy concerns don't apply to retail",
+        "Only email requires transparency"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Transparent personalization practices build customer trust. Clearly communicating how browsing and purchase data improves recommendations increases both compliance and customer willingness to engage with personalized messages."
+    },
+    {
+      "id": 21,
+      "question": "How should a retail brand approach inventory-driven marketing (e.g., low-stock urgency)?",
+      "options": [
+        "Never mention inventory levels",
+        "Send limited-stock messages to interested customers (based on browsing or wishlist history) using real-time inventory triggers to drive urgency and convert high-intent shoppers",
+        "Send inventory alerts to all customers equally",
+        "Only promote items with excessive inventory"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Inventory-driven messaging combines intent signals (browsing, wishlist) with real-time inventory status, creating authentic urgency that converts high-intent customers without artificial scarcity messaging."
+    },
+    {
+      "id": 22,
+      "question": "True or False: Loyalty program engagement should focus only on existing members and exclude non-members from program messaging.",
+      "options": [
+        "True—only members want loyalty messaging",
+        "False—effective loyalty strategies include both member engagement (tier progression, exclusive rewards) and strategic non-member messaging designed to drive enrollment and trial"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Loyalty program growth requires dual focus: retaining and engaging current members through tier benefits while also converting non-members through targeted enrollment messaging highlighting member benefits."
+    },
+    {
+      "id": 23,
+      "question": "A retail brand notices high cart abandonment in their mobile app. What is the first strategic question to answer?",
+      "options": [
+        "Immediately send more email recovery campaigns",
+        "Investigate whether mobile app checkout abandonment is due to technical friction, unclear pricing, limited payment options, or low confidence—then design Canvas recovery addressing root causes",
+        "Disable mobile checkout entirely",
+        "Accept abandonment as normal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Understanding abandonment root causes enables targeted solutions. If it's technical friction, fix it. If it's intent-based (comparison shopping), use recovery messaging. Different causes require different strategies."
+    },
+    {
+      "id": 24,
+      "question": "How can Braze's Intelligent Timing improve retail campaign effectiveness?",
+      "options": [
+        "It sends all messages at fixed times",
+        "It analyzes each individual customer's engagement patterns and sends messages at their optimal engagement time, increasing open rates, click rates, and conversion compared to fixed send times",
+        "It eliminates the need for personalization",
+        "It only works for email"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Intelligent Timing personalizes send times to each customer's behavior. Sending cart recovery emails at individual optimal times increases conversion vs. one-size-fits-all scheduling."
+    },
+    {
+      "id": 25,
+      "question": "When planning a clearance or inventory liquidation campaign, what is the strategic priority?",
+      "options": [
+        "Deep discounts to all customers equally",
+        "Target high-engagement customers first with early access and attractive offers, then expand to broader segments, maximizing profit margin while clearing inventory efficiently",
+        "Offer identical discounts across all products",
+        "Liquidate without any segmentation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Strategic clearance prioritizes profitability: high-margin customers get early access to premium items; broader discounts apply to slower-moving inventory. This balances inventory clearance with margin protection."
+    },
+    {
+      "id": 26,
+      "question": "A retail brand wants to measure the impact of their personalized product recommendation campaign. What is the most important metric?",
+      "options": [
+        "Email open rate alone",
+        "Click-through rate to product pages",
+        "Conversion rate of recommended products and incremental revenue (repeat purchase value) vs. control group, proving personalization impact on business outcomes",
+        "Number of emails sent"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Business impact goes beyond engagement metrics. Measuring actual conversions and incremental revenue from personalized recommendations proves ROI and guides future personalization investment."
+    },
+    {
+      "id": 27,
+      "question": "True or False: Retail marketers should design identical customer journeys for all segments to maintain brand consistency.",
+      "options": [
+        "True—consistency requires uniform messaging",
+        "False—segment-specific journeys (VIP, Active, At-Risk, Lapsed) tailored to each group's needs and behaviors drive higher engagement and retention than one-size-fits-all journeys"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Segment-specific lifecycle journeys address each group's unique needs: VIPs need exclusivity; at-risk customers need re-engagement; lapsed customers need compelling win-back offers. Personalized journeys outperform generic approaches."
+    },
+    {
+      "id": 28,
+      "question": "How does real-time data activation improve retail campaign performance?",
+      "options": [
+        "It has no impact—batch processing is sufficient",
+        "It captures immediate customer intent (browsing, add-to-cart, out-of-stock alerts) and triggers personalized responses in hours rather than days, increasing conversion before customers lose interest",
+        "It only applies to email channels",
+        "It eliminates the need for segmentation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Real-time activation responds to purchase intent signals immediately—browsing triggers product recommendations; cart abandonment triggers recovery offers. Delayed batch messaging loses conversion opportunities."
+    },
+    {
+      "id": 29,
+      "question": "When building a Canvas flow for an abandoned browse scenario, what should be the primary messaging objective?",
+      "options": [
+        "Send an immediate discount code to all users",
+        "Send educational content and personalized product recommendations (not urgency-based offers) to re-engage curiosity and guide consideration, then convert if they show cart intent",
+        "Only email channel messaging",
+        "Never re-engage browse abandoners"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Browse abandonment shows curiosity, not purchase intent. Messaging should educate and guide consideration through recommendations and reviews, progressing to offers only if cart abandonment signals purchase readiness."
+    },
+    {
+      "id": 30,
+      "question": "A retail brand launches a new omnichannel Canvas connecting email, SMS, push, and in-app messaging. What success metric should be monitored most closely in the first month?",
+      "options": [
+        "Total messages sent across channels",
+        "Unsubscribe and opt-out rates across all channels, plus conversion lift—detecting message fatigue early and proving omnichannel incremental value over single-channel approaches",
+        "Only open rates by channel",
+        "Frequency of messages per customer"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Launching multi-channel Canvas requires monitoring for unintended consequences like message stacking (customers receiving same campaign across channels) or frequency fatigue. Balance monitoring unsubscribes with proving conversion uplift."
     }
   ]
 }
