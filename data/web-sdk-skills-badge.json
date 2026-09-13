@@ -1,31 +1,373 @@
 {
   "certification": "Web SDK Skills Badge",
   "level": 1,
-  "totalQuestions": 2,
+  "totalQuestions": 30,
+  "passingScore": 71,
+  "examDuration": "30 minutes",
   "questions": [
     {
       "id": 1,
-      "question": "Which method can be used to manually request a refresh of the content cards?",
+      "question": "Which method is used to initialize the Braze Web SDK with an API key and configuration?",
+      "type": "multiple_choice",
       "options": [
-        "requestRefreshContentCards()",
-        "ContentCardsRefresh()",
-        "requestContentCardsRefresh()",
-        "Cannot do manual refresh"
+        "braze.setup(apiKey, config)",
+        "braze.initialize(apiKey, config)",
+        "braze.init(apiKey, config)",
+        "braze.configure(apiKey, config)"
       ],
-      "correctAnswer": 2,
-      "explanation": "The requestContentCardsRefresh() method allows manual refresh of content cards in the Web SDK."
+      "correctAnswer": 1,
+      "explanation": "The correct method is braze.initialize(apiKey, config). This sets up the Web SDK with your API key and optional configuration options."
     },
     {
       "id": 2,
-      "question": "Which code snippet will italicize the in-app message header?",
+      "question": "What is the purpose of the 'baseUrl' parameter in the Braze Web SDK initialization?",
+      "type": "multiple_choice",
       "options": [
-        "body .ab-in-app-message .ab-message-header { font-style: italic; }",
-        "body .in-app-message .message-header { text-decoration: italic; }",
-        "body .message-header { font-decoration: italic; }",
-        "Cannot customize in-app message styling"
+        "It specifies your website's URL",
+        "It specifies the Braze API endpoint for your instance",
+        "It sets the domain for cookies",
+        "It configures the CDN URL"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The baseUrl parameter specifies the Braze API endpoint for your specific instance (e.g., 'https://sdk.iad-01.braze.com'). This is required for proper SDK communication."
+    },
+    {
+      "id": 3,
+      "question": "True or False: The changeUser() method must be called before openSession() to ensure user identification.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
       ],
       "correctAnswer": 0,
-      "explanation": "Using CSS with the selector body .ab-in-app-message .ab-message-header and font-style: italic will italicize the header."
+      "explanation": "Yes, if you have a logged-in user, changeUser() should be called before openSession() to ensure the session and subsequent events are associated with the correct user profile."
+    },
+    {
+      "id": 4,
+      "question": "Which method is called to enable automatic display of in-app messages in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.showInAppMessages()",
+        "braze.automaticallyShowInAppMessages()",
+        "braze.enableInAppMessages()",
+        "braze.subscribeToInAppMessages()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The braze.automaticallyShowInAppMessages() method enables automatic display of in-app messages. Without this call, in-app messages won't display automatically."
+    },
+    {
+      "id": 5,
+      "question": "True or False: When using changeUser(), any sessions or events logged before the call will automatically be attributed to the new user.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "No, sessions and events logged before changeUser() are attributed to the previous user. changeUser() only affects subsequent sessions and events."
+    },
+    {
+      "id": 6,
+      "question": "How do you set a custom attribute on a user in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.setCustomAttribute('key', value)",
+        "braze.getUser().setCustomUserAttribute('key', value)",
+        "braze.user.setCustomAttribute('key', value)",
+        "braze.logCustomAttribute('key', value)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct syntax is braze.getUser().setCustomUserAttribute('key', value). This retrieves the current user and sets a custom attribute on their profile."
+    },
+    {
+      "id": 7,
+      "question": "Which method is used to log a custom event in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.trackEvent(eventName)",
+        "braze.logCustomEvent(eventName, properties)",
+        "braze.recordEvent(eventName)",
+        "braze.captureEvent(eventName)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct method is braze.logCustomEvent(eventName, properties). The properties parameter is optional but allows you to pass additional event data."
+    },
+    {
+      "id": 8,
+      "question": "True or False: The Braze Web SDK automatically handles service worker registration for push notifications.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, by default, the Web SDK automatically registers and manages the service worker when requestPushPermission() is called or at the start of each new session for users with push permission."
+    },
+    {
+      "id": 9,
+      "question": "What does the requestPushPermission() method do in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "It enables push notifications on the SDK",
+        "It checks if push is already enabled",
+        "It requests browser push notification permission from the user",
+        "It registers the device for push notifications"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The requestPushPermission() method prompts the user to grant push notification permission in their browser. This should typically be called in response to a user action."
+    },
+    {
+      "id": 10,
+      "question": "True or False: You can use the 'allowUserSuppliedJavascript' initialization option to enable custom JavaScript in in-app messages.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, setting allowUserSuppliedJavascript: true allows in-app messages to execute custom JavaScript that has been configured in the Braze dashboard."
+    },
+    {
+      "id": 11,
+      "question": "Which method retrieves the currently logged-in user object in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.currentUser()",
+        "braze.getUser()",
+        "braze.user()",
+        "braze.getUserProfile()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The braze.getUser() method returns the current user object, which you can then use to set attributes, emails, and other user properties."
+    },
+    {
+      "id": 12,
+      "question": "How do you log a purchase event in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.logPurchase(productId, price, currency, properties)",
+        "braze.getUser().logPurchase(productId, price, currency)",
+        "braze.recordPurchase(productId, price)",
+        "braze.logTransaction(productId, amount)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The correct method is braze.logPurchase(productId, price, currency, properties). This logs a purchase event with optional properties."
+    },
+    {
+      "id": 13,
+      "question": "True or False: The sessionTimeoutInSeconds initialization option controls how long a user can be inactive before their session ends.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, the sessionTimeoutInSeconds option (default 30 minutes) specifies the inactivity period after which a new session is started for the user."
+    },
+    {
+      "id": 14,
+      "question": "Which of the following is the recommended way to integrate the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "Via CDN script tag only",
+        "Via NPM package manager (recommended)",
+        "By copying and pasting the SDK code",
+        "Via local file download"
+      ],
+      "correctAnswer": 1,
+      "explanation": "NPM integration is recommended because it stores SDK libraries locally, provides protection from ad-blockers, and enables faster load times with bundler support."
+    },
+    {
+      "id": 15,
+      "question": "True or False: You must manually set the 'deviceId' during initialization if you want to track anonymous users.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "No, the Braze Web SDK automatically generates a device ID for anonymous users. You only need to set a custom deviceId if you have a specific requirement."
+    },
+    {
+      "id": 16,
+      "question": "What method is used to request an immediate data flush to the Braze servers in the Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.sync()",
+        "braze.requestImmediateDataFlush()",
+        "braze.flush()",
+        "braze.sendData()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The braze.requestImmediateDataFlush() method forces the SDK to immediately send queued data to Braze servers instead of waiting for the regular sync interval."
+    },
+    {
+      "id": 17,
+      "question": "True or False: The Web SDK automatically ignores activity from known web crawlers and spiders.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, by default, the Web SDK ignores activity from known spiders/crawlers (like Google, Bing) based on the user agent string. This saves data points and improves analytics accuracy."
+    },
+    {
+      "id": 18,
+      "question": "How do you subscribe to content card updates in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.onContentCardsUpdated(callback)",
+        "braze.subscribeToContentCardsUpdates(callback)",
+        "braze.listenToContentCards(callback)",
+        "braze.contentCardsListener(callback)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct method is braze.subscribeToContentCardsUpdates(callback). This registers a callback that fires whenever content cards are updated."
+    },
+    {
+      "id": 19,
+      "question": "True or False: To enable SDK Authentication in the Web SDK, you must set the enableSdkAuthentication option to true during initialization.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, SDK Authentication requires setting enableSdkAuthentication: true during initialization. This adds an additional layer of security to prevent unauthorized SDK requests."
+    },
+    {
+      "id": 20,
+      "question": "What does the 'manageServiceWorkerExternally' initialization option do?",
+      "type": "multiple_choice",
+      "options": [
+        "It disables service worker functionality",
+        "It allows you to manage your own service worker instead of letting Braze manage it",
+        "It forces the SDK to create a new service worker",
+        "It enables automatic service worker updates"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Setting manageServiceWorkerExternally: true allows you to manage your own service worker and integrate Braze push functionality into it, rather than letting the SDK manage it."
+    },
+    {
+      "id": 21,
+      "question": "How do you set standard user attributes like email and first name in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.setEmail('user@example.com'); braze.setFirstName('John')",
+        "braze.getUser().setEmail('user@example.com'); braze.getUser().setFirstName('John')",
+        "braze.user.email = 'user@example.com'; braze.user.firstName = 'John'",
+        "braze.updateUser({email: 'user@example.com', firstName: 'John'})"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct syntax is braze.getUser().setEmail(...) and braze.getUser().setFirstName(...). These methods set standard attributes on the current user profile."
+    },
+    {
+      "id": 22,
+      "question": "True or False: By default, the Web SDK will automatically sync a user's push token on each new session if they already granted push permission.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, the Web SDK automatically syncs push tokens on new sessions for users who previously granted push permission, unless you set disablePushTokenMaintenance: true."
+    },
+    {
+      "id": 23,
+      "question": "Which method is used to request Content Cards refresh from the Braze server in the Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.refreshContentCards()",
+        "braze.requestContentCardsRefresh()",
+        "braze.syncContentCards()",
+        "braze.getContentCards()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct method is braze.requestContentCardsRefresh(). This sends a background request to fetch the latest Content Cards from the Braze server."
+    },
+    {
+      "id": 24,
+      "question": "True or False: You must remove the automaticallyShowInAppMessages() call if you want to implement soft push prompts.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, for soft push prompts, you must remove automaticallyShowInAppMessages() and instead use subscribeToInAppMessage() to handle custom push primer messages."
+    },
+    {
+      "id": 25,
+      "question": "What is the purpose of calling openSession() in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "To authenticate the user with a password",
+        "To start tracking a new user session",
+        "To enable data encryption",
+        "To connect to the Braze server"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The openSession() method starts tracking a new user session. It should be called after initialization, changeUser(), and automaticallyShowInAppMessages()."
+    },
+    {
+      "id": 26,
+      "question": "True or False: The Web SDK automatically removes test campaign cards received from the Content Cards test send feature when receiving Content Cards updates.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "No, as of recent versions, test cards are no longer removed when the SDK receives Content Cards updates, allowing you to keep test cards visible while developing."
+    },
+    {
+      "id": 27,
+      "question": "How do you set a custom location attribute in the Braze Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.getUser().setLocation(lat, lon)",
+        "braze.getUser().setCustomLocationAttribute('latitude', lat); braze.getUser().setCustomLocationAttribute('longitude', lon)",
+        "braze.setGeoLocation(lat, lon)",
+        "braze.user.location = {lat, lon}"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct syntax uses setCustomLocationAttribute() for each location dimension. Standard attributes like country are set with setCountry(), etc."
+    },
+    {
+      "id": 28,
+      "question": "True or False: The inAppMessageZIndex initialization option controls the z-index of in-app messages on the page.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, the inAppMessageZIndex option (default 999999) specifies the z-index for in-app messages, allowing you to control layering with other page elements."
+    },
+    {
+      "id": 29,
+      "question": "Which method allows you to manually log a Content Card click in the Web SDK?",
+      "type": "multiple_choice",
+      "options": [
+        "braze.logCardClick(card)",
+        "card.logClick()",
+        "braze.logContentCardClicked(card)",
+        "braze.trackCardClick(card)"
+      ],
+      "correctAnswer": 0,
+      "explanation": "The correct method is braze.logCardClick(card). This logs a click for the specified Content Card object."
+    },
+    {
+      "id": 30,
+      "question": "True or False: In the Web SDK, you can use nested custom attributes and arrays of objects with the setCustomUserAttribute() method.",
+      "type": "true_false",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, setCustomUserAttribute() supports nested custom attributes and arrays of objects, with an optional merge parameter to control how values are updated."
     }
   ]
 }
