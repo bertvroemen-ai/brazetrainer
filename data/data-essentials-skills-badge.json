@@ -8,20 +8,18 @@
     {
       "id": 1,
       "question": "Which of the following are examples of out-of-the-box or automatically collected data in Braze? (Select 2)",
-      "type": "multiple_select",
       "options": [
         "First name",
         "Session count",
         "Time zone",
         "Favorite color"
       ],
-      "correctAnswers": [1, 2],
+      "correctAnswer": [1, 2],
       "explanation": "Session count and time zone are automatically collected by the Braze SDK without requiring additional setup. First name and favorite color must be manually collected as standard and custom attributes respectively."
     },
     {
       "id": 2,
       "question": "What is the primary difference between standard attributes and custom attributes in Braze?",
-      "type": "multiple_choice",
       "options": [
         "Standard attributes are predefined fields like first name and email, while custom attributes are brand-specific fields you define",
         "Custom attributes are automatically collected, while standard attributes require manual setup",
@@ -34,7 +32,6 @@
     {
       "id": 3,
       "question": "True or False: Data types for custom attributes must remain consistent after the first value is received to maintain accuracy in segmentation and personalization.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -45,7 +42,6 @@
     {
       "id": 4,
       "question": "An eCommerce company wants to perform a one-time export of segment data to analyze it manually in a spreadsheet. Which export method is best suited for this scenario?",
-      "type": "multiple_choice",
       "options": [
         "CSV",
         "REST API",
@@ -58,7 +54,6 @@
     {
       "id": 5,
       "question": "What scenario demonstrates the use of API campaigns?",
-      "type": "multiple_choice",
       "options": [
         "An eCommerce brand triggers a transactional email from an external system to a user immediately after they place an order",
         "A social media platform sends a weekly newsletter to all users with updates on new features",
@@ -71,7 +66,6 @@
     {
       "id": 6,
       "question": "In which use case is Cloud Data Ingestion the most suitable method for data import?",
-      "type": "multiple_choice",
       "options": [
         "Uploading a one-time import of customer email lists",
         "Securely syncing user data from your data warehouse to Braze as frequently as every 15 minutes",
@@ -84,7 +78,6 @@
     {
       "id": 7,
       "question": "Before deleting a custom event or attribute, what must be done first?",
-      "type": "multiple_choice",
       "options": [
         "The event or attribute must be marked as inactive for a month before deletion",
         "The event or attribute must be exported for backup before it can be deleted",
@@ -97,7 +90,6 @@
     {
       "id": 8,
       "question": "What is the key characteristic that defines zero-party data collected through a customer survey?",
-      "type": "multiple_choice",
       "options": [
         "It is information the user intentionally and proactively shares with the brand",
         "It is inferred by machine learning based on a user's web browsing history",
@@ -110,7 +102,6 @@
     {
       "id": 9,
       "question": "True or False: Custom event properties are used to describe characteristics of an event, while custom attributes describe static user traits.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -121,20 +112,18 @@
     {
       "id": 10,
       "question": "Which two Braze data categories must be combined to dynamically pull product information into a personalized message for a back-in-stock notification?",
-      "type": "multiple_select",
       "options": [
         "Braze Catalogs",
         "Liquid",
         "Custom event properties",
         "Intelligent timing"
       ],
-      "correctAnswers": [0, 1],
+      "correctAnswer": [0, 1],
       "explanation": "Braze Catalogs store product information (names, prices, images), and Liquid syntax is used to reference and display that data dynamically in messages. Together, they enable personalized product notifications."
     },
     {
       "id": 11,
       "question": "A marketing team notices that a user who made a purchase last month is still categorized as 'inactive' in their segmentation. What is the most likely cause?",
-      "type": "multiple_choice",
       "options": [
         "The purchase event was logged with a different user ID than their profile, creating a duplicate",
         "The data hasn't synced to the segmentation engine yet",
@@ -147,7 +136,6 @@
     {
       "id": 12,
       "question": "What is the purpose of creating a data dictionary in Braze?",
-      "type": "multiple_choice",
       "options": [
         "To document the definition, purpose, and ownership of all custom attributes and events in your workspace",
         "To automatically filter out duplicate customer data from your database",
@@ -160,7 +148,6 @@
     {
       "id": 13,
       "question": "True or False: Setting a standard attribute to null will permanently delete it from the user profile and prevent it from being collected again.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -171,7 +158,6 @@
     {
       "id": 14,
       "question": "Which of the following statements accurately describes the difference between 'blocklisting' and 'deleting' custom data?",
-      "type": "multiple_choice",
       "options": [
         "Blocklisting prevents new data collection but keeps existing data; deleting permanently removes all data from all profiles",
         "Deleting prevents new data collection but keeps existing data; blocklisting permanently removes it",
@@ -184,7 +170,6 @@
     {
       "id": 15,
       "question": "A retail brand wants to collect information about customer style preferences through an in-app survey. What type of data would this represent?",
-      "type": "multiple_choice",
       "options": [
         "First-party data",
         "Zero-party data",
@@ -197,7 +182,6 @@
     {
       "id": 16,
       "question": "What is the primary benefit of using the Braze Query Builder for data analysis?",
-      "type": "multiple_choice",
       "options": [
         "It allows you to use custom SQL queries to ask bespoke questions while combining multiple data sources",
         "It automatically generates campaign recommendations based on your audience data",
@@ -210,7 +194,6 @@
     {
       "id": 17,
       "question": "True or False: Purchase events in Braze are treated identically to custom events and do not include automatic tracking of customer lifetime value (LTV).",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -221,7 +204,6 @@
     {
       "id": 18,
       "question": "A company is migrating customer data from their legacy CRM to Braze. Which approach would ensure proper data mapping and maintain data integrity?",
-      "type": "multiple_choice",
       "options": [
         "Import all data at once using the fastest available method to minimize downtime",
         "Plan the migration, create a data dictionary, map legacy fields to Braze standard/custom attributes, and validate data quality before full migration",
@@ -234,7 +216,6 @@
     {
       "id": 19,
       "question": "Which data collection method would be most appropriate for a mobile app that needs to track real-time user behavior and device information?",
-      "type": "multiple_choice",
       "options": [
         "CSV import of user data",
         "Braze SDK integration",
@@ -247,7 +228,6 @@
     {
       "id": 20,
       "question": "True or False: Field names for standard attributes in Braze are case-insensitive, so 'First_Name' and 'first_name' will be treated the same.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -258,20 +238,18 @@
     {
       "id": 21,
       "question": "What are three ways a brand can resolve low email engagement on their mailing list? (Select 3)",
-      "type": "multiple_select",
       "options": [
         "Send generalized promotions to the entire list to cast a wide net",
         "Remove all inactive users from the email list",
         "Segment the email list to engage only with loyal and active users",
         "Ensure explicit consent is obtained from users before sending them emails"
       ],
-      "correctAnswers": [1, 2, 3],
+      "correctAnswer": [1, 2, 3],
       "explanation": "To improve engagement, brands should remove inactive users (list hygiene), segment to focus on engaged users, and ensure proper consent. Generalized promotions to the entire list would not help resolve low engagement."
     },
     {
       "id": 22,
       "question": "A SaaS company uses different identifiers for users depending on the data source (website, mobile app, email system). What is the best practice to ensure consistent user identification?",
-      "type": "multiple_choice",
       "options": [
         "Keep separate user profiles for each system to avoid data conflicts",
         "Create user aliases that map all identifiers to a single external ID or Braze ID",
@@ -284,7 +262,6 @@
     {
       "id": 23,
       "question": "What is the relationship between data points and Braze billing?",
-      "type": "multiple_choice",
       "options": [
         "Data points are used solely for tracking engagement metrics and have no impact on billing",
         "Data points are consumed when user profile data is updated or when specific actions occur; this usage affects Braze billing and pricing",
@@ -297,7 +274,6 @@
     {
       "id": 24,
       "question": "True or False: When you set country or language through the API or CSV import, Braze will stop auto-capturing those fields from the SDK for that user.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -308,7 +284,6 @@
     {
       "id": 25,
       "question": "What is the primary purpose of implementing data governance policies in Braze?",
-      "type": "multiple_choice",
       "options": [
         "To automatically improve campaign performance metrics",
         "To define who has access to which data, ensure compliance with regulations, and maintain data quality",
@@ -321,7 +296,6 @@
     {
       "id": 26,
       "question": "A company collects customer data from multiple sources (web, mobile app, email, social media). What challenge might they face without proper data unification?",
-      "type": "multiple_choice",
       "options": [
         "Faster campaign execution due to multiple data sources",
         "Duplicate user profiles, conflicting data, and inaccurate segmentation",
@@ -334,7 +308,6 @@
     {
       "id": 27,
       "question": "Which of the following statements about external user IDs in Braze is true?",
-      "type": "multiple_choice",
       "options": [
         "External IDs are optional and can be ignored if you rely on email addresses for identification",
         "External IDs are unique identifiers from your system that Braze uses to accurately match user profiles across data sources",
@@ -347,7 +320,6 @@
     {
       "id": 28,
       "question": "True or False: In Braze, you can reference out-of-the-box data (like device type or timezone) in personalization using Liquid tags without any additional configuration.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -358,7 +330,6 @@
     {
       "id": 29,
       "question": "What is the best practice for handling personally identifiable information (PII) and sensitive customer data in Braze?",
-      "type": "multiple_choice",
       "options": [
         "Store all PII in custom attributes without any restrictions or encryption",
         "Avoid collecting sensitive data; if necessary, follow data minimization principles and implement appropriate security measures and access controls",
@@ -371,7 +342,6 @@
     {
       "id": 30,
       "question": "A brand wants to ensure they have high-quality customer data. Which approach would best support this goal?",
-      "type": "multiple_choice",
       "options": [
         "Collect as much data as possible from every available source without validation",
         "Establish data quality standards, validate data at collection, maintain a data dictionary, remove duplicates, and regularly audit data for accuracy",
