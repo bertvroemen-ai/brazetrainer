@@ -287,14 +287,14 @@
     {
       "id": 22,
       "domain": "Data Management",
-      "question": "Which of the following data ingestion methods are supported by Braze? (Select 2)",
+      "question": "Which of the following data ingestion methods are supported by Braze? (Select 3)",
       "options": [
         "REST API with real-time updates",
         "SDK for client-side data collection",
         "Only email imports",
         "Batch CSV uploads for one-time data import"
       ],
-      "correctAnswer": [0, 3],
+      "correctAnswer": [0, 1, 3],
       "explanation": "Braze supports multiple data ingestion methods: REST API for real-time backend updates, SDK for client-side tracking, and CSV uploads for batch imports. Email is a channel, not an ingestion method."
     },
     {
