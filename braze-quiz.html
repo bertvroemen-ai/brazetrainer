@@ -97,6 +97,21 @@
             transition: all 0.2s;
             background: white;
             font-size: 16px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .option::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ddd;
+            border-radius: 3px;
+            background: white;
         }
 
         .option:hover {
@@ -107,6 +122,17 @@
         .option.selected {
             border-color: #0066cc;
             background: #e6f2ff;
+        }
+
+        .option.selected::before {
+            background: #0066cc;
+            content: '✓';
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
         }
 
         .option.correct {
@@ -234,6 +260,8 @@
         let currentQuestionIndex = 0;
         let answered = false;
         let correctCount = 0;
+        let selectedAnswers = [];  // Track multiple selected answers
+        let currentCorrectAnswer = null;  // Track correct answer index for current question
 
         // ========== DOM ELEMENTS ==========
         const certSelect = document.getElementById('certification-select');
@@ -322,8 +350,10 @@
 
         function showQuestion() {
             answered = false;
+            selectedAnswers = [];  // Reset selected answers
             nextBtn.classList.remove('show');
-            feedbackDiv.classList.remove('show', 'correct', 'incorrect');  // Remove ALL feedback classes
+            nextBtn.textContent = 'Submit Answer';
+            feedbackDiv.classList.remove('show', 'correct', 'incorrect');
             optionsDiv.innerHTML = '';
 
             const questions = quizData[currentCertification];
@@ -343,7 +373,7 @@
             }
 
             // Find the new index of the correct answer
-            const newCorrectAnswerIndex = optionsWithIndex.findIndex(option => option.isCorrect);
+            currentCorrectAnswer = optionsWithIndex.findIndex(option => option.isCorrect);
 
             // Update progress
             progressDiv.textContent = `Vraag ${currentQuestionIndex + 1} van ${questions.length}`;
@@ -351,35 +381,55 @@
             // Show question
             questionText.textContent = currentQuestion.question;
 
-            // Show shuffled options
+            // Show shuffled options with toggle behavior
             optionsWithIndex.forEach((optionData, index) => {
                 const optionDiv = document.createElement('div');
                 optionDiv.className = 'option';
                 optionDiv.textContent = optionData.text;
-                optionDiv.addEventListener('click', () => selectAnswer(index, newCorrectAnswerIndex));
+                optionDiv.addEventListener('click', () => toggleAnswer(index));
                 optionsDiv.appendChild(optionDiv);
             });
         }
 
-        function selectAnswer(selectedIndex, correctIndex) {
+        function toggleAnswer(index) {
             if (answered) return;
-            answered = true;
-
+            
             const options = optionsDiv.querySelectorAll('.option');
-            const isCorrect = selectedIndex === correctIndex;
+            
+            // Toggle selection
+            if (selectedAnswers.includes(index)) {
+                selectedAnswers = selectedAnswers.filter(i => i !== index);
+                options[index].classList.remove('selected');
+            } else {
+                selectedAnswers.push(index);
+                options[index].classList.add('selected');
+            }
+            
+            // Enable submit button if at least one answer selected
+            nextBtn.classList.toggle('show', selectedAnswers.length > 0);
+        }
 
-            options.forEach((option, index) => {
-                if (index === selectedIndex) {
-                    option.classList.add(isCorrect ? 'correct' : 'incorrect');
-                }
-                if (index === correctIndex && selectedIndex !== correctIndex) {
-                    option.classList.add('correct');
-                }
-                option.style.cursor = 'default';
-            });
+        function submitAnswer() {
+            if (answered || selectedAnswers.length === 0) return;
+            answered = true;
 
             const questions = quizData[currentCertification];
             const currentQuestion = questions[currentQuestionIndex];
+            const options = optionsDiv.querySelectorAll('.option');
+
+            // Only correct if EXACTLY ONE answer selected AND it's the right one
+            const isCorrect = selectedAnswers.length === 1 && selectedAnswers[0] === currentCorrectAnswer;
+
+            options.forEach((option, index) => {
+                if (selectedAnswers.includes(index)) {
+                    option.classList.add(isCorrect ? 'correct' : 'incorrect');
+                    option.style.cursor = 'default';
+                } else if (!isCorrect && index === currentCorrectAnswer) {
+                    // Show correct answer if user was wrong
+                    option.classList.add('correct');
+                    option.style.cursor = 'default';
+                }
+            });
 
             feedbackDiv.classList.add('show');
             feedbackDiv.classList.add(isCorrect ? 'correct' : 'incorrect');
@@ -388,20 +438,31 @@
                 correctCount++;
                 feedbackDiv.innerHTML = `✓ Correct! ${currentQuestion.explanation}`;
             } else {
-                const correctOptionLetter = String.fromCharCode(65 + correctIndex); // 0=A, 1=B, 2=C, 3=D
-                feedbackDiv.innerHTML = `✗ Incorrect (Correct answer: ${correctOptionLetter}). ${currentQuestion.explanation}`;
+                const correctOptionLetter = String.fromCharCode(65 + currentCorrectAnswer);
+                if (selectedAnswers.length > 1) {
+                    feedbackDiv.innerHTML = `✗ Incorrect - You selected ${selectedAnswers.length} answers. Only select ONE correct answer. ${currentQuestion.explanation}`;
+                } else {
+                    feedbackDiv.innerHTML = `✗ Incorrect (Correct answer: ${correctOptionLetter}). ${currentQuestion.explanation}`;
+                }
             }
 
             nextBtn.classList.add('show');
+            nextBtn.textContent = currentQuestionIndex < quizData[currentCertification].length - 1 ? 'Volgende vraag →' : 'Afmaken';
         }
 
         nextBtn.addEventListener('click', () => {
-            const questions = quizData[currentCertification];
-            if (currentQuestionIndex < questions.length - 1) {
-                currentQuestionIndex++;
-                showQuestion();
+            if (!answered) {
+                // First click: submit answer
+                submitAnswer();
             } else {
-                showFinished();
+                // Second click: go to next question
+                const questions = quizData[currentCertification];
+                if (currentQuestionIndex < questions.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion();
+                } else {
+                    showFinished();
+                }
             }
         });
 
