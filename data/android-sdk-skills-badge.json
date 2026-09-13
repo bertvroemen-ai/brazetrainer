@@ -1,31 +1,400 @@
 {
   "certification": "Android SDK Skills Badge",
-  "level": 1,
-  "totalQuestions": 2,
+  "level": "Skills Badge",
+  "examDetails": {
+    "duration": "30 minutes",
+    "passingScore": "73%",
+    "totalQuestions": 30,
+    "questionTypes": [
+      "Multiple Choice",
+      "Multiple Select",
+      "True/False"
+    ]
+  },
+  "domains": {
+    "sdkIntegration": "25%",
+    "customEvents": "20%",
+    "pushNotifications": "20%",
+    "inAppMessages": "15%",
+    "contentCards": "10%",
+    "bestPractices": "10%"
+  },
   "questions": [
     {
       "id": 1,
-      "question": "Which method on the Braze User object is correctly utilized to set a standard attribute on the user profile in Android?",
+      "domain": "SDK Integration",
+      "question": "What is the correct method to initialize the Braze SDK in an Android application?",
       "options": [
-        "Braze.setEmail(\"user@example.com\")",
-        "Braze.getInstance().getUser().setEmail(\"user@example.com\")",
-        "Braze.logStandardAttribute(\"email\", \"user@example.com\")",
-        "Braze.setUserAttribute(StandardAttribute.Email, \"user@example.com\")"
+        "Braze.initialize(context)",
+        "Braze.getInstance(context).initialize()",
+        "Braze.getInstance(context) is used after initialization in braze.xml",
+        "BrazeManager.setup(context)"
       ],
-      "correctAnswer": 1,
-      "explanation": "The correct Android method is Braze.getInstance().getUser().setEmail() to set standard user attributes."
+      "correctAnswer": 2,
+      "explanation": "The Braze Android SDK is initialized through configuration in braze.xml, after which Braze.getInstance(context) is used to access the Braze instance. The SDK automatically initializes from the configuration file."
     },
     {
       "id": 2,
-      "question": "True or False: In the Android SDK, you can customize notification sounds for push messages.",
+      "domain": "Custom Events",
+      "question": "Which method is correct for logging a custom event in the Braze Android SDK?",
+      "options": [
+        "Braze.logEvent(\"purchase\")",
+        "Braze.getInstance(context).logCustomEvent(\"purchase\")",
+        "Braze.logCustomEvent(context, \"purchase\")",
+        "BrazeUser.log(context, \"purchase\")"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The correct method to log a custom event in the Android SDK is Braze.getInstance(context).logCustomEvent(eventName), which logs the event to the current user's profile."
+    },
+    {
+      "id": 3,
+      "domain": "Custom Events",
+      "question": "True or False: Custom attributes in the Braze Android SDK must be set before a user is identified.",
       "options": [
         "True",
-        "False",
-        "Only for system notifications",
-        "Only if using FirebaseMessagingService"
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Custom attributes can be set at any time and will be associated with the user once they are identified. There is no requirement to set them before identification."
+    },
+    {
+      "id": 4,
+      "domain": "User Identification",
+      "question": "What does the changeUser() method do in the Braze Android SDK?",
+      "options": [
+        "Changes the user's email address",
+        "Changes the user's password",
+        "Identifies a user with a unique external user ID and creates a new user profile",
+        "Logs the user out of the app"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The changeUser() method identifies a user with a unique external user ID and creates or updates their user profile in Braze. This is essential for tracking individual users across sessions."
+    },
+    {
+      "id": 5,
+      "domain": "Custom Events",
+      "question": "Which data types are supported for custom event properties in the Braze Android SDK? (Select 2)",
+      "options": [
+        "String",
+        "Boolean",
+        "Image",
+        "Date"
+      ],
+      "correctAnswer": [0, 3],
+      "explanation": "The Braze Android SDK supports String, int, float, boolean, and Date objects for custom event properties. Image is not a supported data type for event properties."
+    },
+    {
+      "id": 6,
+      "domain": "Push Notifications",
+      "question": "Which interface should be implemented to custom handle deep links opened by Braze in Android?",
+      "options": [
+        "IBrazeDeepLinkListener",
+        "IBrazeDeeplinkHandler",
+        "BrazeDeepLinkManager",
+        "IDeepLinkHandler"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The IBrazeDeeplinkHandler interface should be implemented to custom handle all deep links opened by Braze across push notifications, in-app messages, and Content Cards in Android."
+    },
+    {
+      "id": 7,
+      "domain": "Push Notifications",
+      "question": "In the Braze Android SDK, when should the BrazeDeeplinkHandler delegate be set?",
+      "options": [
+        "In the MainActivity onCreate() method",
+        "In the Application.onCreate() method",
+        "In the onResume() method",
+        "In the onPause() method"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The BrazeDeeplinkHandler delegate should be set in your app's Application.onCreate() method in most cases, to ensure it's available early in the app lifecycle."
+    },
+    {
+      "id": 8,
+      "domain": "Push Notifications",
+      "question": "What does the com_braze_handle_push_deep_links_automatically flag do in the Android SDK?",
+      "options": [
+        "Enables logging of push notifications",
+        "Controls whether tapping a push notification automatically brings the app to foreground and opens its deep link",
+        "Encrypts push notification payloads",
+        "Disables all push notifications"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The com_braze_handle_push_deep_links_automatically flag in braze.xml controls whether the SDK automatically brings your app to the foreground and opens deep links when a push notification is tapped."
+    },
+    {
+      "id": 9,
+      "domain": "In-App Messages",
+      "question": "True or False: The Braze Android SDK requires additional setup beyond basic SDK integration to display in-app messages.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Braze Android SDK handles in-app message display automatically after basic SDK integration. The default UI is provided out-of-the-box with no additional setup required."
+    },
+    {
+      "id": 10,
+      "domain": "Content Cards",
+      "question": "Which class is used to display Content Cards in the Braze Android SDK?",
+      "options": [
+        "ContentCardActivity",
+        "ContentCardsFragment",
+        "BrazeContentCardsView",
+        "ContentCardManager"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The ContentCardsFragment class is used to display Content Cards in the Braze Android SDK. It's available in the Braze Android UI project and automatically handles display and analytics."
+    },
+    {
+      "id": 11,
+      "domain": "Custom Attributes",
+      "question": "Which method sets a custom attribute for the current user in the Braze Android SDK?",
+      "options": [
+        "Braze.getInstance(context).setCustomUserAttribute(key, value)",
+        "Braze.setCustomAttribute(context, key, value)",
+        "Braze.getInstance(context).currentUser?.setCustomUserAttribute(key, value)",
+        "Braze.logCustomAttribute(context, key, value)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "In the Braze Android SDK (Kotlin), you use Braze.getInstance(context).currentUser?.setCustomUserAttribute(key, value) to set custom attributes. In Java, this would be accessed through the currentUser property."
+    },
+    {
+      "id": 12,
+      "domain": "Custom Events",
+      "question": "Can you log a purchase event in the Braze Android SDK?",
+      "options": [
+        "No, only custom events are supported",
+        "Yes, using logPurchase() method with product ID, price, currency, and optional quantity",
+        "Yes, but only through the REST API",
+        "No, purchase tracking is not supported in Android SDK"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Yes, the Braze Android SDK supports logging purchase events using the logPurchase() method, which accepts product ID, price, currency code, quantity, and optional properties."
+    },
+    {
+      "id": 13,
+      "domain": "User Identification",
+      "question": "True or False: User attributes set before calling changeUser() are automatically carried over to the new user profile.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "User attributes set before calling changeUser() are not automatically carried over. When you call changeUser() with a new external user ID, a new user profile is created, and previously set attributes are not transferred."
+    },
+    {
+      "id": 14,
+      "domain": "Push Notifications",
+      "question": "What is the purpose of Firebase Cloud Messaging (FCM) in the context of Braze Android SDK?",
+      "options": [
+        "To replace the Braze SDK entirely",
+        "To provide push notification tokens and handle push delivery to the Braze SDK",
+        "To encrypt all user data",
+        "To disable in-app messaging"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Firebase Cloud Messaging (FCM) provides push notification tokens and handles the delivery of push notifications to the Braze SDK, which then processes and displays them to users."
+    },
+    {
+      "id": 15,
+      "domain": "In-App Messages",
+      "question": "Which of the following can you customize in Braze Android in-app messages? (Select 2)",
+      "options": [
+        "Message styling and appearance",
+        "When messages are displayed",
+        "User device hardware",
+        "Message dismissal behavior"
+      ],
+      "correctAnswer": [0, 3],
+      "explanation": "You can customize message styling, appearance, and dismissal behavior in Braze Android in-app messages. The device hardware cannot be customized, and message display timing is controlled by Braze campaigns."
+    },
+    {
+      "id": 16,
+      "domain": "SDK Integration",
+      "question": "Where should the Braze API key be configured in the Android SDK?",
+      "options": [
+        "In the MainActivity",
+        "In the braze.xml configuration file",
+        "In the build.gradle file",
+        "In the AndroidManifest.xml file"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Braze API key should be configured in the braze.xml configuration file located in the res/values directory of your Android project."
+    },
+    {
+      "id": 17,
+      "domain": "Custom Attributes",
+      "question": "True or False: Custom attribute keys in the Braze Android SDK are case-insensitive.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Custom attribute keys are case-sensitive in Braze. You must use the exact same case when referencing them as you used when creating them."
+    },
+    {
+      "id": 18,
+      "domain": "Best Practices",
+      "question": "When should you call requestImmediateDataFlush() in the Braze Android SDK?",
+      "options": [
+        "After every custom event to ensure immediate transmission",
+        "Only when the app is about to terminate or when immediate data syncing is critical",
+        "Never, the SDK handles data flushing automatically",
+        "Every time a user logs in"
+      ],
+      "correctAnswer": 1,
+      "explanation": "You should call requestImmediateDataFlush() only when it's critical to sync data immediately, such as when the app is terminating or before a critical action. Regular calls can impact performance."
+    },
+    {
+      "id": 19,
+      "domain": "SDK Integration",
+      "question": "What permissions are required in the Android Manifest for Braze push notifications?",
+      "options": [
+        "Only android.permission.INTERNET",
+        "android.permission.INTERNET and android.permission.ACCESS_NETWORK_STATE",
+        "All permissions are optional in Braze",
+        "Only android.permission.RECEIVE_BOOT_COMPLETED"
+      ],
+      "correctAnswer": 1,
+      "explanation": "At minimum, android.permission.INTERNET and android.permission.ACCESS_NETWORK_STATE are required for Braze to function properly with push notifications and data syncing."
+    },
+    {
+      "id": 20,
+      "domain": "Content Cards",
+      "question": "True or False: Content Cards in the Braze Android SDK automatically log analytics for impressions and clicks.",
+      "options": [
+        "True",
+        "False"
       ],
       "correctAnswer": 0,
-      "explanation": "Android allows customization of notification sounds through the Braze SDK configuration."
+      "explanation": "Yes, the ContentCardsFragment automatically logs usage analytics for Content Cards, including impressions and clicks, without requiring additional code."
+    },
+    {
+      "id": 21,
+      "domain": "In-App Messages",
+      "question": "Which method enables you to manually log an in-app message impression in the Braze Android SDK?",
+      "options": [
+        "Braze.logInAppMessageImpression()",
+        "inAppMessage.logImpression()",
+        "Braze.getInstance(context).logInAppMessageImpression(inAppMessage)",
+        "logMessageEvent(inAppMessage)"
+      ],
+      "correctAnswer": 2,
+      "explanation": "You can manually log in-app message impressions using Braze.getInstance(context).logInAppMessageImpression(inAppMessage) when handling custom in-app message UI."
+    },
+    {
+      "id": 22,
+      "domain": "Push Notifications",
+      "question": "What is a key-value pair in the context of Braze Android push notifications?",
+      "options": [
+        "A way to encrypt push payloads",
+        "Custom key-value data that can be passed in a push notification and accessed by your app",
+        "A method to authenticate with Braze servers",
+        "A way to schedule push notifications"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Key-value pairs are custom data that can be included in push notifications and accessed by your app, allowing you to pass data and trigger custom behavior based on push content."
+    },
+    {
+      "id": 23,
+      "domain": "Custom Events",
+      "question": "What is the maximum number of custom events you can log in a single session?",
+      "options": [
+        "10 events per session",
+        "100 events per session",
+        "Unlimited events per session",
+        "1000 events per session"
+      ],
+      "correctAnswer": 2,
+      "explanation": "There is no maximum limit on the number of custom events you can log in a single session. The Braze Android SDK queues and batches events for transmission."
+    },
+    {
+      "id": 24,
+      "domain": "Best Practices",
+      "question": "True or False: It's recommended to set user IDs as soon as possible after app launch in the Braze Android SDK.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, it's a best practice to call changeUser() with the user's ID as soon as possible after app launch to ensure proper user tracking and attribution of events and attributes."
+    },
+    {
+      "id": 25,
+      "domain": "SDK Integration",
+      "question": "Which of the following are valid data types for custom attributes in the Braze Android SDK? (Select 2)",
+      "options": [
+        "String",
+        "File",
+        "Double (float)",
+        "XML"
+      ],
+      "correctAnswer": [0, 2],
+      "explanation": "The Braze Android SDK supports String and numeric types (int, long, float/double) for custom attributes. File and XML are not valid custom attribute data types."
+    },
+    {
+      "id": 26,
+      "domain": "Content Cards",
+      "question": "What is the purpose of the class_type key-value pair in Braze Android Content Cards?",
+      "options": [
+        "To authenticate the card",
+        "To determine how the card renders in your app",
+        "To encrypt the card content",
+        "To schedule when the card displays"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The class_type key-value pair in Content Cards is used to determine how the card renders in your app, allowing you to display different card types with custom styling."
+    },
+    {
+      "id": 27,
+      "domain": "User Identification",
+      "question": "What happens when you call changeUser() with the same user ID multiple times?",
+      "options": [
+        "It creates a new user profile each time",
+        "It merges the user profiles",
+        "It updates the existing user profile without creating duplicates",
+        "It logs an error in the console"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Calling changeUser() with the same user ID multiple times updates the existing user profile without creating duplicates. Braze tracks based on the unique external user ID."
+    },
+    {
+      "id": 28,
+      "domain": "In-App Messages",
+      "question": "True or False: You can log button clicks in in-app messages using logInAppMessageClicked() in the Braze Android SDK.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Yes, you can manually log in-app message button clicks using logInAppMessageClicked(inAppMessage) when implementing custom in-app message handling."
+    },
+    {
+      "id": 29,
+      "domain": "Best Practices",
+      "question": "What is the recommended approach for handling sensitive data like passwords in custom attributes?",
+      "options": [
+        "Store them as encrypted custom attributes",
+        "Never store sensitive data like passwords in custom attributes; use secure storage",
+        "Store them as string custom attributes with no encryption",
+        "Use the Braze API to encrypt them"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Never store sensitive data like passwords or tokens in Braze custom attributes. Use secure storage mechanisms provided by Android for sensitive information."
+    },
+    {
+      "id": 30,
+      "domain": "SDK Integration",
+      "question": "In which lifecycle method should you typically initialize or configure Braze in your Application class?",
+      "options": [
+        "onDestroy()",
+        "onCreate()",
+        "onResume()",
+        "onPause()"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Braze SDK should be configured in your Application class's onCreate() method to ensure it's initialized as early as possible in the app lifecycle."
     }
   ]
 }
