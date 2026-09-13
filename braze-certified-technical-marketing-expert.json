@@ -1,0 +1,31 @@
+{
+  "certification": "Braze Certified Technical Marketing Expert",
+  "level": 3,
+  "totalQuestions": 2,
+  "questions": [
+    {
+      "id": 1,
+      "question": "When testing custom handlers and rendering in in-app messages, how should you verify that analytics are correctly submitted?",
+      "options": [
+        "Check the Custom Events page for the standard Braze value",
+        "Check Message Activity Log for entries",
+        "Send a test campaign and monitor Campaign Analytics",
+        "Verify with console.log() in your SDK integration"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Message Activity Log provides detailed records of all message interactions and analytics submissions."
+    },
+    {
+      "id": 2,
+      "question": "Using the /users/track REST API, what is the maximum number of attributes you can update with a single API request given a 3,000 requests per second rate limit?",
+      "options": [
+        "Less than 3,000 due to ID and auth overhead",
+        "Exactly 3,000 since the rate limit refers to attributes",
+        "More than 3,000 since each request can contain multiple attributes",
+        "It depends on the attribute data types"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Each API request can contain multiple user attribute objects, so you can update more than 3,000 attributes per second by batching them efficiently."
+    }
+  ]
+}

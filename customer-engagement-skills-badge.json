@@ -1,0 +1,31 @@
+{
+  "certification": "Customer Engagement Skills Badge",
+  "level": 1,
+  "totalQuestions": 2,
+  "questions": [
+    {
+      "id": 1,
+      "question": "You are a marketing manager at a retail company launching a personalized email campaign. Your team needs to balance data privacy with personalization while complying with GDPR and CCPA. How would you approach this?",
+      "options": [
+        "Collect as much data as possible without informing customers",
+        "Use customer data for personalization only after obtaining explicit consent",
+        "Avoid using any customer data to ensure complete privacy",
+        "Use customer data but don't inform them about data usage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Balancing privacy with personalization requires obtaining explicit consent and clearly communicating data usage in compliance with regulations."
+    },
+    {
+      "id": 2,
+      "question": "A brand sends a message that inserts a user's first name and a recent product they saved. What is this an example of?",
+      "options": [
+        "Intelligent Timing",
+        "Dynamic personalization",
+        "Segmentation",
+        "Orchestration"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Dynamic personalization inserts user-specific data like names and saved products into messages for targeted, relevant experiences."
+    }
+  ]
+}
