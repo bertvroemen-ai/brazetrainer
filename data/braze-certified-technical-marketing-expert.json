@@ -1,31 +1,365 @@
 {
   "certification": "Braze Certified Technical Marketing Expert",
   "level": 3,
-  "totalQuestions": 2,
+  "examType": "multiple-choice",
+  "totalQuestions": 30,
+  "passingScore": 76,
   "questions": [
     {
       "id": 1,
-      "question": "When testing custom handlers and rendering in in-app messages, how should you verify that analytics are correctly submitted?",
+      "question": "When designing a user identification strategy, which approach best ensures consistent tracking across devices and platforms?",
       "options": [
-        "Check the Custom Events page for the standard Braze value",
-        "Check Message Activity Log for entries",
-        "Send a test campaign and monitor Campaign Analytics",
-        "Verify with console.log() in your SDK integration"
+        "Using device identifiers as the primary user ID",
+        "Using UUIDs/GUIDs as external_id (external_ids) for all known users, allowing consistent tracking across devices and enabling API-based targeting",
+        "Never setting external IDs; rely only on anonymous braze_id",
+        "Using email addresses as external IDs without hashing for simplicity"
       ],
       "correctAnswer": 1,
-      "explanation": "The Message Activity Log provides detailed records of all message interactions and analytics submissions."
+      "explanation": "Braze recommends UUID/GUID external IDs because they are long, random, well-distributed, and unchanging, enabling accurate cross-device/cross-platform tracking. Device IDs offer no benefit versus anonymous tracking and create data quality issues."
     },
     {
       "id": 2,
-      "question": "Using the /users/track REST API, what is the maximum number of attributes you can update with a single API request given a 3,000 requests per second rate limit?",
+      "question": "A brand collects user data before authentication (anonymous user). When the user logs in, what is the best technical approach to merge the profiles?",
       "options": [
-        "Less than 3,000 due to ID and auth overhead",
-        "Exactly 3,000 since the rate limit refers to attributes",
-        "More than 3,000 since each request can contain multiple attributes",
-        "It depends on the attribute data types"
+        "Create a new user profile; delete the old anonymous profile",
+        "Call changeUser() with the external_id to merge the anonymous profile with the authenticated profile, transferring unset fields from the anonymous to the identified profile",
+        "Import the data via REST API without merging",
+        "Keep separate profiles and don't merge"
       ],
-      "correctAnswer": 2,
-      "explanation": "Each API request can contain multiple user attribute objects, so you can update more than 3,000 attributes per second by batching them efficiently."
+      "correctAnswer": 1,
+      "explanation": "The changeUser() SDK method merges anonymous and identified profiles by transferring data from the anonymous profile to the identified profile. Only fields not already populated on the identified profile are merged, preserving existing data."
+    },
+    {
+      "id": 3,
+      "question": "When implementing custom events, what is the critical naming and design consideration?",
+      "options": [
+        "Event names can be changed freely without impact",
+        "Use descriptive, consistent naming conventions that match your data schema exactly as implemented in the SDK and dashboard—avoid creating more than 20,000 distinct event names per profile",
+        "Event names must be numeric only",
+        "Custom events don't count toward data point usage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze blocks profiles exceeding 20,000 distinct custom event names. Consistent naming conventions prevent data quality issues. Event names are case-sensitive and must match exactly between implementation and dashboard configuration."
+    },
+    {
+      "id": 4,
+      "question": "A development team is deciding between SDK and REST API for user data collection. When is the REST API the preferred approach?",
+      "options": [
+        "Always; the REST API is superior to the SDK",
+        "For continuous, server-side updates not triggered by user behavior (e.g., VIP status changes in backend systems, scheduled attribute syncs from CRM)",
+        "Never; always use the SDK exclusively",
+        "Only for email collection"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The REST API is ideal for backend-triggered, non-user-initiated updates (VIP promotion, billing changes, CRM syncs). The SDK tracks direct user interactions. Both should be batched to optimize API rate limits."
+    },
+    {
+      "id": 5,
+      "question": "What is the correct approach for batching REST API requests to manage Braze's rate limits efficiently?",
+      "options": [
+        "Send individual requests one at a time with delays",
+        "Batch multiple user updates in single /users/track calls; send only delta values to avoid redundant data point consumption",
+        "Never batch; ensure each request is independent",
+        "Send all requests simultaneously without batching"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Batching reduces API calls and data point usage. Sending only delta values (changed fields) instead of full profiles prevents unnecessary data point consumption and improves efficiency."
+    },
+    {
+      "id": 6,
+      "question": "During a data migration, the brand needs to rename external IDs. What must be carefully managed to prevent data loss?",
+      "options": [
+        "Simply delete old external IDs and replace with new ones",
+        "Use the /users/external_ids/rename endpoint, which creates a migration period where both old and new external IDs reference the same profile until the old ID is explicitly removed",
+        "Create duplicate profiles during migration",
+        "Export all data before renaming"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The rename endpoint maintains a migration period where both old and new external IDs work. This allows older app versions (using the old ID format) to continue functioning while new versions use the renamed ID, preventing service disruption."
+    },
+    {
+      "id": 7,
+      "question": "When implementing Cloud Data Ingestion (CDI), what role does the UPDATED_AT timestamp play in sync efficiency?",
+      "options": [
+        "It has no impact on sync efficiency",
+        "Braze uses UPDATED_AT to identify only rows that have changed since the last sync, enabling incremental syncs and reducing redundant data point consumption",
+        "It's only for manual logging purposes",
+        "All rows are synced regardless of UPDATED_AT"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CDI tracks UPDATED_AT timestamps to identify changed rows. Braze syncs only rows where UPDATED_AT is later than the last sync timestamp, enabling efficient incremental updates without redundant data point usage."
+    },
+    {
+      "id": 8,
+      "question": "A brand is implementing Liquid personalization in webhooks. What is a critical consideration to prevent JSON parsing failures?",
+      "options": [
+        "Liquid syntax errors are automatically fixed by Braze",
+        "Validate that Liquid renders without blank values and properly escapes special characters (quotes, line breaks) that could break JSON structure before sending",
+        "Never use Liquid in webhooks",
+        "All Liquid outputs are valid JSON"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Unescaped quotes or unvalidated Liquid can generate invalid JSON, causing webhook failures. Testing webhook preview against sample user data confirms correct Liquid rendering and valid JSON structure."
+    },
+    {
+      "id": 9,
+      "question": "When designing custom attributes, what is the primary constraint to manage?",
+      "options": [
+        "There are no constraints on custom attributes",
+        "Braze blocks profiles with more than 20,000 distinct custom event names or property keys; custom attributes are finite and should be designed conservatively to avoid growth issues",
+        "Attributes can be created infinitely",
+        "Only email can store custom attributes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Over-designing custom attributes (creating one for every possible variation) causes profiles to hit Braze's blocking limits (20,000+ distinct names). Strategic attribute design aggregates similar data to avoid this."
+    },
+    {
+      "id": 10,
+      "question": "A brand wants to export campaign data including tags and key-value pairs to their data warehouse. Which technical approach is necessary?",
+      "options": [
+        "Use Braze Currents directly—it includes all tag data",
+        "Combine Currents for message engagement events with webhooks templated with Liquid to send tag/KVP data to the warehouse, since Currents alone doesn't include tags",
+        "Only use the Export API",
+        "Tags cannot be exported"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Currents doesn't include campaign tags or message-level KVPs. A webhook in the campaign (using Liquid to template tag values) sends this data to the warehouse, enabling comprehensive tag tracking alongside Currents engagement data."
+    },
+    {
+      "id": 11,
+      "question": "When troubleshooting a failed webhook, what is the first diagnostic step?",
+      "options": [
+        "Immediately contact Braze support",
+        "Check the Message Activity Log for error codes (4XX/5XX) and timestamps, then validate request payload syntax, Liquid rendering, and endpoint authentication in that order",
+        "Assume the webhook is broken and abandon it",
+        "Never use webhooks"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The Message Activity Log provides error codes and context. Systematic troubleshooting—syntax validation, Liquid preview testing, and auth credential verification—resolves most webhook issues without support escalation."
+    },
+    {
+      "id": 12,
+      "question": "A brand is implementing session tracking. Which SDK behavior should they understand regarding session defaults?",
+      "options": [
+        "Sessions never timeout",
+        "By default, the SDK starts a session on app open and closes it after 30 minutes of inactivity; both thresholds can be customized via SDK initialization parameters",
+        "Sessions require manual coding",
+        "Session tracking isn't automatic"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze SDKs automatically track session_start and session_end with default 30-minute inactivity timeout. Customizing sessionTimeoutInSeconds allows tuning for specific business needs (e.g., shorter timeouts for transactional apps)."
+    },
+    {
+      "id": 13,
+      "question": "When merging duplicate user profiles, what critical constraint must be understood?",
+      "options": [
+        "Profiles can be merged and then unmerged if needed",
+        "Merging is permanent and cannot be undone—only search-compatible profiles can be merged, requiring careful testing before execution",
+        "All profiles automatically merge",
+        "Merging has no permanent consequences"
+      ],
+      "correctAnswer": 1,
+      "explanation": "User profile merges are irreversible. Braze requires meticulous planning and testing before merging, as the operation cannot be rolled back. Dashboard merge requires searching for duplicates using identical search criteria."
+    },
+    {
+      "id": 14,
+      "question": "A technical architect is designing data governance. What approach prevents 'dummy user' profiles that trigger Braze's blocking limits?",
+      "options": [
+        "Create user profiles for every possible data point",
+        "Implement validation rules preventing profiles with >5,000,000 sessions, >20,000 distinct custom events, or >20,000 product names; audit data collection for misintegrations creating runaway profiles",
+        "Allow unlimited profile growth",
+        "Braze has no blocking limits"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze blocks 'dummy users' exceeding limits. Misintegrations (incorrect event tracking, key generation) create these profiles. Implementation validation and monitoring prevent this by catching data quality issues early."
+    },
+    {
+      "id": 15,
+      "question": "When using Connected Content in messages, what error handling consideration is critical?",
+      "options": [
+        "Connected Content always renders successfully",
+        "Connected Content can return blank if the endpoint is unavailable or returns an error; implement graceful fallbacks (default content) in Liquid to prevent blank message sections in production",
+        "Errors are never handled",
+        "Always ignore connection errors"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Connected Content requests can fail (timeouts, 4XX/5XX errors). Liquid conditionals (if/else) provide fallback content, ensuring messages display with either dynamic or default content rather than blank sections."
+    },
+    {
+      "id": 16,
+      "question": "A brand is deciding between user alias and external_id for an anonymous user who signs up via email. What is the technical distinction?",
+      "options": [
+        "They are identical with no difference",
+        "External_id is for identified users with unchanging unique identifiers; user alias (name + label pair) is for anonymous users or additional identifiers without external_ids, enabling API-based tracking before authentication",
+        "User aliases are always better",
+        "External IDs are only for email"
+      ],
+      "correctAnswer": 1,
+      "explanation": "External_id is the primary persistent identifier for identified users. User alias is a secondary identifier for anonymous users or when the primary identifier isn't yet known. Both can be used in API calls but serve different lifecycle stages."
+    },
+    {
+      "id": 17,
+      "question": "When configuring CDI with 'Update existing users only' enabled, what behavior should be understood?",
+      "options": [
+        "All users are created and updated",
+        "Only existing Braze users are updated; rows referencing unknown external_ids are skipped and new users are not created—turn off this toggle to create new users",
+        "All rows create new users",
+        "Updates never occur"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CDI's 'Update existing users only' toggle controls user creation. Enabled = updates only; disabled = creates and updates. This distinction is critical for deciding whether to create new users through warehouse syncs."
+    },
+    {
+      "id": 18,
+      "question": "A technical team is designing event property naming. What constraint must be observed?",
+      "options": [
+        "Event property keys can be any length",
+        "Event property keys must be <255 characters with no leading dollar signs ($); exceeding length or special character limits causes ingestion failures",
+        "All property keys are valid",
+        "Property keys can include any characters"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze enforces property key length limits (≤255 chars) and prohibits leading dollar signs. Violations cause parsing errors. Careful naming conventions prevent failed ingestion."
+    },
+    {
+      "id": 19,
+      "question": "When implementing user authentication for Braze SDKs to prevent user impersonation, what is the technical implementation?",
+      "options": [
+        "Never implement authentication; rely on user IDs only",
+        "Use Braze SDK authentication features (signature validation, HMAC) to verify user identity server-side before setting external_id, preventing malicious users from spoofing other identities",
+        "Authentication isn't necessary",
+        "Always allow user impersonation for flexibility"
+      ],
+      "correctAnswer": 1,
+      "explanation": "SDK authentication (using HMAC or cryptographic signatures) validates that the user requesting a given external_id is actually that user. This prevents attackers from using valid external_ids to target other users' data."
+    },
+    {
+      "id": 20,
+      "question": "True or False: A web app must initialize the Braze SDK before a user logs in to track anonymous behavior.",
+      "options": [
+        "True—initialization must happen immediately on page load",
+        "False—SDK initialization can be delayed until authentication if business logic requires it, but delaying prevents prefetching of in-app message assets; never re-delay on subsequent sessions"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Delayed initialization is technically possible for privacy-first workflows, but subsequent sessions must re-initialize normally to support prefetching. Deferring initialization every session breaks message delivery."
+    },
+    {
+      "id": 21,
+      "question": "When a user uninstalls and reinstalls an app, what happens to their user identity?",
+      "options": [
+        "The same braze_id persists across uninstall/reinstall",
+        "A new anonymous braze_id is generated on reinstall; external_id must be re-set at login to reconnect to the identified profile, preserving historical data",
+        "All data is lost",
+        "The user cannot be re-identified"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Uninstall/reinstall generates a new braze_id (anonymous identifier). However, re-setting the external_id at re-login reconnects to the original identified profile, preserving history. This demonstrates the importance of external_ids for persistence."
+    },
+    {
+      "id": 22,
+      "question": "A brand wants to track in-app custom inactivity on web (browser tab visibility changes). What is the technical approach?",
+      "options": [
+        "The Braze Web SDK automatically tracks tab switching",
+        "Implement custom event listeners using the browser's Page Visibility API and send custom events to Braze, since the Web SDK doesn't automatically track visibility changes",
+        "Web inactivity cannot be tracked",
+        "Monitor inactivity without Braze"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze Web SDK doesn't automatically track browser visibility/tab focus. Custom JavaScript using the Page Visibility API can detect these events and log custom events to Braze for advanced inactivity tracking."
+    },
+    {
+      "id": 23,
+      "question": "When importing user data via CSV, what is a key limitation compared to REST API or SDK?",
+      "options": [
+        "CSV import is faster than API methods",
+        "CSV import is one-time only and less flexible than REST API; prefer REST API for ongoing, incremental updates from backend systems",
+        "CSV can update realtime like API",
+        "CSV and API are identical in capability"
+      ],
+      "correctAnswer": 1,
+      "explanation": "CSV import is designed for one-time bulk loads (useful for initial data seeding). Ongoing updates should use REST API or SDK, which enable continuous, incremental syncs from production systems."
+    },
+    {
+      "id": 24,
+      "question": "A developer team is implementing purchase event logging. What property validation should be enforced?",
+      "options": [
+        "No validation is necessary",
+        "Validate that purchase_quantity and monetary properties align with business rules (no negative values, realistic amounts) to prevent data quality issues and billing anomalies",
+        "All purchase values are valid",
+        "Don't track purchase events"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Invalid purchase properties (negative quantities, astronomical amounts, non-numeric values) distort CLV calculations and analytics. Server-side validation before sending to Braze ensures data quality."
+    },
+    {
+      "id": 25,
+      "question": "When troubleshooting blank Connected Content in message previews, what diagnostic steps should be taken?",
+      "options": [
+        "Assume the endpoint is down permanently",
+        "Test the Connected Content endpoint URL directly in a browser or API tool; verify authentication headers and credentials; confirm the endpoint returns valid JSON; check Liquid templating for blank values",
+        "Never debug Connected Content",
+        "Always abandon Connected Content"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Connected Content failures are diagnosed by testing the endpoint directly (curl, Postman), validating auth, confirming JSON structure, and testing Liquid preview rendering. This isolates whether the issue is endpoint availability, auth, or Liquid logic."
+    },
+    {
+      "id": 26,
+      "question": "A brand wants to implement incremental data point optimization. Which strategy is most effective?",
+      "options": [
+        "Send all customer attributes and events even if unchanged",
+        "Implement a diff-tracking system that identifies changed fields and sends only deltas; batch multiple updates per API call to minimize data point consumption while maintaining real-time accuracy",
+        "Never track data points",
+        "Data points are unlimited"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Data point minimization is achieved by sending only changed fields (deltas) in batched API calls. Unchanged fields waste data points. This requires tracking previous state and computing diffs before API calls."
+    },
+    {
+      "id": 27,
+      "question": "When designing a tech stack integration, when should REST API be preferred over SDK?",
+      "options": [
+        "Never use REST API",
+        "Use REST API for server-to-server integrations (backend CRM syncs, batch data imports, non-user-triggered updates) where SDKs aren't accessible or applicable",
+        "Always use SDK exclusively",
+        "SDKs are only for mobile"
+      ],
+      "correctAnswer": 1,
+      "explanation": "REST API is essential for backend systems (CRM, data warehouses, ETL pipelines) that can't run SDKs. SDK is for user-facing apps. A complete tech stack uses both—REST for backend, SDK for frontend."
+    },
+    {
+      "id": 28,
+      "question": "True or False: All user data collected by the Braze SDK counts toward data point usage.",
+      "options": [
+        "True—every data point counts equally",
+        "False—automatically tracked data (like session_start/session_end) counts, but automatic SDK data (device ID, location, OS) doesn't count; only custom data and REST API usage count against limits"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze provides automatic data collection at no data point cost. Only custom attributes, custom events, purchase events, and REST API updates consume data points. This distinction enables free automatic tracking."
+    },
+    {
+      "id": 29,
+      "question": "A technical architect is planning user profile growth. What metric should be monitored to prevent hitting Braze's blocking limits?",
+      "options": [
+        "Only revenue metrics matter",
+        "Monitor profile metrics: session count (<5M), distinct custom event names (<20K), distinct product names in purchases (<20K); implement alerts when approaching 80% of limits to trigger data governance review",
+        "Blocking limits are unlimited",
+        "Don't monitor profile metrics"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Proactive monitoring of the three blocking metrics (sessions, event names, product names) enables early intervention. Crossing limits stops data ingestion entirely—prevention through alerts is critical."
+    },
+    {
+      "id": 30,
+      "question": "When implementing a data governance framework, what is the most critical technical control?",
+      "options": [
+        "No controls are necessary",
+        "Establish validation rules at data ingestion (SDK and API) that enforce data schema consistency, prevent malformed events, and audit misintegrations creating abnormal profiles before they reach scale",
+        "Allow any data into Braze",
+        "Data governance is impossible"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Front-end validation at ingestion time prevents bad data from entering Braze, avoiding costly reprocessing or profile cleanup. Implementation validation catches misintegrations (incorrect event names, duplicated event tracking) early."
     }
   ]
 }
