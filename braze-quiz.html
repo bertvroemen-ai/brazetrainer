@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Braze Quiz - Oefenen</title>
+    <title>Braze Quiz - Practice</title>
     <style>
         * {
             margin: 0;
@@ -12,24 +12,27 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             background: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
         h1 {
             margin-bottom: 30px;
-            color: #333;
-            font-size: 24px;
+            color: #1f2937;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
         }
 
         .controls {
@@ -45,23 +48,71 @@
 
         select {
             width: 100%;
-            padding: 10px 12px;
-            border: 2px solid #ddd;
-            border-radius: 4px;
+            padding: 12px 14px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
             font-family: inherit;
+            background: white;
+            color: #333;
+            transition: all 0.2s;
+        }
+
+        select:hover {
+            border-color: #667eea;
+            background: #f9fafb;
         }
 
         select:focus {
             outline: none;
-            border-color: #0066cc;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
         .progress {
             margin-top: 20px;
             font-size: 14px;
-            color: #999;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+        }
+
+        #progress {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .score-counter {
+            display: flex;
+            gap: 16px;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .score-correct {
+            color: #22c55e;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .score-incorrect {
+            color: #ef4444;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .score-correct span,
+        .score-incorrect span {
+            min-width: 20px;
+            text-align: center;
         }
 
         .quiz-section {
@@ -73,14 +124,15 @@
         }
 
         .question {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .question h2 {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            font-size: 20px;
+            color: #1f2937;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            font-weight: 600;
         }
 
         .options {
@@ -148,11 +200,14 @@
         }
 
         .feedback {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 4px;
+            margin-top: 24px;
+            padding: 16px;
+            border-radius: 8px;
             display: none;
             font-weight: 500;
+            line-height: 1.6;
+            border-left: 5px solid;
+            animation: slideUp 0.3s ease-out;
         }
 
         .feedback.show {
@@ -161,14 +216,14 @@
 
         .feedback.correct {
             background: #ecfdf5;
-            color: #166534;
-            border-left: 4px solid #22c55e;
+            color: #065f46;
+            border-left-color: #22c55e;
         }
 
         .feedback.incorrect {
             background: #fef2f2;
-            color: #991b1b;
-            border-left: 4px solid #ef4444;
+            color: #7f1d1d;
+            border-left-color: #ef4444;
         }
 
         .buttons {
@@ -179,40 +234,57 @@
 
         button {
             flex: 1;
-            padding: 12px;
+            padding: 14px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.3s;
             font-family: inherit;
         }
 
         .btn-next {
-            background: #0066cc;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             display: none;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         .btn-next.show {
             display: block;
+            animation: slideUp 0.3s ease-out;
         }
 
         .btn-next:hover {
-            background: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
         .btn-next:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .message {
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
             display: none;
+            border-left: 5px solid;
+            animation: slideUp 0.3s ease-out;
         }
 
         .message.show {
@@ -222,7 +294,7 @@
         .message.info {
             background: #eff6ff;
             color: #1e40af;
-            border-left: 4px solid #3b82f6;
+            border-left-color: #3b82f6;
         }
     </style>
 </head>
@@ -231,11 +303,17 @@
         <h1>🚀 Braze Quiz</h1>
         
         <div class="controls">
-            <label for="certification-select">Kies een certificering:</label>
+            <label for="certification-select">Choose a certification:</label>
             <select id="certification-select">
-                <option value="">-- Selecteer een certificering --</option>
+                <option value="">-- Select a certification --</option>
             </select>
-            <div class="progress" id="progress"></div>
+            <div class="progress">
+                <div id="progress"></div>
+                <div class="score-counter">
+                    <span class="score-correct">✓ <span id="correct-count">0</span></span>
+                    <span class="score-incorrect">✗ <span id="incorrect-count">0</span></span>
+                </div>
+            </div>
         </div>
 
         <div class="quiz-section" id="quiz">
@@ -246,7 +324,7 @@
             </div>
             <div class="feedback" id="feedback"></div>
             <div class="buttons">
-                <button class="btn-next" id="btn-next">Volgende vraag →</button>
+                <button class="btn-next" id="btn-next">Next question →</button>
             </div>
         </div>
     </div>
@@ -260,6 +338,7 @@
         let currentQuestionIndex = 0;
         let answered = false;
         let correctCount = 0;
+        let incorrectCount = 0;
         let selectedAnswers = [];  // Track multiple selected answers
         let currentCorrectAnswer = null;  // Track correct answer index for current question
 
@@ -272,6 +351,8 @@
         const nextBtn = document.getElementById('btn-next');
         const progressDiv = document.getElementById('progress');
         const messageDiv = document.getElementById('message');
+        const correctCountDiv = document.getElementById('correct-count');
+        const incorrectCountDiv = document.getElementById('incorrect-count');
 
         // ========== INIT ==========
         const certifications = [
@@ -318,7 +399,7 @@
                 } catch (error) {
                     console.error('Error loading quiz:', error);
                     messageDiv.classList.add('show', 'info');
-                    messageDiv.innerHTML = `<strong>Error:</strong> Could not load quiz data. Make sure the JSON file exists.`;
+                    messageDiv.innerHTML = `<strong>Error:</strong> Could not load quiz data. Please make sure the JSON file is uploaded correctly.`;
                 }
             } else {
                 quizSection.classList.remove('active');
@@ -342,7 +423,13 @@
             currentCertification = data.certification;
             currentQuestionIndex = 0;
             correctCount = 0;
+            incorrectCount = 0;
             answered = false;
+            
+            // Update counter display
+            correctCountDiv.textContent = '0';
+            incorrectCountDiv.textContent = '0';
+            
             quizSection.classList.add('active');
             messageDiv.classList.remove('show');
             showQuestion();
@@ -387,7 +474,7 @@
             }
 
             // Update progress
-            progressDiv.textContent = `Vraag ${currentQuestionIndex + 1} van ${questions.length}`;
+            progressDiv.textContent = `Question ${currentQuestionIndex + 1} of ${questions.length}`;
 
             // Show question
             questionText.textContent = currentQuestion.question;
@@ -455,8 +542,12 @@
             
             if (isCorrect) {
                 correctCount++;
+                correctCountDiv.textContent = correctCount;
                 feedbackDiv.innerHTML = `✓ Correct! ${currentQuestion.explanation}`;
             } else {
+                incorrectCount++;
+                incorrectCountDiv.textContent = incorrectCount;
+                
                 const correctLetters = correctAnswers.map(i => String.fromCharCode(65 + i)).join(', ');
                 let errorMsg = '';
                 
@@ -470,7 +561,7 @@
             }
 
             nextBtn.classList.add('show');
-            nextBtn.textContent = currentQuestionIndex < quizData[currentCertification].length - 1 ? 'Volgende vraag →' : 'Afmaken';
+            nextBtn.textContent = currentQuestionIndex < quizData[currentCertification].length - 1 ? 'Next question →' : 'Finish';
         }
 
         nextBtn.addEventListener('click', () => {
@@ -496,10 +587,11 @@
             quizSection.classList.remove('active');
             messageDiv.classList.add('show', 'info');
             messageDiv.innerHTML = `
-                <strong>Quiz afgerond! 🎉</strong><br>
-                Je hebt ${correctCount} van de ${questions.length} vragen goed beantwoord (${percentage}%).
+                <strong>Quiz completed! 🎉</strong><br>
+                You got ${correctCount} out of ${questions.length} questions correct (${percentage}%).<br>
+                <span style="color: #22c55e;">✓ Correct: ${correctCount}</span> | <span style="color: #ef4444;">✗ Incorrect: ${incorrectCount}</span>
                 <br><br>
-                <button onclick="location.reload()" style="background: #3b82f6; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-family: inherit;">Opnieuw beginnen</button>
+                <button onclick="location.reload()" style="background: #3b82f6; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-family: inherit;">Start over</button>
             `;
             
             certSelect.value = '';
