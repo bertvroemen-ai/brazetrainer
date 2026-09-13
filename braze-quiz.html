@@ -71,102 +71,75 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        .progress {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
+        .quiz-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 12px;
+            justify-content: space-between;
+            gap: 16px;
+            margin: 20px 0 25px 0;
+            padding: 12px 14px;
             background: #f9fafb;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid #e5e7eb;
         }
 
-        #progress {
-            font-weight: 600;
-            color: #333;
-        }
-
-        .score-counter {
+        .quiz-stats {
             display: flex;
-            gap: 16px;
+            gap: 14px;
             font-weight: 600;
             font-size: 13px;
+            white-space: nowrap;
+            min-width: 70px;
         }
 
-        .score-correct {
+        .stat-correct {
             color: #22c55e;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
         }
 
-        .score-incorrect {
+        .stat-incorrect {
             color: #ef4444;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
         }
 
-        .fire-meter-container {
-            margin: 16px 0;
-            padding: 12px;
-            background: transparent;
-            border-radius: 10px;
+        .stat-correct span,
+        .stat-incorrect span {
+            min-width: 14px;
+            text-align: center;
         }
 
-        .fire-meter-bar {
-            width: 100%;
-            height: 24px;
-            background: #f3f4f6;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid #e5e7eb;
-            position: relative;
-        }
-
-        .fire-meter-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #fbbf24 0%, #f97316 50%, #dc2626 100%);
-            border-radius: 10px;
-            transition: width 0.4s ease-out;
-            position: relative;
-            box-shadow: 0 0 12px rgba(249, 115, 22, 0.5);
-        }
-
-        .fire-meter-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
-            border-radius: 10px;
-        }
-
-        .fire-meter-label {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 8px;
-            font-size: 13px;
+        .quiz-progress {
+            flex: 1;
+            text-align: center;
             font-weight: 600;
+            font-size: 13px;
+            color: #1f2937;
+            white-space: nowrap;
+        }
+
+        .quiz-fire {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 60px;
+            justify-content: flex-end;
+            white-space: nowrap;
         }
 
         #fire-percentage {
-            color: #1f2937;
             font-weight: 700;
+            font-size: 13px;
+            color: #1f2937;
         }
 
         #fire-emoji {
-            font-size: 22px;
+            font-size: 20px;
             transition: transform 0.3s ease-out;
             display: inline-block;
-            filter: drop-shadow(0 1px 3px rgba(0,0,0,0.1));
         }
 
         .quiz-section {
@@ -363,24 +336,17 @@
             </select>
         </div>
 
-        <div class="fire-meter-container">
-            <div class="fire-meter-bar">
-                <div class="fire-meter-fill" id="fire-meter-fill"></div>
+        <div class="quiz-header">
+            <div class="quiz-stats">
+                <span class="stat-correct">✓ <span id="correct-count">0</span></span>
+                <span class="stat-incorrect">✗ <span id="incorrect-count">0</span></span>
             </div>
-            <div class="fire-meter-label">
+            <div class="quiz-progress" id="progress"></div>
+            <div class="quiz-fire">
                 <span id="fire-percentage">0%</span>
                 <span id="fire-emoji">❄️</span>
             </div>
         </div>
-        
-        <div class="controls">
-            <div class="progress">
-                <div id="progress"></div>
-                <div class="score-counter">
-                    <span class="score-correct">✓ <span id="correct-count">0</span></span>
-                    <span class="score-incorrect">✗ <span id="incorrect-count">0</span></span>
-                </div>
-            </div>
         </div>
 
         <div class="quiz-section" id="quiz">
@@ -422,7 +388,6 @@
         const incorrectCountDiv = document.getElementById('incorrect-count');
         const firePercentageDiv = document.getElementById('fire-percentage');
         const fireEmojiDiv = document.getElementById('fire-emoji');
-        const fireMeterFill = document.getElementById('fire-meter-fill');
 
         // ========== INIT ==========
         const certifications = [
@@ -491,13 +456,11 @@
             if (total === 0) {
                 firePercentageDiv.textContent = '0%';
                 fireEmojiDiv.textContent = '❄️';
-                fireMeterFill.style.width = '0%';
                 return;
             }
 
             const percentage = Math.round((correctCount / total) * 100);
             firePercentageDiv.textContent = percentage + '%';
-            fireMeterFill.style.width = percentage + '%';
 
             // Change emoji based on percentage
             let emoji = '❄️';
