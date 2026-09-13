@@ -1,32 +1,399 @@
 {
   "certification": "Braze Certified Practitioner",
   "level": 1,
-  "totalQuestions": 2,
+  "examDetails": {
+    "duration": "60 minutes",
+    "passingScore": "70%",
+    "totalQuestions": 30,
+    "questionTypes": [
+      "Multiple Choice",
+      "Multiple Select",
+      "True/False"
+    ]
+  },
+  "domains": {
+    "dataManagement": "46%",
+    "segmentation": "21%",
+    "experienceOrchestration": "33%"
+  },
   "questions": [
     {
       "id": 1,
-      "question": "Which Canvas component sends users down separate user journeys based on their characteristics or segment membership?",
+      "domain": "Data Planning and Management",
+      "question": "Welk type data verbruikt een data point in Braze?",
       "options": [
-        "Audience Sync",
-        "Experiment Paths",
-        "Audience Paths",
-        "Action Paths"
+        "Total Session Count",
+        "User ID",
+        "Email Address",
+        "Last Used App"
       ],
-      "correctAnswer": 2,
-      "explanation": "Audience Paths is the Canvas component that routes users into different journey paths based on their characteristics or segment membership."
+      "correctAnswer": 0,
+      "explanation": "Total Session Count is out-of-the-box data dat data points verbruikt. User ID, Email Address en Last Used App zijn standaard attributen die geen data points verbruiken."
     },
     {
       "id": 2,
-      "question": "When a control group is created for a message, what happens to members of the control group?",
+      "domain": "Data Planning and Management",
+      "question": "Wat is het voornaamste doel van custom attributes in Braze?",
       "options": [
-        "They receive no message",
-        "They only receive the non-personalized message",
-        "They receive a randomly selected variant of the message",
-        "They receive all variants of the message"
+        "Het vervangen van standaard attributen",
+        "Het opslaan van brand-specifieke gebruikersinformatie",
+        "Het versnellen van campagne verzending",
+        "Het verkleinen van de database grootte"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Custom attributes zijn flexibele, brand-specifieke velden die je definieert om kenmerken vast te leggen die uniek zijn voor je bedrijf, zoals subscription tier of favoriete categorie."
+    },
+    {
+      "id": 3,
+      "domain": "Data Planning and Management",
+      "question": "Waar worden custom events het meest geschikt voor gebruikt?",
+      "options": [
+        "Het opslaan van permanente gebruikersgegevens",
+        "Het traceren van high-value gebruikers interacties",
+        "Het vervangen van emails",
+        "Het reduceren van API calls"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Custom events zijn het meest geschikt voor het traceren van high-value gebruikers interacties binnen je applicatie, wat triggering van campagnes mogelijk maakt."
+    },
+    {
+      "id": 4,
+      "domain": "Data Planning and Management",
+      "question": "True or False: Je kunt de data type van een custom event property wijzigen nadat data al is verzameld.",
+      "options": [
+        "True",
+        "False"
       ],
       "correctAnswer": 0,
-      "explanation": "Control groups in Braze receive no message. They are used to measure the impact of a campaign by comparing their behavior against users who received the message."
+      "explanation": "Je kunt de data type van een custom event property wijzigen, maar je moet voorzichtig zijn voor impacts na data collection."
+    },
+    {
+      "id": 5,
+      "domain": "Data Planning and Management",
+      "question": "Wat is nested JSON data in Braze?",
+      "options": [
+        "Data die versleuteld is",
+        "Objecten binnen een ander object als eigenschappen van custom events",
+        "Data die in twee databases is opgeslagen",
+        "Data die alleen voor administrators beschikbaar is"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nested objects zijn objecten binnen een ander object die als eigenschappen van custom events en purchases kunnen worden verzonden voor gepersonaliseerde messaging en segmentatie."
+    },
+    {
+      "id": 6,
+      "domain": "Data Planning and Management",
+      "question": "Wat is de primaire rol van het Braze SDK?",
+      "options": [
+        "Het ontwerpen van email templates",
+        "Het traceren en verzenden van user data real-time naar Braze",
+        "Het beheren van customer service tickets",
+        "Het opstellen van salesprognoses"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Het Braze SDK stelt je in staat om user data real-time te traceren en naar Braze te verzenden, wat essentieel is voor personalisatie en automation."
+    },
+    {
+      "id": 7,
+      "domain": "Data Planning and Management",
+      "question": "Welke van de volgende zijn data ingestion methoden in Braze? (Selecteer 2)",
+      "options": [
+        "API",
+        "Dashboard clicks",
+        "CSV User Import",
+        "Email forwarding"
+      ],
+      "correctAnswer": [0, 2],
+      "explanation": "Braze ondersteunt meerdere data ingestion methoden waaronder API, SDK, CSV User Import en partner integraties. Dashboard clicks en email forwarding zijn geen ingestion methoden."
+    },
+    {
+      "id": 8,
+      "domain": "Data Planning and Management",
+      "question": "True or False: Event property segmentation in Braze wordt niet in real-time bijgewerkt.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Event properties voor custom events worden wel in real-time bijgewerkt voor alle segmenten die ze gebruiken, wat onmiddellijke campagne targeting mogelijk maakt."
+    },
+    {
+      "id": 9,
+      "domain": "Data Planning and Management",
+      "question": "Wat is de maximale lookback history voor custom event property segmentation?",
+      "options": [
+        "7 dagen",
+        "15 dagen",
+        "30 dagen",
+        "90 dagen"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Custom event properties gebruikt in bepaalde segment filters hebben een maximale lookback history van 30 dagen in Braze."
+    },
+    {
+      "id": 10,
+      "domain": "Data Planning and Management",
+      "question": "Welke standaard attributes zijn voorgedefineerde velden in Braze?",
+      "options": [
+        "Alleen voornaam en achternaam",
+        "Voornaam, email, land en taal",
+        "Alleen email adressen",
+        "Alle custom attributes van je bedrijf"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Standaard attributes zoals voornaam, email, land en taal zijn voorgedefinieerde velden die je kunt instellen via de Braze SDK of User Attributes API."
+    },
+    {
+      "id": 11,
+      "domain": "Segmentation",
+      "question": "Emails zijn het meest geschikt voor berichten met hoge complexiteit en hoge urgentie.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Emails zijn inderdaad het meest geschikt voor berichten met hoge complexiteit en hoge urgentie omdat ze ruimte bieden voor uitgebreid content."
+    },
+    {
+      "id": 12,
+      "domain": "Segmentation",
+      "question": "Welk kanaal is het meest geschikt om gebruikers te waarschuwen voor kritische informatie terwijl ze in je app of site bezig zijn?",
+      "options": [
+        "Push berichten",
+        "In-App berichten",
+        "Email",
+        "Content Cards"
+      ],
+      "correctAnswer": 1,
+      "explanation": "In-App berichten zijn ideaal voor het alerteren van gebruikers voor kritische informatie omdat ze onmiddellijk worden weergegeven terwijl ze actief zijn in je applicatie."
+    },
+    {
+      "id": 13,
+      "domain": "Segmentation",
+      "question": "IP warming is een belangrijke praktijk wanneer je welk kanaal gebruikt?",
+      "options": [
+        "Email",
+        "In-App berichten",
+        "Push notificaties",
+        "Content Cards"
+      ],
+      "correctAnswer": 0,
+      "explanation": "IP warming is een critical practice voor email om je sender reputatie op te bouwen en deliverability te verbeteren."
+    },
+    {
+      "id": 14,
+      "domain": "Segmentation",
+      "question": "Wat is het voornaamste voordeel van cross-channel messaging?",
+      "options": [
+        "Het verlaagt de kosten van marketing",
+        "Het zorgt voor relevante, getimede berichten op het moment dat klanten het meest gevoelig zijn",
+        "Het elimineert de noodzaak voor segmentatie",
+        "Het vervangt persoonlijke customer service"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cross-channel messaging stelt je in staat om gebruikers op meerdere kanalen te bereiken met gecoördineerde, relevante berichten op het juiste moment."
+    },
+    {
+      "id": 15,
+      "domain": "Segmentation",
+      "question": "Welke van deze channels vereisen SDK integratie? (Selecteer 2)",
+      "options": [
+        "Email",
+        "Push notificaties",
+        "SMS",
+        "In-App berichten"
+      ],
+      "correctAnswer": [1, 3],
+      "explanation": "Push notificaties en In-App berichten vereisen SDK integratie om aan eindgebruikers te worden weergegeven. Email en SMS kunnen via andere methoden worden verzonden."
+    },
+    {
+      "id": 16,
+      "domain": "Experience Orchestration",
+      "question": "Wat is een Canvas in Braze?",
+      "options": [
+        "Een tool om emails te ontwerpen",
+        "Een multiplex customer journey tool voor real-time messaging over meerdere kanalen",
+        "Een reporting dashboard",
+        "Een database management systeem"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Een Canvas in Braze is een geavanceerde tool voor het ontwerpen van multiplex customer journeys met real-time messaging over verschillende kanalen."
+    },
+    {
+      "id": 17,
+      "domain": "Experience Orchestration",
+      "question": "Wat zijn Audience Paths in een Canvas?",
+      "options": [
+        "Automatische email responders",
+        "Componenten om users te segmenteren op basis van custom attributes, events en previous engagement data",
+        "Tools voor het ontwerpen van landing pages",
+        "Methoden voor het exporteren van data"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Audience Paths zijn Canvas componenten die je gebruikers segmenteren op basis van custom attributes, custom events en eerdere message engagement data."
+    },
+    {
+      "id": 18,
+      "domain": "Experience Orchestration",
+      "question": "Wat is een Decision Split step in Canvas?",
+      "options": [
+        "Een manier om users te verwijderen uit Canvas",
+        "Een component die users naar verschillende journey paths stuurt op basis van hun antwoord op een polar vraag",
+        "Een tool voor A/B testing van email templates",
+        "Een methode om user preferences op te slaan"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Een Decision Split step stelt je in staat om users naar verschillende user journey paths te sturen op basis van hun antwoord op een polar (ja/nee) vraag."
+    },
+    {
+      "id": 19,
+      "domain": "Experience Orchestration",
+      "question": "Wat zijn Action Paths in Canvas gebruikt voor?",
+      "options": [
+        "Het opslaan van user preferences",
+        "Het segmenteren van users op basis van real-time behaviors zoals custom events en purchase events",
+        "Het versnellen van email delivery",
+        "Het reduceren van data point usage"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Action Paths segmenteren users op basis van real-time behaviors zoals custom events, purchase events en custom attribute veranderingen."
+    },
+    {
+      "id": 20,
+      "domain": "Experience Orchestration",
+      "question": "Wat is het voornaamste verschil tussen Campaigns en Canvas?",
+      "options": [
+        "Campaigns ondersteunen geen personalisatie",
+        "Canvas is alleen voor email, Campaigns voor alle kanalen",
+        "Canvas is voor complexe, multiplex customer journeys; Campaigns zijn voor single-message sends",
+        "Er is geen verschil, ze zijn identiek"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Canvas is ontworpen voor complexe, multiplex customer journeys met multiple steps en branching logic, terwijl Campaigns typisch worden gebruikt voor single-message sends."
+    },
+    {
+      "id": 21,
+      "domain": "Experience Orchestration",
+      "question": "True or False: Je kunt een segment aanpassen nadat het al in een Canvas wordt gebruikt.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Je kunt een segment aanpassen nadat het wordt gebruikt in een Canvas. Live-updating segments stellen je in staat om real-time aanpassingen door te voeren."
+    },
+    {
+      "id": 22,
+      "domain": "Experience Orchestration",
+      "question": "Wat zijn Experiment Paths in Canvas?",
+      "options": [
+        "Paths die alleen voor A/B testing van subject lines gebruikt worden",
+        "Paths die meerdere Canvas paths tegen elkaar testen, inclusief een control group",
+        "Paths die users automatisch verwijderen uit Canvas",
+        "Paths die alleen voor push notificaties beschikbaar zijn"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Experiment Paths in Canvas stellen je in staat om meerdere Canvas paths tegen elkaar te testen, inclusief een control group, om path performance te meten."
+    },
+    {
+      "id": 23,
+      "domain": "Data Planning and Management",
+      "question": "Wat is een custom event in Braze?",
+      "options": [
+        "Een stand-alone email template",
+        "Een actie die door de gebruiker wordt ondernomen of een update over een gebruiker",
+        "Een type push notification",
+        "Een automatische email responder"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Een custom event is een actie die door een gebruiker wordt ondernomen of een update over een gebruiker, die kan worden gelogd om vervolgcampagnes te triggeren."
+    },
+    {
+      "id": 24,
+      "domain": "Data Planning and Management",
+      "question": "True or False: De Braze SDK is de enige manier om data naar Braze te verzenden.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Hoewel de SDK een primaire methode is, ondersteunt Braze ook API, CSV User Import en partner integraties voor data ingestion."
+    },
+    {
+      "id": 25,
+      "domain": "Segmentation",
+      "question": "Welke van deze zijn voordelen van segmentatie? (Selecteer 2)",
+      "options": [
+        "Het elimineert de noodzaak voor personalisatie",
+        "Het stelt je in staat om getargete, relevante berichten te sturen",
+        "Het maakt alle campagnes goedkoper",
+        "Het helpt diepere, meer betekenisvolle customer relaties op te bouwen"
+      ],
+      "correctAnswer": [1, 3],
+      "explanation": "Segmentatie stelt je in staat om getargete, relevante berichten te sturen en helpt diepere, meer betekenisvolle customer relaties op te bouwen door timing en relevantie."
+    },
+    {
+      "id": 26,
+      "domain": "Experience Orchestration",
+      "question": "Wanneer zou je een Canvas gebruiken in plaats van een Campaign?",
+      "options": [
+        "Alleen voor email berichten",
+        "Wanneer je een eenvoudige, single-message send nodig hebt",
+        "Wanneer je een complexe, multiplex customer journey met meerdere steps en branching moet ontwerpen",
+        "Nooit, Campaigns zijn altijd beter"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Canvas zou je gebruiken wanneer je een complexe, multiplex customer journey moet ontwerpen met meerdere steps, branching logic en diverse kanalen."
+    },
+    {
+      "id": 27,
+      "domain": "Data Planning and Management",
+      "question": "Wat is een standard attribute in Braze?",
+      "options": [
+        "Een veld dat je zelf definieert",
+        "Een voorgedefinieerd veld zoals voornaam, email of land",
+        "Een temporary attribute dat na 30 dagen verdwijnt",
+        "Een attribute dat alleen voor analytics gebruikt wordt"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Standard attributes zijn voorgedefinieerde velden zoals voornaam, email, land en taal die je kunt instellen via de Braze SDK of User Attributes API."
+    },
+    {
+      "id": 28,
+      "domain": "Segmentation",
+      "question": "Wat zijn de drie sleutelgebieden van Braze's segmentation filosofie?",
+      "options": [
+        "Email, SMS en Push",
+        "Relevantie, timing en frequency management",
+        "Database size, API calls en SDK integrations",
+        "Templates, campaigns en personalization"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Braze's segmentation filosofie richt zich op relevantie, timing en frequency management om ervoor te zorgen dat berichten voelen alsof ze persoonlijk zijn en op het juiste moment worden verzonden."
+    },
+    {
+      "id": 29,
+      "domain": "Experience Orchestration",
+      "question": "True or False: In een Canvas kun je rate limits instellen om het totale aantal users dat de Canvas ontvangt te beperken.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Je kunt rate limits instellen in een Canvas om het totale aantal users dat de Canvas ontvangt te beperken, wat nuttig is voor resource management."
+    },
+    {
+      "id": 30,
+      "domain": "Data Planning and Management",
+      "question": "Wat is het doel van data planning in Braze?",
+      "options": [
+        "Het verminderen van marketing budget",
+        "Het te bepalen welke data je nodig hebt om je bedrijfsdoelstellingen te bereiken",
+        "Het elimineren van alle custom attributes",
+        "Het vervangen van persoonlijke interactie met automation"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Data planning in Braze gaat erom te bepalen welke data je nodig hebt om je bedrijfsdoelstellingen te bereiken en hoe je die data effectief inzet voor personalisatie en automation."
     }
   ]
 }
-
