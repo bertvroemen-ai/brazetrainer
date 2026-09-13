@@ -360,10 +360,14 @@
             const currentQuestion = questions[currentQuestionIndex];
 
             // Shuffle options and track the correct answer's new index
+            const correctAnswersArray = Array.isArray(currentQuestion.correctAnswer) 
+                ? currentQuestion.correctAnswer 
+                : [currentQuestion.correctAnswer];
+            
             const optionsWithIndex = currentQuestion.options.map((option, index) => ({
                 text: option,
                 originalIndex: index,
-                isCorrect: index === currentQuestion.correctAnswer
+                isCorrect: correctAnswersArray.includes(index)
             }));
 
             // Shuffle the options
@@ -372,8 +376,15 @@
                 [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
             }
 
-            // Find the new index of the correct answer
-            currentCorrectAnswer = optionsWithIndex.findIndex(option => option.isCorrect);
+            // Find the new index/indices of correct answer(s) after shuffle
+            currentCorrectAnswer = correctAnswersArray.map(correctIdx => 
+                optionsWithIndex.findIndex(option => option.originalIndex === correctIdx)
+            );
+            
+            // For single-select, unwrap the array
+            if (currentCorrectAnswer.length === 1 && !Array.isArray(currentQuestion.correctAnswer)) {
+                currentCorrectAnswer = currentCorrectAnswer[0];
+            }
 
             // Update progress
             progressDiv.textContent = `Vraag ${currentQuestionIndex + 1} van ${questions.length}`;
@@ -417,15 +428,23 @@
             const currentQuestion = questions[currentQuestionIndex];
             const options = optionsDiv.querySelectorAll('.option');
 
-            // Only correct if EXACTLY ONE answer selected AND it's the right one
-            const isCorrect = selectedAnswers.length === 1 && selectedAnswers[0] === currentCorrectAnswer;
+            // Handle both single and multi-select using currentCorrectAnswer (already shuffled)
+            const correctAnswers = Array.isArray(currentCorrectAnswer) 
+                ? currentCorrectAnswer 
+                : [currentCorrectAnswer];
+
+            // Check if selected answers exactly match correct answers
+            const selectedSorted = [...selectedAnswers].sort((a, b) => a - b);
+            const correctSorted = [...correctAnswers].sort((a, b) => a - b);
+            const isCorrect = selectedSorted.length === correctSorted.length && 
+                             selectedSorted.every((val, idx) => val === correctSorted[idx]);
 
             options.forEach((option, index) => {
                 if (selectedAnswers.includes(index)) {
                     option.classList.add(isCorrect ? 'correct' : 'incorrect');
                     option.style.cursor = 'default';
-                } else if (!isCorrect && index === currentCorrectAnswer) {
-                    // Show correct answer if user was wrong
+                } else if (!isCorrect && correctAnswers.includes(index)) {
+                    // Show correct answers if user was wrong
                     option.classList.add('correct');
                     option.style.cursor = 'default';
                 }
@@ -438,12 +457,16 @@
                 correctCount++;
                 feedbackDiv.innerHTML = `✓ Correct! ${currentQuestion.explanation}`;
             } else {
-                const correctOptionLetter = String.fromCharCode(65 + currentCorrectAnswer);
-                if (selectedAnswers.length > 1) {
-                    feedbackDiv.innerHTML = `✗ Incorrect - You selected ${selectedAnswers.length} answers. Only select ONE correct answer. ${currentQuestion.explanation}`;
+                const correctLetters = correctAnswers.map(i => String.fromCharCode(65 + i)).join(', ');
+                let errorMsg = '';
+                
+                if (selectedAnswers.length !== correctAnswers.length) {
+                    errorMsg = `You selected ${selectedAnswers.length} answer(s), but ${correctAnswers.length} is/are correct.`;
                 } else {
-                    feedbackDiv.innerHTML = `✗ Incorrect (Correct answer: ${correctOptionLetter}). ${currentQuestion.explanation}`;
+                    errorMsg = `You selected the wrong answer(s).`;
                 }
+                
+                feedbackDiv.innerHTML = `✗ Incorrect - ${errorMsg} (Correct answer(s): ${correctLetters}). ${currentQuestion.explanation}`;
             }
 
             nextBtn.classList.add('show');
