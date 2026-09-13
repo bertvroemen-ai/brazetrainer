@@ -8,7 +8,6 @@
     {
       "id": 1,
       "question": "Which method can be used to set a user ID in the Braze iOS SDK after a user logs in?",
-      "type": "multiple_choice",
       "options": [
         "AppDelegate.braze?.setUserId(\"userId\")",
         "AppDelegate.braze?.changeUser(\"userId\")",
@@ -21,7 +20,6 @@
     {
       "id": 2,
       "question": "A developer wants to update a user's custom attribute 'subscription_tier' to 'premium' in their iOS Swift app. Which code snippet is correct?",
-      "type": "multiple_choice",
       "options": [
         "AppDelegate.braze?.user.setCustomAttribute(key: \"subscription_tier\", value: \"premium\")",
         "AppDelegate.braze?.setCustomAttribute(\"subscription_tier\", \"premium\")",
@@ -34,7 +32,6 @@
     {
       "id": 3,
       "question": "True or False: You can customize the appearance and behavior of in-app messages in the Braze iOS SDK.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -45,7 +42,6 @@
     {
       "id": 4,
       "question": "Which Braze iOS SDK framework is required to support rich push notifications with images and videos?",
-      "type": "multiple_choice",
       "options": [
         "BrazeKit",
         "BrazeNotificationService",
@@ -58,7 +54,6 @@
     {
       "id": 5,
       "question": "Which framework provides the default user interface for Content Cards in the Braze iOS SDK?",
-      "type": "multiple_choice",
       "options": [
         "BrazeKit",
         "BrazeUI",
@@ -71,7 +66,6 @@
     {
       "id": 6,
       "question": "How can a developer manually request a refresh of Content Cards in the iOS SDK?",
-      "type": "multiple_choice",
       "options": [
         "AppDelegate.braze?.contentCards.refresh()",
         "Braze.ContentCards.refreshCards()",
@@ -84,7 +78,6 @@
     {
       "id": 7,
       "question": "True or False: Setting a standard attribute to nil/null in Braze will permanently delete it from the user profile.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -95,7 +88,6 @@
     {
       "id": 8,
       "question": "Which method is used to log a custom event with properties in the Braze iOS SDK?",
-      "type": "multiple_choice",
       "options": [
         "AppDelegate.braze?.logEvent(\"event_name\", properties: [\"key\": \"value\"])",
         "AppDelegate.braze?.logCustomEvent(\"event_name\", properties: [\"key\": \"value\"])",
@@ -108,7 +100,6 @@
     {
       "id": 9,
       "question": "To enable automatic push notification handling in the Braze iOS SDK, which configuration should be set?",
-      "type": "multiple_choice",
       "options": [
         "configuration.push.automation = true",
         "Braze.setPushAutomation(true)",
@@ -121,7 +112,6 @@
     {
       "id": 10,
       "question": "True or False: Before iOS SDK initialization, you must have a valid APNs push certificate uploaded to the Braze dashboard.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -132,7 +122,6 @@
     {
       "id": 11,
       "question": "Which framework provides location tracking and geofence support in the Braze iOS SDK?",
-      "type": "multiple_choice",
       "options": [
         "BrazeKit",
         "BrazeLocation",
@@ -145,7 +134,6 @@
     {
       "id": 12,
       "question": "What is the purpose of the BrazePushStory framework in the iOS SDK?",
-      "type": "multiple_choice",
       "options": [
         "To provide default UI for in-app messages",
         "To enable video content in push notifications",
@@ -158,7 +146,6 @@
     {
       "id": 13,
       "question": "True or False: In the iOS SDK, you can log a purchase event with currency and quantity information.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -169,7 +156,6 @@
     {
       "id": 14,
       "question": "When using the Braze iOS SDK, what happens if you call changeUser() with a new user ID?",
-      "type": "multiple_choice",
       "options": [
         "The new user profile is created and the previous user data is deleted",
         "The SDK switches to the new user profile; previously collected anonymous data is merged if fields don't already exist on the new profile",
@@ -182,7 +168,6 @@
     {
       "id": 15,
       "question": "True or False: The Braze AppboyKit (Objective-C SDK) is still actively maintained and receives regular updates.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -193,7 +178,6 @@
     {
       "id": 16,
       "question": "Which installation method allows you to integrate the Braze iOS SDK without managing dependencies through a package manager?",
-      "type": "multiple_choice",
       "options": [
         "Swift Package Manager",
         "CocoaPods",
@@ -206,7 +190,6 @@
     {
       "id": 17,
       "question": "To handle push notifications that arrive while the app is in the foreground, which UIKit method must be implemented?",
-      "type": "multiple_choice",
       "options": [
         "userNotificationCenter(_:willPresent:withCompletionHandler:)",
         "application(_:didReceiveRemoteNotification:)",
@@ -219,7 +202,6 @@
     {
       "id": 18,
       "question": "True or False: You can set a custom badge count on the app icon badge using Braze in iOS.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -230,7 +212,6 @@
     {
       "id": 19,
       "question": "Which method allows you to log that a user has viewed a specific Content Card?",
-      "type": "multiple_choice",
       "options": [
         "AppDelegate.braze?.contentCards.logImpression(card)",
         "AppDelegate.braze?.contentCards.trackView(card)",
@@ -243,7 +224,6 @@
     {
       "id": 20,
       "question": "True or False: Deep links from push notifications are automatically handled by the Braze iOS SDK.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -254,7 +234,6 @@
     {
       "id": 21,
       "question": "Which Braze iOS SDK method is used to add an email address alias for a user?",
-      "type": "multiple_choice",
       "options": [
         "AppDelegate.braze?.addAlias(\"email\", \"user@example.com\")",
         "AppDelegate.braze?.user.addAlias(forType: .email, value: \"user@example.com\")",
@@ -267,7 +246,6 @@
     {
       "id": 22,
       "question": "To enable verbose logging in the Braze iOS SDK for debugging purposes, which configuration should be set?",
-      "type": "multiple_choice",
       "options": [
         "configuration.logger.level = .verbose",
         "configuration.logger.level = .debug",
@@ -280,7 +258,6 @@
     {
       "id": 23,
       "question": "True or False: The Braze iOS SDK automatically captures device information like device model and OS version.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -291,7 +268,6 @@
     {
       "id": 24,
       "question": "Which method is used to subscribe to in-app message events in the Braze iOS SDK?",
-      "type": "multiple_choice",
       "options": [
         "AppDelegate.braze?.inAppMessages.subscribe()",
         "AppDelegate.braze?.subscribeToInAppMessage()",
@@ -304,7 +280,6 @@
     {
       "id": 25,
       "question": "When should you call the Braze SDK initialization method in your iOS app?",
-      "type": "multiple_choice",
       "options": [
         "In the app's main() function before any other code",
         "In the AppDelegate's application(_:didFinishLaunchingWithOptions:) method",
@@ -317,7 +292,6 @@
     {
       "id": 26,
       "question": "True or False: You can set a property on a custom event before logging it to include context about the event.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -328,7 +302,6 @@
     {
       "id": 27,
       "question": "Which UIKit notification center method is required to handle push notification actions (buttons) on iOS?",
-      "type": "multiple_choice",
       "options": [
         "userNotificationCenter(_:didReceive:withCompletionHandler:)",
         "application(_:handleActionWithIdentifier:)",
@@ -341,7 +314,6 @@
     {
       "id": 28,
       "question": "True or False: You must explicitly request permission from users before sending push notifications on iOS.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
@@ -352,7 +324,6 @@
     {
       "id": 29,
       "question": "Which method allows you to manually log a purchase event with product ID, price, and currency in the iOS SDK?",
-      "type": "multiple_choice",
       "options": [
         "AppDelegate.braze?.logPurchase(productId: \"123\", price: 9.99, currency: \"USD\")",
         "AppDelegate.braze?.user.logPurchase(\"123\", 9.99, \"USD\")",
@@ -365,7 +336,6 @@
     {
       "id": 30,
       "question": "True or False: The Braze iOS SDK continues to function and deliver messages even if you disable the SDK through configuration.",
-      "type": "true_false",
       "options": [
         "True",
         "False"
